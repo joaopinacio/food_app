@@ -214,27 +214,6 @@ class _AppInputTextComponentState extends State<AppInputTextComponent> {
                     ),
                   )
                 : InputBorder.none,
-            // enabledBorder: widget.border != null
-            //     ? widget.border!.copyWith(
-            //         borderSide: BorderSide(
-            //           color: widget.hasError == true
-            //               ? AppThemes.colors.generalRed
-            //               : (hasFocus
-            //                   ? widget.focusedBorderColor ??
-            //                       AppThemes.colors.generalBlue
-            //                   : widget.unfocusedBorderColor ??
-            //                       AppThemes.colors.grayScale_2),
-            //         ),
-            //       )
-            //     : InputBorder.none,
-            // OutlineInputBorder(
-            //   borderSide: BorderSide(
-            //     color: hasError == true
-            //         ? AppThemes.colors.generalRed
-            //         : AppThemes.colors.generalBlue,
-            //   ),
-            //   borderRadius: BorderRadius.circular(8),
-            // ),
             suffixIcon: widget.suffixIcon,
           ),
         ),
