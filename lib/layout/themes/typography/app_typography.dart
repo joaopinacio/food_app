@@ -13,4 +13,21 @@ class AppTypography {
         letterSpacing: _letterSpacing,
         fontFamily: 'Poppins',
       );
+
+  // SemiBold
+  TextStyle get poppinsSemiBold_12 => TextStyle(
+        fontSize: 12.sp,
+        fontWeight: FontWeight.w600,
+        color: AppThemes.colors.black,
+        letterSpacing: _letterSpacing,
+      );
+
+  // Regular
+  TextStyle get poppinsRegular_16 => TextStyle(
+        fontSize: 16.sp,
+        fontWeight: FontWeight.w400,
+        color: AppThemes.colors.black,
+        letterSpacing: _letterSpacing,
+        fontFamily: 'Poppins',
+      );
 }
