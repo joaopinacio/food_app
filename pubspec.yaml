@@ -13,6 +13,7 @@ dependencies:
   flutter_screenutil: ^5.0.0+2
   shimmer: ^2.0.0
   cupertino_icons: ^1.0.2
+  flutter_svg: ^0.22.0
 
   flutter:
     sdk: flutter
@@ -31,6 +32,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/svg_images/
 
   fonts:
     - family: appIcons
