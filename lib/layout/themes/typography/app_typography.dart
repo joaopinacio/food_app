@@ -22,6 +22,14 @@ class AppTypography {
         fontFamily: 'Poppins',
       );
 
+  TextStyle get poppinsBold_14 => TextStyle(
+        fontSize: 30.sp,
+        fontWeight: FontWeight.w700,
+        color: AppThemes.colors.black,
+        letterSpacing: _letterSpacing,
+        fontFamily: 'Poppins',
+      );
+
   // SemiBold
   TextStyle get poppinsSemiBold_12 => TextStyle(
         fontSize: 12.sp,
@@ -30,7 +38,22 @@ class AppTypography {
         letterSpacing: _letterSpacing,
       );
 
+  TextStyle get poppinsSemiBold_14 => TextStyle(
+        fontSize: 12.sp,
+        fontWeight: FontWeight.w600,
+        color: AppThemes.colors.black,
+        letterSpacing: _letterSpacing,
+      );
+
   // Regular
+  TextStyle get poppinsRegular_12 => TextStyle(
+        fontSize: 12.sp,
+        fontWeight: FontWeight.w400,
+        color: AppThemes.colors.black,
+        letterSpacing: _letterSpacing,
+        fontFamily: 'Poppins',
+      );
+
   TextStyle get poppinsRegular_16 => TextStyle(
         fontSize: 16.sp,
         fontWeight: FontWeight.w400,

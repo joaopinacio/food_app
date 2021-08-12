@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_app/layout/app_layout_imports.dart';
+import 'package:food_app/layout/styles/medium/app_text_button/app_text_button_styles.dart';
 import 'package:food_app/layout/styles/small/app_badge/app_badge_styles.dart';
 import 'package:food_app/layout/styles/small/app_input_text/app_input_text_styles.dart';
 import 'package:food_app/layout/styles/small/app_text/app_text_styles.dart';
@@ -64,6 +65,12 @@ class LoginPage extends GetView<LoginPageController> {
                             focusNode: controller.passwordFocusNode,
                             suffixIcon: Icon(Icons.remove_red_eye),
                           ),
+                        ),
+                        AppTextButtonStyles.linkSmall(
+                          label: 'Forgot Password?',
+                          labelAlign: TextAlign.right,
+                          padding: EdgeInsets.only(right: 65.w),
+                          onTap: () {},
                         ),
                       ],
                     ),
