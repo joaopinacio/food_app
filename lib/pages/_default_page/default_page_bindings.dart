@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import 'default_page_controller.dart';
 
-class CustomerListBindings implements CoreBindings {
+class DefaultPageBindings implements CoreBindings {
   @override
   void dependencies() {
     registerRepositories();

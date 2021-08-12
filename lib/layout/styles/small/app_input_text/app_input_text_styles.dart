@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_app/layout/components/small/app_input_text/app_input_text_component.dart';
 
 class AppInputTextStyles {
@@ -97,6 +98,58 @@ class AppInputTextStyles {
         textCapitalization: textCapitalization,
         inputQty: inputQty,
         border: border,
+        suffixIcon: suffixIcon,
+        hasError: hasError,
+        floatingLabel: floatingLabel,
+        focusedBorderColor: focusedBorderColor,
+        unfocusedBorderColor: unfocusedBorderColor,
+      );
+
+  static AppInputTextComponent login({
+    required Key customKey,
+    required String hintText,
+    required TextEditingController controller,
+    required FocusNode focusNode,
+    TextInputType? textInputType,
+    String? Function(String?)? validator,
+    void Function(String)? onFieldSubmitted,
+    void Function(String)? onChanged,
+    void Function()? onEditingComplete,
+    GestureTapCallback? onTap,
+    TextInputAction? textInputAction,
+    int? maxLines,
+    int? minLines,
+    bool? enabled,
+    bool? obscureText,
+    bool? textCapitalization,
+    bool? inputQty,
+    Widget? suffixIcon,
+    bool? hasError,
+    bool? floatingLabel,
+    Color? focusedBorderColor,
+    Color? unfocusedBorderColor,
+  }) =>
+      AppInputTextComponent(
+        customKey: customKey,
+        hintText: hintText,
+        controller: controller,
+        focusNode: focusNode,
+        textInputType: textInputType,
+        validator: validator,
+        onFieldSubmitted: onFieldSubmitted,
+        onChanged: onChanged,
+        onEditingComplete: onEditingComplete,
+        onTap: onTap,
+        textInputAction: textInputAction,
+        maxLines: maxLines,
+        minLines: minLines,
+        enabled: enabled,
+        obscureText: obscureText,
+        textCapitalization: textCapitalization,
+        inputQty: inputQty,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20.r),
+        ),
         suffixIcon: suffixIcon,
         hasError: hasError,
         floatingLabel: floatingLabel,

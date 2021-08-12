@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/layout/app_layout_imports.dart';
 import 'package:food_app/layout/components/small/app_text/app_text_component.dart';
 
 class AppTextStyles {
   AppTextStyles._();
 
-  /// ## AppTextStyles
+  /// ## AppTextStyles standard
   ///
-  /// __[text]__ Texto a ser exibidoMargin do container do texto
+  /// __[text]__ Texto a ser exibido
   ///
   /// __[textStyle]__ Estilo do texto a ser exibido
   ///
@@ -19,7 +20,6 @@ class AppTextStyles {
   /// __[overflow]__ Tipo de soprepor texto dependendo do espaço livre
   ///
   /// __[textAlign]__ Tipo de Alinhamento do texto a ser exibido
-
   static AppTextComponent standard({
     required String text,
     EdgeInsets? margin,
@@ -37,5 +37,23 @@ class AppTextStyles {
         color: color,
         overflow: overflow,
         textAlign: textAlign,
+      );
+
+  /// ## AppTextStyles standard
+  ///
+  /// __[text]__ Texto a ser exibido
+  ///
+  /// __[textAlign]__ Tipo de alinhamento do texto
+  ///
+  static AppTextComponent bold({
+    required String text,
+    TextAlign? textAlign,
+    EdgeInsets? margin,
+  }) =>
+      AppTextComponent(
+        text: text,
+        textStyle: AppThemes.typography.poppinsBold_36,
+        textAlign: textAlign,
+        margin: margin,
       );
 }

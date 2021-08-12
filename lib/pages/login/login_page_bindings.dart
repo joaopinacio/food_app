@@ -1,9 +1,9 @@
 import 'package:food_app/core/classes/core_bindings.dart';
 import 'package:get/get.dart';
 
-import 'splash_page_controller.dart';
+import 'login_page_controller.dart';
 
-class SplashPageBindings implements CoreBindings {
+class LoginPageBindings implements CoreBindings {
   @override
   void dependencies() {
     registerRepositories();
@@ -12,7 +12,7 @@ class SplashPageBindings implements CoreBindings {
 
   @override
   void registerControllers() {
-    Get.lazyPut(() => SplashPageController(appPages: Get.find()), fenix: true);
+    Get.lazyPut(() => LoginPageController(appPages: Get.find()), fenix: true);
   }
 
   @override

@@ -157,7 +157,8 @@ class _AppInputTextComponentState extends State<AppInputTextComponent> {
               ? AppThemes.typography.poppinsBold_30
               : AppThemes.typography.poppinsRegular_16,
           decoration: InputDecoration(
-            contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
+            contentPadding:
+                EdgeInsets.symmetric(horizontal: 15.w, vertical: 13.w),
             labelText: widget.floatingLabel ?? false ? widget.hintText : null,
             labelStyle: AppThemes.typography.poppinsSemiBold_12.copyWith(
               color: widget.hasError == true
@@ -214,7 +215,10 @@ class _AppInputTextComponentState extends State<AppInputTextComponent> {
                     ),
                   )
                 : InputBorder.none,
-            suffixIcon: widget.suffixIcon,
+            suffixIcon: Padding(
+              padding: EdgeInsets.only(right: 15.w),
+              child: widget.suffixIcon,
+            ),
           ),
         ),
       ),

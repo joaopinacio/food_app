@@ -31,7 +31,10 @@ class SplashPage extends GetView<SplashPageController> {
                   child: AnimatedOpacity(
                     duration: Duration(milliseconds: 1500),
                     opacity: controller.getLogoOpacity,
-                    child: AppBadgeStyles.logo(),
+                    child: Hero(
+                      tag: 'logo',
+                      child: AppBadgeStyles.logo(),
+                    ),
                   ),
                 ),
               ),

@@ -6,6 +6,14 @@ class AppTypography {
   static const _letterSpacing = 0.0;
 
   // Bold
+  TextStyle get poppinsBold_36 => TextStyle(
+        fontSize: 36.sp,
+        fontWeight: FontWeight.w700,
+        color: AppThemes.colors.black,
+        letterSpacing: _letterSpacing,
+        fontFamily: 'Poppins',
+      );
+
   TextStyle get poppinsBold_30 => TextStyle(
         fontSize: 30.sp,
         fontWeight: FontWeight.w700,

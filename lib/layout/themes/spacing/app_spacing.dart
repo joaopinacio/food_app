@@ -12,8 +12,10 @@ class AppSpacing {
   double get spacer_22 => 22;
   double get spacer_24 => 24;
   double get spacer_32 => 32;
+  double get spacer_34 => 34;
   double get spacer_48 => 48;
   double get spacer_64 => 64;
+  double get spacer_82 => 82;
   double get spacer_128 => 128;
 
   List<Map<String, double>> get namedSpacing => [
@@ -30,8 +32,10 @@ class AppSpacing {
         {'spacer_22': spacer_22},
         {'spacer_24': spacer_24},
         {'spacer_32': spacer_32},
+        {'spacer_34': spacer_34},
         {'spacer_48': spacer_48},
         {'spacer_64': spacer_64},
+        {'spacer_82': spacer_82},
         {'spacer_128': spacer_128},
       ];
 }
