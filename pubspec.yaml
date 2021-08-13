@@ -14,6 +14,8 @@ dependencies:
   shimmer: ^2.0.0
   cupertino_icons: ^1.0.2
   flutter_svg: ^0.22.0
+  bouncing_widget: ^2.0.0
+  animate_do: ^2.0.0
 
   flutter:
     sdk: flutter

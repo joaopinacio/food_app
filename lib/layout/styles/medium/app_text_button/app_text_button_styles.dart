@@ -59,6 +59,7 @@ class AppTextButtonStyles {
     String? label,
     TextAlign? labelAlign,
     EdgeInsets? padding,
+    Color? labelColor,
     required Function onTap,
   }) =>
       AppTextButtonComponent(
@@ -68,9 +69,38 @@ class AppTextButtonStyles {
         isStretched: false,
         isOutlined: false,
         textStyle: AppThemes.typography.poppinsRegular_12,
-        foregroundColor: AppThemes.colors.generalBlue,
+        foregroundColor: labelColor ?? AppThemes.colors.generalBlue,
         backgroundColor: Colors.transparent,
         labelAlign: labelAlign,
         padding: padding,
+      );
+
+  /// ## AppTextButtonStyles.primary
+  ///
+  /// __[label]__ Texto do Botao
+  ///
+  /// __[onTap]__ Função a ser executada no clique
+  ///
+  static AppTextButtonComponent rounded({
+    Function? onTap,
+    String? label,
+    bool showIconNext = false,
+    EdgeInsets? padding,
+    EdgeInsets? margin,
+    double? width,
+    bool hasBounce = false,
+  }) =>
+      AppTextButtonComponent(
+        label: label ?? '',
+        onPressed: onTap,
+        height: 50,
+        width: width ?? 280,
+        borderRadius: BorderRadius.all(Radius.circular(36.r)),
+        textStyle: AppThemes.typography.poppinsBold_18,
+        backgroundColor: AppThemes.colors.black,
+        showIconNext: showIconNext,
+        padding: padding,
+        margin: margin,
+        hasBounce: hasBounce,
       );
 }

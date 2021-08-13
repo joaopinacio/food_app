@@ -47,6 +47,8 @@ class AppTextButtonComponent extends StatelessWidget {
   final EdgeInsets? margin;
   final TextAlign? labelAlign;
   final TextOverflow? labelOverflow;
+  final BorderRadius? borderRadius;
+  final bool hasBounce;
 
   const AppTextButtonComponent({
     required this.label,
@@ -63,6 +65,8 @@ class AppTextButtonComponent extends StatelessWidget {
     this.margin,
     this.labelAlign,
     this.labelOverflow,
+    this.borderRadius,
+    this.hasBounce = false,
   });
 
   @override
@@ -73,11 +77,13 @@ class AppTextButtonComponent extends StatelessWidget {
       width: isStretched ? double.infinity : width?.w,
       child: isOutlined
           ? OutlinedButton(
-              onPressed: () {
-                if (onPressed != null) {
-                  onPressed!();
-                }
-              },
+              onPressed: !hasBounce
+                  ? () {
+                      if (onPressed != null) {
+                        onPressed!();
+                      }
+                    }
+                  : null,
               child: Padding(
                 padding: padding ?? EdgeInsets.zero,
                 child: Text(
@@ -92,19 +98,27 @@ class AppTextButtonComponent extends StatelessWidget {
                 backgroundColor: MaterialStateProperty.all(Colors.transparent),
                 foregroundColor: MaterialStateProperty.all(
                     foregroundColor ?? AppThemes.colors.generalBlue),
-                shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(2)))),
-                side: MaterialStateProperty.all(BorderSide(
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(2)),
+                  ),
+                ),
+                side: MaterialStateProperty.all(
+                  BorderSide(
                     color: backgroundColor ?? AppThemes.colors.generalBlue,
-                    width: 1)),
+                    width: 1,
+                  ),
+                ),
               ),
             )
           : TextButton(
-              onPressed: () {
-                if (onPressed != null) {
-                  onPressed!();
-                }
-              },
+              onPressed: !hasBounce
+                  ? () {
+                      if (onPressed != null) {
+                        onPressed!();
+                      }
+                    }
+                  : null,
               child: Padding(
                 padding: padding ?? EdgeInsets.zero,
                 child: Row(
@@ -138,7 +152,11 @@ class AppTextButtonComponent extends StatelessWidget {
                     backgroundColor ?? AppThemes.colors.generalBlue),
                 foregroundColor: MaterialStateProperty.all(
                     foregroundColor ?? AppThemes.colors.white),
-                shape: MaterialStateProperty.all(RoundedRectangleBorder()),
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: borderRadius ?? BorderRadius.zero,
+                  ),
+                ),
               ),
             ),
     );

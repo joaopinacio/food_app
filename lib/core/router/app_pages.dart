@@ -24,7 +24,7 @@ class AppPages {
         page: () => LoginPage(),
         binding: LoginPageBindings(),
         transition: Transition.noTransition,
-        transitionDuration: Duration(milliseconds: 1000),
+        transitionDuration: Duration(milliseconds: 1500),
       );
 
   List<GetPage<dynamic>>? get getPagesList => [
