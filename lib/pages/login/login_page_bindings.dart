@@ -12,7 +12,13 @@ class LoginPageBindings implements CoreBindings {
 
   @override
   void registerControllers() {
-    Get.lazyPut(() => LoginPageController(appPages: Get.find()), fenix: true);
+    Get.lazyPut(
+      () => LoginPageController(
+        appPages: Get.find(),
+        authController: Get.find(),
+      ),
+      fenix: true,
+    );
   }
 
   @override

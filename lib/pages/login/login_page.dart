@@ -116,7 +116,7 @@ class LoginPage extends GetView<LoginPageController> {
                           child: BouncingWidget(
                             duration: Duration(milliseconds: 100),
                             scaleFactor: 0.5,
-                            onPressed: () {},
+                            onPressed: controller.login,
                             child: AppTextButtonStyles.rounded(
                               label: 'Sign In',
                               hasBounce: true,

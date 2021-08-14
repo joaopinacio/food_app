@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/core/controllers/auth_controller/auth_controller.dart';
 import 'package:food_app/core/router/app_pages.dart';
 import 'package:get/get.dart';
 
 class LoginPageController extends GetxController {
   final AppPages _appPages;
+  final AuthController _authController;
 
-  LoginPageController({required AppPages appPages}) : _appPages = appPages {
+  LoginPageController({
+    required AppPages appPages,
+    required AuthController authController,
+  })  : _appPages = appPages,
+        _authController = authController {
     init();
   }
 
@@ -29,6 +35,10 @@ class LoginPageController extends GetxController {
       containerHeight.value = 567;
     });
 
+    inputListeners();
+  }
+
+  inputListeners() {
     loginFocusNode.addListener(() {
       if (loginFocusNode.hasFocus) {
         containerHeight.value = Get.height - Get.statusBarHeight - 30;
@@ -53,4 +63,6 @@ class LoginPageController extends GetxController {
       }
     });
   }
+
+  login() {}
 }

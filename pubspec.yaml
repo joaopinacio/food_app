@@ -16,6 +16,12 @@ dependencies:
   flutter_svg: ^0.22.0
   bouncing_widget: ^2.0.0
   animate_do: ^2.0.0
+  crypto: ^3.0.1
+
+  # Firebase dependencies
+  firebase_core: ^1.4.0
+  firebase_auth: ^3.0.1
+  cloud_firestore: ^2.4.0
 
   flutter:
     sdk: flutter

@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:food_app/core/router/app_pages.dart';
 import 'package:food_app/main_bindings.dart';
 import 'package:flutter/material.dart';
@@ -7,8 +8,9 @@ import 'package:food_app/core/lang/translation_service.dart';
 import 'package:food_app/layout/themes/app_themes.dart';
 import 'package:get/get.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(statusBarColor: Colors.transparent),
   );
