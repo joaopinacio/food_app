@@ -35,6 +35,8 @@ class LoginPageController extends GetxController {
   double get getContainerBorderRadius => containerBorderRadius.value;
   get getLogoOpacity => logoOpacity.value;
 
+  bool get logoOpacityIsEqualZero => getLogoOpacity == 0;
+
   init() {
     Future.delayed(Duration(milliseconds: 500), () {
       containerHeight.value = 567;

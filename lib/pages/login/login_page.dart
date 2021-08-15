@@ -154,12 +154,21 @@ class LoginPage extends GetView<LoginPageController> {
                 child: Hero(
                   tag: 'logo',
                   child: AnimatedContainer(
-                    duration: Duration(milliseconds: controller.getLogoOpacity == 0 ? 700 : 1500),
+                    duration: Duration(milliseconds: controller.logoOpacityIsEqualZero ? 700 : 1500),
                     curve: Curves.elasticInOut,
                     width: 100.w,
-                    height: (controller.getLogoOpacity == 0 ? 17 : 95).h,
+                    height: (controller.logoOpacityIsEqualZero ? 17 : 95).h,
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: AppThemes.colors.black.withOpacity(controller.logoOpacityIsEqualZero ? 0 : 0.3),
+                          blurRadius: 20,
+                          offset: Offset(0, 10),
+                        )
+                      ],
+                    ),
                     child: AnimatedOpacity(
-                      duration: Duration(milliseconds: controller.getLogoOpacity == 0 ? 500 : 1000),
+                      duration: Duration(milliseconds: controller.logoOpacityIsEqualZero ? 500 : 1000),
                       opacity: controller.getLogoOpacity,
                       child: AppBadgeStyles.logo(size: 88),
                     ),
