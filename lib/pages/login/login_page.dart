@@ -75,7 +75,7 @@ class LoginPage extends GetView<LoginPageController> {
                             padding: EdgeInsets.symmetric(horizontal: 45.w),
                             child: AppInputTextStyles.login(
                               customKey: controller.loginKey,
-                              hintText: 'email',
+                              hintText: 'email'.tr,
                               controller: controller.loginController,
                               focusNode: controller.loginFocusNode,
                               suffixIcon: Icon(Icons.email),
@@ -91,7 +91,7 @@ class LoginPage extends GetView<LoginPageController> {
                             padding: EdgeInsets.symmetric(horizontal: 45.w),
                             child: AppInputTextStyles.login(
                               customKey: controller.passwordKey,
-                              hintText: 'password',
+                              hintText: 'password'.tr,
                               controller: controller.passwordController,
                               focusNode: controller.passwordFocusNode,
                               suffixIcon: Icon(Icons.remove_red_eye),
@@ -102,7 +102,7 @@ class LoginPage extends GetView<LoginPageController> {
                           delay: Duration(milliseconds: 2100),
                           duration: Duration(milliseconds: 1200),
                           child: AppTextButtonStyles.linkSmall(
-                            label: 'Forgot Password?',
+                            label: 'forgot_password'.tr,
                             labelAlign: TextAlign.right,
                             padding: EdgeInsets.only(right: 65.w),
                             labelColor: AppThemes.colors.primaryColor,
@@ -138,8 +138,7 @@ class LoginPage extends GetView<LoginPageController> {
                                   style: TextStyle(
                                     color: AppThemes.colors.primaryColor,
                                   ),
-                                  recognizer: new TapGestureRecognizer()
-                                    ..onTap = () {},
+                                  recognizer: new TapGestureRecognizer()..onTap = () {},
                                 ),
                               ],
                             ),
@@ -155,16 +154,12 @@ class LoginPage extends GetView<LoginPageController> {
                 child: Hero(
                   tag: 'logo',
                   child: AnimatedContainer(
-                    duration: Duration(
-                        milliseconds:
-                            controller.getLogoOpacity == 0 ? 700 : 1500),
+                    duration: Duration(milliseconds: controller.getLogoOpacity == 0 ? 700 : 1500),
                     curve: Curves.elasticInOut,
                     width: 100.w,
                     height: (controller.getLogoOpacity == 0 ? 17 : 95).h,
                     child: AnimatedOpacity(
-                      duration: Duration(
-                          milliseconds:
-                              controller.getLogoOpacity == 0 ? 500 : 1000),
+                      duration: Duration(milliseconds: controller.getLogoOpacity == 0 ? 500 : 1000),
                       opacity: controller.getLogoOpacity,
                       child: AppBadgeStyles.logo(size: 88),
                     ),

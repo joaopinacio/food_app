@@ -16,6 +16,7 @@ class LoginPageBindings implements CoreBindings {
       () => LoginPageController(
         appPages: Get.find(),
         authController: Get.find(),
+        // userRepository: Get.find(),
       ),
       fenix: true,
     );

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:food_app/core/controllers/auth_controller/auth_controller.dart';
 import 'package:food_app/core/router/app_pages.dart';
@@ -5,13 +7,16 @@ import 'package:get/get.dart';
 
 class LoginPageController extends GetxController {
   final AppPages _appPages;
-  final AuthController _authController;
+  final IAuthController _authController;
+  // final IUserRepository _userRepository;
 
   LoginPageController({
     required AppPages appPages,
-    required AuthController authController,
+    required IAuthController authController,
+    // required IUserRepository userRepository,
   })  : _appPages = appPages,
         _authController = authController {
+    // _userRepository = userRepository {
     init();
   }
 
@@ -65,4 +70,25 @@ class LoginPageController extends GetxController {
   }
 
   login() {}
+
+  signUpTest() {
+    _authController.signUp(email: loginController.text, password: passwordController.text);
+  }
+
+  // Teste de pegar todos os usuarios numa stream
+  // late StreamSubscription _usersStream;
+  // var _usersList = <UserModel>[].obs;
+  // getUsersTest() {
+  //   _usersStream = _userRepository.getUsers()!.listen(_listenUsersStream);
+  // }
+
+  // _listenUsersStream(List<UserModel> list) {
+  //   _usersList.value = list;
+  //   print(_usersList.length);
+  // }
+
+  // @override
+  // void onClose() {
+  //   _usersStream.cancel();
+  // }
 }
