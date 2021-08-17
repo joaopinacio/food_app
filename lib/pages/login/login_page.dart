@@ -48,8 +48,9 @@ class LoginPage extends GetView<LoginPageController> {
                         SizedBox(height: AppThemes.spacing.spacer_64.h),
                         FadeInUp(
                           delay: Duration(milliseconds: 1100),
-                          duration: Duration(milliseconds: 500),
                           from: 50,
+                          manualTrigger: true,
+                          controller: (controllerAnim) => controller.firstTitleAnimInit(controllerAnim),
                           child: AppTextStyles.bold(
                             text: 'Hey,',
                             textAlign: TextAlign.left,
@@ -58,8 +59,9 @@ class LoginPage extends GetView<LoginPageController> {
                         ),
                         FadeInUp(
                           delay: Duration(milliseconds: 1300),
-                          duration: Duration(milliseconds: 500),
                           from: 50,
+                          manualTrigger: true,
+                          controller: (controllerAnim) => controller.secondTitleAnimInit(controllerAnim),
                           child: AppTextStyles.bold(
                             text: 'Sign In.',
                             textAlign: TextAlign.left,
@@ -69,8 +71,9 @@ class LoginPage extends GetView<LoginPageController> {
                         SizedBox(height: AppThemes.spacing.spacer_34.h),
                         FadeInUp(
                           delay: Duration(milliseconds: 1500),
-                          duration: Duration(milliseconds: 800),
                           from: 50,
+                          manualTrigger: true,
+                          controller: (controllerAnim) => controller.emailAnimInit(controllerAnim),
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 45.w),
                             child: AppInputTextStyles.login(
@@ -85,8 +88,9 @@ class LoginPage extends GetView<LoginPageController> {
                         SizedBox(height: AppThemes.spacing.spacer_16.h),
                         FadeInUp(
                           delay: Duration(milliseconds: 1700),
-                          duration: Duration(milliseconds: 800),
                           from: 50,
+                          manualTrigger: true,
+                          controller: (controllerAnim) => controller.passwordAnimInit(controllerAnim),
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 45.w),
                             child: AppInputTextStyles.login(
@@ -100,7 +104,8 @@ class LoginPage extends GetView<LoginPageController> {
                         ),
                         FadeIn(
                           delay: Duration(milliseconds: 2100),
-                          duration: Duration(milliseconds: 1200),
+                          manualTrigger: true,
+                          controller: (controllerAnim) => controller.forgotPassAnimInit(controllerAnim),
                           child: AppTextButtonStyles.linkSmall(
                             label: 'forgot_password'.tr,
                             labelAlign: TextAlign.right,
@@ -112,7 +117,8 @@ class LoginPage extends GetView<LoginPageController> {
                         SizedBox(height: AppThemes.spacing.spacer_20.h),
                         FlipInY(
                           delay: Duration(milliseconds: 2100),
-                          duration: Duration(milliseconds: 800),
+                          manualTrigger: true,
+                          controller: (controllerAnim) => controller.signInAnimInit(controllerAnim),
                           child: BouncingWidget(
                             duration: Duration(milliseconds: 100),
                             scaleFactor: 0.5,
@@ -126,8 +132,9 @@ class LoginPage extends GetView<LoginPageController> {
                         SizedBox(height: AppThemes.spacing.spacer_48.h),
                         FadeInUp(
                           delay: Duration(milliseconds: 2600),
-                          duration: Duration(milliseconds: 800),
                           from: 50,
+                          manualTrigger: true,
+                          controller: (controllerAnim) => controller.signUpAnimInit(controllerAnim),
                           child: RichText(
                             text: TextSpan(
                               text: 'I\'m a new user. ',
