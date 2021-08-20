@@ -25,6 +25,12 @@ class AuthControllerImpl implements IAuthController {
 
       var result = await _authRepository.signIn(email: email, password: encryptedPassword);
 
+      // if (result != null) {
+
+      // } else {
+
+      // }
+
       print('🟩 AuthControllerImpl.signIn -> $result');
       return true;
     } catch (e) {

@@ -1,8 +1,8 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:food_app/core/auxiliary_widgets/app_loading.dart';
 import 'package:food_app/core/controllers/auth_controller/auth_controller.dart';
 import 'package:food_app/core/router/app_pages.dart';
+import 'package:food_app/core/utils/app_util.dart';
 import 'package:get/get.dart';
 
 import 'mixins/login_animation_mixin.dart';
@@ -23,9 +23,14 @@ class LoginPageController extends GetxController with LoginAnimationsMixin {
   }
 
   var loginController = TextEditingController();
-  var loginKey = UniqueKey();
+  var loginKey = GlobalKey<FormState>();
   var passwordController = TextEditingController();
-  var passwordKey = UniqueKey();
+  var passwordKey = GlobalKey<FormState>();
+  var loginErrorLabel = ''.obs;
+  var passwordErrorLabel = ''.obs;
+
+  get getLoginErrorLabel => loginErrorLabel.value;
+  get getPasswordErrorLabel => passwordErrorLabel.value;
 
   init() {
     initAnimations();
@@ -42,7 +47,41 @@ class LoginPageController extends GetxController with LoginAnimationsMixin {
     });
   }
 
-  login() {}
+  String? validatorEmail(String? value) {
+    var email = value ?? '';
+    loginErrorLabel.value = AppUtil.emailValidator(email) ?? '';
+
+    if (getLoginErrorLabel != '') {
+      loginFocusNode.requestFocus();
+      return getLoginErrorLabel;
+    }
+
+    return null;
+  }
+
+  String? validatorPassowrd(String? value) {
+    var password = value ?? '';
+    passwordErrorLabel.value = AppUtil.passwordValidator(password) ?? '';
+
+    if (getPasswordErrorLabel != '') {
+      passwordFocusNode.requestFocus();
+      return getPasswordErrorLabel;
+    }
+
+    return null;
+  }
+
+  login() async {
+    if (!loginKey.currentState!.validate()) {
+      loginErrorLabel.value = '';
+    } else if (!passwordKey.currentState!.validate()) {
+      passwordErrorLabel.value = '';
+    } else {
+      AppLoading.loading();
+      await _authController.signIn(email: loginController.text, password: passwordController.text);
+      Get.back();
+    }
+  }
 
   signUpTest() {
     _authController.signUp(email: loginController.text, password: passwordController.text);
@@ -64,4 +103,14 @@ class LoginPageController extends GetxController with LoginAnimationsMixin {
   // void onClose() {
   //   _usersStream.cancel();
   // }
+
+  @override
+  void onClose() {
+    loginFocusNode.dispose();
+    loginController.dispose();
+    passwordController.dispose();
+    passwordFocusNode.dispose();
+
+    super.onClose();
+  }
 }
