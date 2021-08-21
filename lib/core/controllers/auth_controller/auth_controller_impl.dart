@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:crypto/crypto.dart';
+import 'package:food_app/core/models/auth_model/auth_model.dart';
 import 'package:food_app/core/models/user_model/user_model.dart';
 
 import 'package:food_app/core/repositories/auth_repository/auth_repository.dart';
@@ -19,23 +20,17 @@ class AuthControllerImpl implements IAuthController {
         _userRepository = userRepository;
 
   @override
-  Future<bool> signIn({required String email, required String password}) async {
+  Future<AuthModel> signIn({required String email, required String password}) async {
     try {
       var encryptedPassword = (md5.convert(utf8.encode('FIRESTORE${email.toLowerCase()}PASS$password'))).toString();
 
       var result = await _authRepository.signIn(email: email, password: encryptedPassword);
 
-      // if (result != null) {
-
-      // } else {
-
-      // }
-
-      print('🟩 AuthControllerImpl.signIn -> $result');
-      return true;
+      print('🟩 AuthControllerImpl.signIn -> ${result.toJson()}');
+      return result;
     } catch (e) {
       print('🟥 AuthControllerImpl.signIn -> $e');
-      return false;
+      return AuthModel(success: false, errorType: e.toString());
     }
   }
 

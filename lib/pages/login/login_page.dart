@@ -100,7 +100,11 @@ class LoginPage extends GetView<LoginPageController> {
                               controller: controller.passwordController,
                               focusNode: controller.passwordFocusNode,
                               validator: controller.validatorPassowrd,
-                              suffixIcon: Icon(Icons.remove_red_eye),
+                              obscureText: controller.getObscurePassword,
+                              suffixIcon: GestureDetector(
+                                child: Icon(controller.getObscurePassword ? Icons.visibility_off : Icons.visibility),
+                                onTap: controller.toogleObscurePassword,
+                              ),
                             ),
                           ),
                         ),

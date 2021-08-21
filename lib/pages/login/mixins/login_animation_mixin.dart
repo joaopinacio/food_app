@@ -16,10 +16,12 @@ mixin LoginAnimationsMixin on GetxController {
   var containerHeight = 0.0.obs;
   var containerBorderRadius = 36.0.obs;
   var logoOpacity = 1.0.obs;
+  var obscurePassword = false.obs;
 
   double get getContainerHeight => containerHeight.value;
   double get getContainerBorderRadius => containerBorderRadius.value;
   get getLogoOpacity => logoOpacity.value;
+  get getObscurePassword => obscurePassword.value;
 
   bool get logoOpacityIsEqualZero => getLogoOpacity == 0;
 
@@ -107,5 +109,9 @@ mixin LoginAnimationsMixin on GetxController {
       containerBorderRadius.value = 36;
       logoOpacity.value = 1;
     }
+  }
+
+  toogleObscurePassword() {
+    obscurePassword.value = !getObscurePassword;
   }
 }

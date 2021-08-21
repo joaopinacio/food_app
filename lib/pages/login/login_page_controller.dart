@@ -49,26 +49,26 @@ class LoginPageController extends GetxController with LoginAnimationsMixin {
 
   String? validatorEmail(String? value) {
     var email = value ?? '';
-    loginErrorLabel.value = AppUtil.emailValidator(email) ?? '';
 
     if (getLoginErrorLabel != '') {
       loginFocusNode.requestFocus();
       return getLoginErrorLabel;
+    } else {
+      loginErrorLabel.value = AppUtil.emailValidator(email) ?? '';
+      return getLoginErrorLabel == '' ? null : getLoginErrorLabel;
     }
-
-    return null;
   }
 
   String? validatorPassowrd(String? value) {
     var password = value ?? '';
-    passwordErrorLabel.value = AppUtil.passwordValidator(password) ?? '';
 
     if (getPasswordErrorLabel != '') {
       passwordFocusNode.requestFocus();
       return getPasswordErrorLabel;
+    } else {
+      passwordErrorLabel.value = AppUtil.passwordValidator(password) ?? '';
+      return getPasswordErrorLabel == '' ? null : getPasswordErrorLabel;
     }
-
-    return null;
   }
 
   login() async {
@@ -78,8 +78,26 @@ class LoginPageController extends GetxController with LoginAnimationsMixin {
       passwordErrorLabel.value = '';
     } else {
       AppLoading.loading();
-      await _authController.signIn(email: loginController.text, password: passwordController.text);
+      var result = await _authController.signIn(email: loginController.text, password: passwordController.text);
       Get.back();
+
+      if (result.success!) {
+        // Go to next page
+      } else {
+        switch (result.errorType) {
+          case 'user-not-found':
+            loginErrorLabel.value = 'email_not_found'.tr;
+            loginKey.currentState!.validate();
+            break;
+          case 'wrong-password':
+            passwordErrorLabel.value = 'wrong_password'.tr;
+            passwordKey.currentState!.validate();
+            break;
+          default:
+            print("Generic error");
+            break;
+        }
+      }
     }
   }
 
