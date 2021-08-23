@@ -82,7 +82,8 @@ class LoginPageController extends GetxController with LoginAnimationsMixin {
       Get.back();
 
       if (result.success!) {
-        // Go to next page
+        // Get.toNamed(_appPages.home);
+        Get.offNamedUntil(_appPages.home, (route) => false);
       } else {
         switch (result.errorType) {
           case 'user-not-found':

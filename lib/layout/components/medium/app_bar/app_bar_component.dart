@@ -20,7 +20,7 @@ class AppBarComponent extends StatelessWidget implements PreferredSizeWidget {
 
   const AppBarComponent({
     Key? key,
-    required this.title,
+    this.title,
     this.backgroundColor,
     this.leading,
     this.actions,
@@ -33,10 +33,11 @@ class AppBarComponent extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: false,
       elevation: 0,
       title: title,
-      backgroundColor: backgroundColor ?? AppThemes.colors.white,
+      backgroundColor: backgroundColor ?? Colors.transparent,
       leading: leading,
       actions: actions,
-      leadingWidth: 25.w,
+      leadingWidth: 24.w,
+      titleSpacing: 0,
     );
   }
 
