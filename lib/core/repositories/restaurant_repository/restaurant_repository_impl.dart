@@ -5,7 +5,7 @@ import 'restaurant_repository_interface.dart';
 
 class RestaurantRepositoryImpl implements IRestaurantRepository {
   final FirebaseFirestore firestore;
-  CollectionReference<Map<String, dynamic>> get restaurantCollection => firestore.collection('restaurant');
+  CollectionReference<Map<String, dynamic>> get restaurantCollection => firestore.collection('restaurants');
 
   RestaurantRepositoryImpl({required this.firestore});
 

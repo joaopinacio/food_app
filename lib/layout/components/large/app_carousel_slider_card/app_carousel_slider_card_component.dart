@@ -38,10 +38,10 @@ class AppCarouselSliderCardComponent extends StatelessWidget {
         return Column(
           children: [
             Padding(
-              padding: EdgeInsets.only(bottom: 40.h),
+              padding: EdgeInsets.only(bottom: 30.h),
               child: Image.asset(
-                "assets/icons/bag-icon.png",
-                scale: 7.sp,
+                logoImage,
+                scale: 6.sp,
               ),
             ),
             Expanded(
@@ -50,20 +50,21 @@ class AppCarouselSliderCardComponent extends StatelessWidget {
                 child: Container(
                   width: MediaQuery.of(contextCard).size.width,
                   margin: EdgeInsets.symmetric(horizontal: 5.0.w),
-                  decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20.r)), color: Colors.white),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(20.r)), color: AppThemes.colors.white),
                   alignment: Alignment.topCenter,
                   child: Column(
                     children: [
                       Padding(
                         padding: EdgeInsets.only(top: 20.h, left: 20.w, right: 20.w),
                         child: Container(
-                          height: 300.h,
-                          width: 300.w,
+                          height: 240.h,
+                          width: 240.w,
                           decoration:
                               BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20.r)), color: mainColor),
                           alignment: Alignment.center,
                           child: Hero(
-                            tag: logoImage,
+                            tag: primaryImage,
                             child: Image.asset(
                               primaryImage,
                               scale: 7.sp,

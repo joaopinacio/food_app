@@ -13,27 +13,31 @@ class HomePage extends GetView<HomePageController> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async => false,
-      child: Scaffold(
-        appBar: AppBarStyles.leftAndRightIcon(
-          leftIcon: Icons.menu,
-          onTapRight: () {},
-          rightIcon: Icons.search,
-          onTapLeft: () {},
-        ),
-        body: Center(
-          child: Padding(
-            padding: EdgeInsets.only(top: 50.h),
-            child: CarouselSlider(
-              options: controller.carouselOptions,
-              items: controller.restaurantList.map((restaurant) {
-                return AppCarouselSliderCardStyles.standard(
-                  logoImage: restaurant.logo,
-                  primaryImage: restaurant.primaryImage,
-                  title: restaurant.name,
-                  mainColor: AppThemes.colors.primaryColor, // restaurant.primaryColor,
-                  onTap: () {},
-                );
-              }).toList(),
+      child: AnimatedBuilder(
+        animation: controller.colorController,
+        builder: (contextAnim, child) => Scaffold(
+          backgroundColor: controller.colorAnim.value,
+          appBar: AppBarStyles.leftAndRightIcon(
+            leftIcon: Icons.menu,
+            onTapRight: () {},
+            rightIcon: Icons.search,
+            onTapLeft: () {},
+          ),
+          body: Center(
+            child: Padding(
+              padding: EdgeInsets.only(top: 20.h, bottom: 30.h),
+              child: CarouselSlider(
+                options: controller.carouselOptions,
+                items: controller.restaurantList.map((restaurant) {
+                  return AppCarouselSliderCardStyles.standard(
+                    logoImage: 'assets/images/bag-icon.png', // restaurant.logo,
+                    primaryImage: 'assets/images/drumstick-icon.png', // restaurant.primaryImage,
+                    title: restaurant.name,
+                    mainColor: AppThemes.colors.primaryColor, // restaurant.primaryColor,
+                    onTap: () {},
+                  );
+                }).toList(),
+              ),
             ),
           ),
         ),
