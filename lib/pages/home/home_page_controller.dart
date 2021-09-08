@@ -35,13 +35,21 @@ class HomePageController extends GetxController with SingleGetTickerProviderMixi
       scrollDirection: Axis.horizontal,
     );
 
-    colorController = AnimationController(
+    backgroundColorController = AnimationController(
       duration: const Duration(milliseconds: 400),
       vsync: this,
     );
 
-    colorAnim =
-        ColorTween(begin: AppThemes.colors.primaryColor, end: AppThemes.colors.primaryColor).animate(colorController);
+    appBarIconsColorController = AnimationController(
+      duration: const Duration(milliseconds: 400),
+      vsync: this,
+    );
+
+    backgroundColorAnim = ColorTween(begin: AppThemes.colors.primaryColor, end: AppThemes.colors.primaryColor)
+        .animate(backgroundColorController);
+
+    appBarIconsColorAnim =
+        ColorTween(begin: AppThemes.colors.white, end: AppThemes.colors.black).animate(appBarIconsColorController);
   }
 
   fetchRestaurants() {
@@ -52,15 +60,20 @@ class HomePageController extends GetxController with SingleGetTickerProviderMixi
     restaurantList.value = list;
     if (isLoading) {
       var restaurantColor = Color(int.parse(restaurantList[0].primaryColor.replaceAll('#', '0xff')));
-      colorAnim = ColorTween(begin: AppThemes.colors.primaryColor, end: restaurantColor).animate(colorController);
-      colorController.forward();
+      backgroundColorAnim =
+          ColorTween(begin: AppThemes.colors.primaryColor, end: restaurantColor).animate(backgroundColorController);
+      checkLuminanceColor(restaurantColor);
+      backgroundColorController.forward();
+      currentColor = restaurantColor;
       isLoading = false;
+    } else {
+      changeBackgroundColorByList();
     }
   }
 
   @override
   void onClose() {
     _restaurantsStream.cancel();
-    colorController.dispose();
+    backgroundColorController.dispose();
   }
 }

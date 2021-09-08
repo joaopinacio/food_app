@@ -14,18 +14,19 @@ class HomePage extends GetView<HomePageController> {
     return WillPopScope(
       onWillPop: () async => false,
       child: AnimatedBuilder(
-        animation: controller.colorController,
+        animation: controller.backgroundColorController,
         builder: (contextAnim, child) => Scaffold(
-          backgroundColor: controller.colorAnim.value,
+          backgroundColor: controller.backgroundColorAnim.value,
           appBar: AppBarStyles.leftAndRightIcon(
             leftIcon: Icons.menu,
             onTapRight: () {},
             rightIcon: Icons.search,
             onTapLeft: () {},
+            iconsColor: controller.appBarIconsColorAnim.value,
           ),
           body: Center(
             child: Padding(
-              padding: EdgeInsets.only(top: 20.h, bottom: 30.h),
+              padding: EdgeInsets.only(top: 10.h, bottom: 40.h),
               child: CarouselSlider(
                 options: controller.carouselOptions,
                 items: controller.restaurantList.map((restaurant) {

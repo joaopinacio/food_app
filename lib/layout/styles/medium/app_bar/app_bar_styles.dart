@@ -40,6 +40,7 @@ class AppBarStyles {
     Function()? onTapLeft,
     required IconData rightIcon,
     Function()? onTapRight,
+    Color? iconsColor,
   }) =>
       AppBarComponent(
         title: Padding(
@@ -49,7 +50,7 @@ class AppBarStyles {
             child: Icon(
               leftIcon,
               size: 24.sp,
-              color: AppThemes.colors.black,
+              color: iconsColor ?? AppThemes.colors.black,
             ),
           ),
         ),
@@ -61,7 +62,7 @@ class AppBarStyles {
               child: Icon(
                 rightIcon,
                 size: 24.sp,
-                color: AppThemes.colors.black,
+                color: iconsColor ?? AppThemes.colors.black,
               ),
             ),
           ),
