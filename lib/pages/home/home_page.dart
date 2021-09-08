@@ -30,12 +30,15 @@ class HomePage extends GetView<HomePageController> {
               child: CarouselSlider(
                 options: controller.carouselOptions,
                 items: controller.restaurantList.map((restaurant) {
-                  return AppCarouselSliderCardStyles.standard(
-                    logoImage: 'assets/images/bag-icon.png', // restaurant.logo,
-                    primaryImage: 'assets/images/drumstick-icon.png', // restaurant.primaryImage,
-                    title: restaurant.name,
-                    mainColor: AppThemes.colors.primaryColor, // restaurant.primaryColor,
-                    onTap: () {},
+                  return Obx(
+                    () => AppCarouselSliderCardStyles.standard(
+                      behaviour: controller.getBehaviour,
+                      logoImage: 'assets/images/bag-icon.png', // restaurant.logo,
+                      primaryImage: 'assets/images/drumstick-icon.png', // restaurant.primaryImage,
+                      title: restaurant.name,
+                      mainColor: AppThemes.colors.primaryColor, // restaurant.primaryColor,
+                      onTap: () {},
+                    ),
                   );
                 }).toList(),
               ),

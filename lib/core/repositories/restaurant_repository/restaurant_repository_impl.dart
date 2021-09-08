@@ -24,6 +24,20 @@ class RestaurantRepositoryImpl implements IRestaurantRepository {
   }
 
   @override
+  Future<List<RestaurantModel>>? getRestaurantsOnce() {
+    try {
+      return restaurantCollection.get().then((snapshot) {
+        return snapshot.docs.map((doc) {
+          return RestaurantModel.fromJson(doc.data());
+        }).toList();
+      });
+    } catch (e) {
+      print('🟥 ResturantRepositoryImpl.getRestaurantsOnce -> $e');
+      return null;
+    }
+  }
+
+  @override
   Future<bool>? saveRestaurant({
     required RestaurantModel data,
   }) async {

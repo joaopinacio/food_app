@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_app/core/classes/behaviour.dart';
+import 'package:food_app/core/classes/component.dart';
 import 'package:food_app/layout/app_layout_imports.dart';
 import 'package:food_app/layout/styles/small/app_text/app_text_styles.dart';
 
-class AppCarouselSliderCardComponent extends StatelessWidget {
+class AppCarouselSliderCardComponent extends StatelessWidget with Component {
   /// ## AppCarouselSliderCardComponent
   ///
   /// __[logoImage]__ Imagem da logo a ser mostrada
@@ -21,6 +23,7 @@ class AppCarouselSliderCardComponent extends StatelessWidget {
   final String title;
   final Color mainColor;
   final Function() onTap;
+  final Behaviour behaviour;
 
   const AppCarouselSliderCardComponent({
     Key? key,
@@ -29,10 +32,16 @@ class AppCarouselSliderCardComponent extends StatelessWidget {
     required this.title,
     required this.mainColor,
     required this.onTap,
+    required this.behaviour,
   });
 
   @override
   Widget build(BuildContext context) {
+    return render(context, behaviour);
+  }
+
+  @override
+  Widget whenRegular(BuildContext context, Behaviour childBehaviour) {
     return Builder(
       builder: (BuildContext contextCard) {
         return Column(
@@ -89,6 +98,26 @@ class AppCarouselSliderCardComponent extends StatelessWidget {
           ],
         );
       },
+    );
+  }
+
+  @override
+  Widget whenLoading(BuildContext context, Behaviour childBehaviour) {
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.only(bottom: 30.h),
+          child: AppThemes.shimmer.circle(size: 57.sp),
+        ),
+        Expanded(
+          child: AppThemes.shimmer.rectangle(
+            height: 250.h,
+            width: MediaQuery.of(context).size.width,
+            borderRadius: 20,
+            margin: EdgeInsets.symmetric(horizontal: 5.0.w),
+          ),
+        ),
+      ],
     );
   }
 }

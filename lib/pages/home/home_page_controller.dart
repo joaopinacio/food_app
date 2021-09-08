@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:flutter/material.dart';
+import 'package:food_app/core/classes/behaviour.dart';
 import 'package:food_app/core/models/restaurant_model/restaurant_model.dart';
 import 'package:food_app/core/repositories/restaurant_repository/restaurant_repository_interface.dart';
 import 'package:food_app/layout/app_layout_imports.dart';
@@ -19,7 +20,9 @@ class HomePageController extends GetxController with SingleGetTickerProviderMixi
 
   late StreamSubscription _restaurantsStream;
   late CarouselOptions carouselOptions;
-  var isLoading = true;
+  var behaviour = Behaviour.loading.obs;
+
+  get getBehaviour => behaviour.value;
 
   init() async {
     fetchRestaurants();
@@ -56,19 +59,22 @@ class HomePageController extends GetxController with SingleGetTickerProviderMixi
     _restaurantsStream = _restaurantRepository.getRestaurants()!.listen(_listenRestaurantsStream);
   }
 
-  _listenRestaurantsStream(List<RestaurantModel> list) {
+  _listenRestaurantsStream(List<RestaurantModel> list) async {
     restaurantList.value = list;
-    if (isLoading) {
+
+    await Future.delayed(Duration(seconds: 5));
+
+    if (getBehaviour == Behaviour.loading) {
       var restaurantColor = Color(int.parse(restaurantList[0].primaryColor.replaceAll('#', '0xff')));
       backgroundColorAnim =
           ColorTween(begin: AppThemes.colors.primaryColor, end: restaurantColor).animate(backgroundColorController);
       checkLuminanceColor(restaurantColor);
       backgroundColorController.forward();
       currentColor = restaurantColor;
-      isLoading = false;
     } else {
       changeBackgroundColorByList();
     }
+    behaviour.value = Behaviour.regular;
   }
 
   @override

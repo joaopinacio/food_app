@@ -12,14 +12,23 @@ class AppShimmer {
         child: child,
       );
 
-  rectangle({required double height, required double width}) =>
+  rectangle({
+    required double height,
+    required double width,
+    double? borderRadius,
+    EdgeInsets? margin,
+  }) =>
       Shimmer.fromColors(
         highlightColor: highlightColor,
         baseColor: baseColor,
         child: Container(
           height: height,
           width: width,
-          color: AppThemes.colors.white,
+          margin: margin ?? EdgeInsets.zero,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular((borderRadius ?? 0).r)),
+            color: AppThemes.colors.white,
+          ),
         ),
       );
 

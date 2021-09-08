@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/core/classes/behaviour.dart';
 import 'package:food_app/layout/components/large/app_carousel_slider_card/app_carousel_slider_card_component.dart';
 
 class AppCarouselSliderCardStyles {
@@ -17,6 +18,7 @@ class AppCarouselSliderCardStyles {
   /// __[onTap]__ Clique do card
   ///
   static AppCarouselSliderCardComponent standard({
+    required Behaviour behaviour,
     required String logoImage,
     required String primaryImage,
     required String title,
@@ -24,6 +26,7 @@ class AppCarouselSliderCardStyles {
     required Function() onTap,
   }) =>
       AppCarouselSliderCardComponent(
+        behaviour: behaviour,
         logoImage: logoImage,
         primaryImage: primaryImage,
         title: title,
