@@ -1,3 +1,5 @@
+import 'package:food_app/core/models/image_model/image_model.dart';
+
 import 'restaurant_entity.dart';
 
 class RestaurantModel extends RestaurantEntity {
@@ -5,8 +7,8 @@ class RestaurantModel extends RestaurantEntity {
     required String uid,
     required String name,
     required String primaryColor,
-    required String logo,
-    required String primaryImage,
+    required ImageModel logo,
+    required ImageModel primaryImage,
     required num rate,
   }) : super(
           uid: uid,
@@ -22,8 +24,8 @@ class RestaurantModel extends RestaurantEntity {
       uid: '',
       name: '',
       primaryColor: '',
-      logo: '',
-      primaryImage: '',
+      logo: ImageModel.init(),
+      primaryImage: ImageModel.init(),
       rate: 0.0,
     );
   }
@@ -33,8 +35,8 @@ class RestaurantModel extends RestaurantEntity {
       uid: json['uid'] ?? '',
       name: json['name'] ?? '',
       primaryColor: json['primaryColor'] ?? '',
-      logo: json['logo'] ?? '',
-      primaryImage: json['primaryImage'] ?? '',
+      logo: json['logo'] ?? ImageModel.init(),
+      primaryImage: json['primaryImage'] ?? ImageModel.init(),
       rate: json['rate'] ?? 0.0,
     );
   }

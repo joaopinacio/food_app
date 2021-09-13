@@ -15,7 +15,7 @@ class HomePageBindings implements CoreBindings {
   @override
   void registerRepositories() {
     Get.lazyPut<IRestaurantRepository>(
-      () => RestaurantRepositoryImpl(firestore: Get.find()),
+      () => RestaurantRepositoryImpl(firestore: Get.find(), cameraRepository: Get.find()),
       fenix: true,
     );
   }

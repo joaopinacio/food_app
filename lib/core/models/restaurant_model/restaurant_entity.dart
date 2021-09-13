@@ -1,9 +1,11 @@
+import 'package:food_app/core/models/image_model/image_model.dart';
+
 abstract class RestaurantEntity {
   String uid;
   String name;
   String primaryColor;
-  String logo;
-  String primaryImage;
+  ImageModel logo;
+  ImageModel primaryImage;
   num rate;
 
   RestaurantEntity({

@@ -1,5 +1,4 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:bouncing_widget/bouncing_widget.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -125,14 +124,10 @@ class LoginPage extends GetView<LoginPageController> {
                           delay: Duration(milliseconds: 2100),
                           manualTrigger: true,
                           controller: (controllerAnim) => controller.signInAnimInit(controllerAnim),
-                          child: BouncingWidget(
-                            duration: Duration(milliseconds: 100),
-                            scaleFactor: 0.5,
-                            onPressed: controller.login,
-                            child: AppTextButtonStyles.rounded(
-                              label: 'Sign In',
-                              hasBounce: true,
-                            ),
+                          child: AppTextButtonStyles.rounded(
+                            label: 'Sign In',
+                            onTap: controller.login,
+                            hasBounce: true,
                           ),
                         ),
                         SizedBox(height: AppThemes.spacing.spacer_48.h),

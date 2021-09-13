@@ -62,7 +62,8 @@ class HomePageController extends GetxController with SingleGetTickerProviderMixi
   _listenRestaurantsStream(List<RestaurantModel> list) async {
     restaurantList.value = list;
 
-    await Future.delayed(Duration(seconds: 5));
+    // TODO: Remover quando estiver tudo funcional da parte de restaurantes
+    await Future.delayed(Duration(seconds: 2));
 
     if (getBehaviour == Behaviour.loading) {
       var restaurantColor = Color(int.parse(restaurantList[0].primaryColor.replaceAll('#', '0xff')));
