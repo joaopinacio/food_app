@@ -32,44 +32,45 @@ class HomePage extends GetView<HomePageController> {
             child: AppTextButtonStyles.rounded(
               width: 230,
               label: 'Order Here',
-              textStyle: AppThemes.typography.poppinsBold_16,
+              textStyle: AppThemes.typography.poppinsBold_14,
               onTap: () {},
               hasBounce: true,
             ),
           ),
           body: Center(
             child: Padding(
-                padding: EdgeInsets.only(top: 10.h, bottom: 40.h),
-                child: controller.getBehaviour == Behaviour.loading
-                    ? CarouselSlider.builder(
-                        options: controller.carouselOptions,
-                        itemCount: 3,
-                        itemBuilder: (BuildContext carouselContext, int index, _) {
-                          return AppCarouselSliderCardStyles.standard(
-                            behaviour: Behaviour.loading,
-                            logoImage: 'assets/images/bag-icon.png', // restaurant.logo.filePath,
-                            primaryImage: 'assets/images/drumstick-icon.png', // restaurant.primaryImage.filePath,
-                            title: '',
-                            mainColor: AppThemes.colors.primaryColor, // restaurant.primaryColor,
-                            onTap: () {},
-                          );
-                        },
-                      )
-                    : CarouselSlider.builder(
-                        options: controller.carouselOptions,
-                        itemCount: controller.restaurantList.length,
-                        itemBuilder: (BuildContext carouselContext, int index, _) {
-                          var restaurant = controller.restaurantList[index];
-                          return AppCarouselSliderCardStyles.standard(
-                            behaviour: Behaviour.regular,
-                            logoImage: 'assets/images/bag-icon.png', // restaurant.logo,
-                            primaryImage: 'assets/images/drumstick-icon.png', // restaurant.primaryImage,
-                            title: restaurant.name,
-                            mainColor: AppThemes.colors.primaryColor, // restaurant.primaryColor,
-                            onTap: controller.goToRestaurantMenu,
-                          );
-                        },
-                      )),
+              padding: EdgeInsets.only(top: 10.h, bottom: 40.h),
+              child: controller.getBehaviour == Behaviour.loading
+                  ? CarouselSlider.builder(
+                      options: controller.carouselOptions,
+                      itemCount: 3,
+                      itemBuilder: (BuildContext carouselContext, int index, _) {
+                        return AppCarouselSliderCardStyles.standard(
+                          behaviour: Behaviour.loading,
+                          logoImage: 'assets/images/bag-icon.png', // restaurant.logo.filePath,
+                          primaryImage: 'assets/images/drumstick-icon.png', // restaurant.primaryImage.filePath,
+                          title: '',
+                          mainColor: AppThemes.colors.primaryColor, // restaurant.primaryColor,
+                          onTap: () {},
+                        );
+                      },
+                    )
+                  : CarouselSlider.builder(
+                      options: controller.carouselOptions,
+                      itemCount: controller.restaurantList.length,
+                      itemBuilder: (BuildContext carouselContext, int index, _) {
+                        var restaurant = controller.restaurantList[index];
+                        return AppCarouselSliderCardStyles.standard(
+                          behaviour: Behaviour.regular,
+                          logoImage: 'assets/images/bag-icon.png', // restaurant.logo,
+                          primaryImage: 'assets/images/drumstick-icon.png', // restaurant.primaryImage,
+                          title: restaurant.name,
+                          mainColor: AppThemes.colors.primaryColor, // restaurant.primaryColor,
+                          onTap: controller.goToRestaurantMenu,
+                        );
+                      },
+                    ),
+            ),
           ),
         ),
       ),

@@ -36,7 +36,7 @@ class HomePageController extends GetxController with SingleGetTickerProviderMixi
       aspectRatio: 16 / 9,
       viewportFraction: 0.8,
       initialPage: 0,
-      enableInfiniteScroll: true,
+      enableInfiniteScroll: false,
       enlargeCenterPage: true,
       onPageChanged: onPageChanged,
       scrollDirection: Axis.horizontal,
