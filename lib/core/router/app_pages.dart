@@ -1,3 +1,4 @@
+import 'package:food_app/core/router/restaurant_menu_pages.dart';
 import 'package:food_app/pages/home/home_page.dart';
 import 'package:food_app/pages/home/home_page_bindings.dart';
 import 'package:food_app/pages/login/login_page.dart';
@@ -6,7 +7,7 @@ import 'package:food_app/pages/splash/splash_page.dart';
 import 'package:food_app/pages/splash/splash_page_bindings.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
-class AppPages {
+class AppPages with RestaurantMenuPages {
   AppPages._();
 
   static final AppPages instance = AppPages._();
@@ -41,5 +42,6 @@ class AppPages {
         splashPage,
         loginPage,
         homePage,
+        ...getRestaurantMenuPagesList,
       ];
 }

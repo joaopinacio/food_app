@@ -72,13 +72,15 @@ class AppCarouselSliderCardComponent extends StatelessWidget with Component {
                           decoration:
                               BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20.r)), color: mainColor),
                           alignment: Alignment.center,
-                          child: Hero(
-                            tag: primaryImage,
-                            child: Image.asset(
-                              primaryImage,
-                              scale: 7.sp,
-                            ),
+                          child:
+                              // Hero(
+                              //   tag: title,
+                              //   child:
+                              Image.asset(
+                            primaryImage,
+                            scale: 7.sp,
                           ),
+                          // ),
                         ),
                       ),
                       SizedBox(height: AppThemes.spacing.spacer_20.h),

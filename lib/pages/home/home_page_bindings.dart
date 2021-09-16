@@ -22,6 +22,6 @@ class HomePageBindings implements CoreBindings {
 
   @override
   void registerControllers() {
-    Get.lazyPut(() => HomePageController(restaurantRepository: Get.find()), fenix: true);
+    Get.lazyPut(() => HomePageController(restaurantRepository: Get.find(), appPages: Get.find()), fenix: true);
   }
 }

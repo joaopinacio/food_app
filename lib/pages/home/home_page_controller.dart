@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:food_app/core/classes/behaviour.dart';
 import 'package:food_app/core/models/restaurant_model/restaurant_model.dart';
 import 'package:food_app/core/repositories/restaurant_repository/restaurant_repository_interface.dart';
+import 'package:food_app/core/router/app_pages.dart';
 import 'package:food_app/layout/app_layout_imports.dart';
 import 'package:get/get.dart';
 
@@ -12,9 +13,11 @@ import 'mixins/carousel_animation_mixin.dart';
 
 class HomePageController extends GetxController with SingleGetTickerProviderMixin, CarouselAnimationMixin {
   final IRestaurantRepository _restaurantRepository;
+  final AppPages _appPages;
 
-  HomePageController({required IRestaurantRepository restaurantRepository})
-      : _restaurantRepository = restaurantRepository {
+  HomePageController({required IRestaurantRepository restaurantRepository, required AppPages appPages})
+      : _restaurantRepository = restaurantRepository,
+        _appPages = appPages {
     init();
   }
 
@@ -23,6 +26,7 @@ class HomePageController extends GetxController with SingleGetTickerProviderMixi
   var behaviour = Behaviour.loading.obs;
 
   get getBehaviour => behaviour.value;
+  List<String> teste = ['aq', 'aw'];
 
   init() async {
     fetchRestaurants();
@@ -78,9 +82,14 @@ class HomePageController extends GetxController with SingleGetTickerProviderMixi
     behaviour.value = Behaviour.regular;
   }
 
+  goToRestaurantMenu() {
+    Get.toNamed(_appPages.restaurantMenu);
+  }
+
   @override
   void onClose() {
     _restaurantsStream.cancel();
     backgroundColorController.dispose();
+    appBarIconsColorController.dispose();
   }
 }

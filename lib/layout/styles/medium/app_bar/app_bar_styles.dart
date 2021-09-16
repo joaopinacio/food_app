@@ -29,11 +29,17 @@ class AppBarStyles {
         actions: actions,
       );
 
-  /// ## AppBarStyles.onlyIcons
+  /// ## AppBarStyles.leftAndRightIcon
   ///
-  /// __[leftIcons]__ Widget ao lado esquerdo
+  /// __[leftIcon]__ Widget ao lado esquerdo
   ///
-  /// __[rightIcons]__ Lista de Icones ao lado direito
+  /// __[onTapLeft]__ Function Tap do icone esquerdo
+  ///
+  /// __[rightIcon]__ Lista de Icones ao lado direito
+  ///
+  /// __[onTapRight]__ Function Tap do icone direito
+  ///
+  /// __[iconsColor]__ Cores dos icones
   ///
   static AppBarComponent leftAndRightIcon({
     required IconData leftIcon,
@@ -61,6 +67,46 @@ class AppBarStyles {
               onTap: onTapRight,
               child: Icon(
                 rightIcon,
+                size: 24.sp,
+                color: iconsColor ?? AppThemes.colors.black,
+              ),
+            ),
+          ),
+        ],
+      );
+
+  /// ## AppBarStyles.searchWithReturn
+  ///
+  /// __[onTapReturn]__ Function Tap para voltar a pagina
+  ///
+  /// __[onTapSearch]__ Function Tap do icone de pesquisar
+  ///
+  /// __[iconsColor]__ Cores dos icones
+  ///
+  static AppBarComponent searchWithReturn({
+    required Function() onTapReturn,
+    required Function() onTapSearch,
+    Color? iconsColor,
+  }) =>
+      AppBarComponent(
+        title: Padding(
+          padding: EdgeInsets.only(left: 24.w),
+          child: GestureDetector(
+            onTap: onTapReturn,
+            child: Icon(
+              Icons.arrow_back_ios_new_rounded,
+              size: 24.sp,
+              color: iconsColor ?? AppThemes.colors.black,
+            ),
+          ),
+        ),
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(right: 24.w),
+            child: GestureDetector(
+              onTap: onTapSearch,
+              child: Icon(
+                Icons.search,
                 size: 24.sp,
                 color: iconsColor ?? AppThemes.colors.black,
               ),
