@@ -50,7 +50,11 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(height: AppThemes.spacing.spacer_54.h),
-                  AppTextStyles.bold_24(text: "Restaurante 01"),
+                  AppTextStyles.bold_24(
+                    text: "Restaurante 01",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                   SizedBox(height: AppThemes.spacing.spacer_6.h),
                   AppTextStyles.regular_14(text: "Lorem ipsum dolor sit amet, consectetur"),
                   SizedBox(height: AppThemes.spacing.spacer_6.h),
@@ -75,11 +79,26 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                                   scrollDirection: Axis.horizontal,
                                   // listTypeFood.map((item) { }).toList(),
                                   children: [
-                                    AppRestaurantMenuTypeCardStyles.standard(behaviour: Behaviour.regular),
-                                    AppRestaurantMenuTypeCardStyles.standard(behaviour: Behaviour.regular),
-                                    AppRestaurantMenuTypeCardStyles.standard(behaviour: Behaviour.regular),
-                                    AppRestaurantMenuTypeCardStyles.standard(behaviour: Behaviour.regular),
-                                    AppRestaurantMenuTypeCardStyles.standard(behaviour: Behaviour.regular),
+                                    AppRestaurantMenuTypeCardStyles.standard(
+                                      behaviour: Behaviour.regular,
+                                      title: 'Promotions',
+                                    ),
+                                    AppRestaurantMenuTypeCardStyles.standard(
+                                      behaviour: Behaviour.regular,
+                                      title: 'Promotions',
+                                    ),
+                                    AppRestaurantMenuTypeCardStyles.standard(
+                                      behaviour: Behaviour.regular,
+                                      title: 'Promotions',
+                                    ),
+                                    AppRestaurantMenuTypeCardStyles.standard(
+                                      behaviour: Behaviour.regular,
+                                      title: 'Promotions',
+                                    ),
+                                    AppRestaurantMenuTypeCardStyles.standard(
+                                      behaviour: Behaviour.regular,
+                                      title: 'Promotions',
+                                    ),
                                   ],
                                 ),
                               ),
@@ -100,12 +119,49 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                               shrinkWrap: true,
                               // listProducts.map((item) { }).toList(),
                               children: [
-                                AppRestaurantMenuProductCardStyles.standard(behaviour: Behaviour.regular),
-                                AppRestaurantMenuProductCardStyles.standard(behaviour: Behaviour.regular),
-                                AppRestaurantMenuProductCardStyles.standard(behaviour: Behaviour.regular),
-                                AppRestaurantMenuProductCardStyles.standard(behaviour: Behaviour.regular),
-                                AppRestaurantMenuProductCardStyles.standard(behaviour: Behaviour.regular),
-                                AppRestaurantMenuProductCardStyles.standard(behaviour: Behaviour.regular),
+                                AppRestaurantMenuProductCardStyles.standard(
+                                  behaviour: Behaviour.regular,
+                                  title: 'Food One',
+                                  description:
+                                      'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
+                                  price: '14,99',
+                                  oldPrice: '25,99',
+                                ),
+                                AppRestaurantMenuProductCardStyles.standard(
+                                  behaviour: Behaviour.regular,
+                                  title: 'Food One',
+                                  description:
+                                      'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
+                                  price: '14,99',
+                                ),
+                                AppRestaurantMenuProductCardStyles.standard(
+                                  behaviour: Behaviour.regular,
+                                  title: 'Food One',
+                                  description:
+                                      'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
+                                  price: '14,99',
+                                ),
+                                AppRestaurantMenuProductCardStyles.standard(
+                                  behaviour: Behaviour.regular,
+                                  title: 'Food One',
+                                  description:
+                                      'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
+                                  price: '14,99',
+                                ),
+                                AppRestaurantMenuProductCardStyles.standard(
+                                  behaviour: Behaviour.regular,
+                                  title: 'Food One',
+                                  description:
+                                      'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
+                                  price: '14,99',
+                                ),
+                                AppRestaurantMenuProductCardStyles.standard(
+                                  behaviour: Behaviour.regular,
+                                  title: 'Food One',
+                                  description:
+                                      'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
+                                  price: '14,99',
+                                ),
                               ],
                             ),
                           ],

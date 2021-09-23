@@ -8,10 +8,18 @@ class AppRestaurantMenuTypeCardStyles {
   ///
   /// __[behaviour]__ Comportamento do Componente
   ///
+  /// __[title]__ Titulo do card
+  ///
+  /// __[image]__ imagem do card (icone)
+  ///
   static AppRestaurantMenuTypeCardComponent standard({
     required Behaviour behaviour,
+    required String title,
+    String? image,
   }) =>
       AppRestaurantMenuTypeCardComponent(
         behaviour: behaviour,
+        title: title,
+        image: image,
       );
 }

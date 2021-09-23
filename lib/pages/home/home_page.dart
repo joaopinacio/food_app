@@ -6,6 +6,7 @@ import 'package:food_app/layout/app_layout_imports.dart';
 import 'package:food_app/layout/styles/large/app_carousel_slider_card/app_carousel_slider_card_styles.dart';
 import 'package:food_app/layout/styles/medium/app_bar/app_bar_styles.dart';
 import 'package:food_app/layout/styles/medium/app_text_button/app_text_button_styles.dart';
+import 'package:food_app/layout/styles/small/app_text/app_text_styles.dart';
 import 'package:get/get.dart';
 
 import 'home_page_controller.dart';
@@ -29,12 +30,14 @@ class HomePage extends GetView<HomePageController> {
           floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
           floatingActionButton: Align(
             alignment: Alignment(0, 0.8),
-            child: AppTextButtonStyles.rounded(
-              width: 230,
-              label: 'Order Here',
-              textStyle: AppThemes.typography.poppinsBold_14,
-              onTap: () {},
-              hasBounce: true,
+            child: Container(
+              width: 230.w,
+              height: 50.h,
+              child: FloatingActionButton.extended(
+                onPressed: () {},
+                label: AppTextStyles.bold_14(text: 'Order Here', color: AppThemes.colors.white),
+                backgroundColor: Colors.black,
+              ),
             ),
           ),
           body: Center(

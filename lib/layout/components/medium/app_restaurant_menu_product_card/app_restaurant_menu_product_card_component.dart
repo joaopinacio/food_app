@@ -11,11 +11,31 @@ class AppRestaurantMenuProductCardComponent extends StatelessWidget with Compone
   ///
   /// __[behaviour]__ Comportamento do Componente
   ///
+  /// __[title]__ Titulo do card (nome do produto)
+  ///
+  /// __[image]__ imagem do produto
+  ///
+  /// __[description]__ Subtitulo do card (descricao do produto)
+  ///
+  /// __[price]__ Preco do produto
+  ///
+  /// __[oldPrice]__ Antigo preco do produto (desconto)
+  ///
   final Behaviour behaviour;
+  final String title;
+  final String? image;
+  final String description;
+  final String price;
+  final String? oldPrice;
 
   const AppRestaurantMenuProductCardComponent({
     Key? key,
     required this.behaviour,
+    required this.title,
+    this.image,
+    required this.description,
+    required this.price,
+    this.oldPrice,
   });
 
   @override
@@ -45,14 +65,14 @@ class AppRestaurantMenuProductCardComponent extends StatelessWidget with Compone
       child: Column(
         children: <Widget>[
           Image.asset(
-            'assets/images/image_food.png',
+            image ?? 'assets/images/image_food.png',
             fit: BoxFit.fitWidth,
             height: 132.h,
             width: double.infinity,
           ),
           SizedBox(height: AppThemes.spacing.spacer_6.h),
           AppTextStyles.medium_10(
-            text: "Food One",
+            text: title,
             margin: EdgeInsets.symmetric(horizontal: 8.w),
             color: AppThemes.colors.black,
             maxLines: 1,
@@ -61,7 +81,7 @@ class AppRestaurantMenuProductCardComponent extends StatelessWidget with Compone
           ),
           SizedBox(height: AppThemes.spacing.spacer_4.h),
           AppTextStyles.light_8(
-            text: "lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet",
+            text: description,
             margin: EdgeInsets.symmetric(horizontal: 5.w),
             color: AppThemes.colors.black_50,
             textAlign: TextAlign.center,
@@ -79,18 +99,21 @@ class AppRestaurantMenuProductCardComponent extends StatelessWidget with Compone
               ),
               SizedBox(width: AppThemes.spacing.spacer_1.w),
               AppTextStyles.semiBold_14(
-                text: "14,99",
+                text: price,
                 color: AppThemes.colors.black,
               ),
             ],
           ),
-          Align(
-            alignment: Alignment(0.38.w, 0),
-            child: AppTextStyles.light_8(
-              text: "R\$ 25,99",
-              color: AppThemes.colors.black_30,
-              textAlign: TextAlign.center,
-              lineThrough: true,
+          Visibility(
+            visible: oldPrice != null,
+            child: Align(
+              alignment: Alignment(0.38.w, 0),
+              child: AppTextStyles.light_8(
+                text: oldPrice != null ? 'R\$ $oldPrice' : '',
+                color: AppThemes.colors.black_30,
+                textAlign: TextAlign.center,
+                lineThrough: true,
+              ),
             ),
           ),
           SizedBox(height: AppThemes.spacing.spacer_10.h),

@@ -11,11 +11,19 @@ class AppRestaurantMenuTypeCardComponent extends StatelessWidget with Component 
   ///
   /// __[behaviour]__ Comportamento do Componente
   ///
+  /// __[title]__ Titulo do card
+  ///
+  /// __[image]__ imagem do card (icone)
+  ///
   final Behaviour behaviour;
+  final String title;
+  final String? image;
 
   const AppRestaurantMenuTypeCardComponent({
     Key? key,
     required this.behaviour,
+    required this.title,
+    this.image,
   });
 
   @override
@@ -39,11 +47,11 @@ class AppRestaurantMenuTypeCardComponent extends StatelessWidget with Component 
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Image.asset(
-            'assets/images/drumstick-icon.png',
+            image ?? 'assets/images/drumstick-icon.png',
             scale: 10.sp,
           ),
           SizedBox(height: AppThemes.spacing.spacer_16.h),
-          AppTextStyles.semiBold_10(text: "Promotions", color: AppThemes.colors.white),
+          AppTextStyles.semiBold_10(text: title, color: AppThemes.colors.white),
         ],
       ),
     );

@@ -39,7 +39,7 @@ class AppTextStyles {
         textAlign: textAlign,
       );
 
-  /// ## AppTextStyles standard
+  /// ## AppTextStyles light_8
   ///
   /// __[text]__ Texto a ser exibido
   ///
@@ -65,7 +65,7 @@ class AppTextStyles {
         overflow: overflow,
       );
 
-  /// ## AppTextStyles standard
+  /// ## AppTextStyles light_12
   ///
   /// __[text]__ Texto a ser exibido
   ///
@@ -83,7 +83,7 @@ class AppTextStyles {
         margin: margin,
       );
 
-  /// ## AppTextStyles standard
+  /// ## AppTextStyles regular_14
   ///
   /// __[text]__ Texto a ser exibido
   ///
@@ -101,7 +101,7 @@ class AppTextStyles {
         margin: margin,
       );
 
-  /// ## AppTextStyles standard
+  /// ## AppTextStyles medium_10
   ///
   /// __[text]__ Texto a ser exibido
   ///
@@ -125,7 +125,7 @@ class AppTextStyles {
         overflow: overflow,
       );
 
-  /// ## AppTextStyles standard
+  /// ## AppTextStyles semiBold_14
   ///
   /// __[text]__ Texto a ser exibido
   ///
@@ -145,7 +145,7 @@ class AppTextStyles {
         color: color,
       );
 
-  /// ## AppTextStyles standard
+  /// ## AppTextStyles semiBold_12
   ///
   /// __[text]__ Texto a ser exibido
   ///
@@ -165,7 +165,7 @@ class AppTextStyles {
         color: color,
       );
 
-  /// ## AppTextStyles standard
+  /// ## AppTextStyles semiBold_10
   ///
   /// __[text]__ Texto a ser exibido
   ///
@@ -185,7 +185,7 @@ class AppTextStyles {
         color: color,
       );
 
-  /// ## AppTextStyles standard
+  /// ## AppTextStyles semiBold_8
   ///
   /// __[text]__ Texto a ser exibido
   ///
@@ -205,7 +205,31 @@ class AppTextStyles {
         color: color,
       );
 
-  /// ## AppTextStyles standard
+  /// ## AppTextStyles bold_14
+  ///
+  /// __[text]__ Texto a ser exibido
+  ///
+  /// __[textAlign]__ Tipo de alinhamento do texto
+  ///
+  static AppTextComponent bold_14({
+    required String text,
+    TextAlign? textAlign,
+    EdgeInsets? margin,
+    Color? color,
+    int? maxLines,
+    TextOverflow? overflow,
+  }) =>
+      AppTextComponent(
+        text: text,
+        textStyle: AppThemes.typography.poppinsBold_14,
+        textAlign: textAlign,
+        margin: margin,
+        color: color,
+        maxLines: maxLines,
+        overflow: overflow,
+      );
+
+  /// ## AppTextStyles bold_24
   ///
   /// __[text]__ Texto a ser exibido
   ///
@@ -215,15 +239,19 @@ class AppTextStyles {
     required String text,
     TextAlign? textAlign,
     EdgeInsets? margin,
+    int? maxLines,
+    TextOverflow? overflow,
   }) =>
       AppTextComponent(
         text: text,
         textStyle: AppThemes.typography.poppinsBold_24,
         textAlign: textAlign,
         margin: margin,
+        maxLines: maxLines,
+        overflow: overflow,
       );
 
-  /// ## AppTextStyles standard
+  /// ## AppTextStyles bold_36
   ///
   /// __[text]__ Texto a ser exibido
   ///

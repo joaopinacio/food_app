@@ -8,10 +8,30 @@ class AppRestaurantMenuProductCardStyles {
   ///
   /// __[behaviour]__ Comportamento do Componente
   ///
+  /// __[title]__ Titulo do card (nome do produto)
+  ///
+  /// __[image]__ imagem do produto
+  ///
+  /// __[description]__ Subtitulo do card (descricao do produto)
+  ///
+  /// __[price]__ Preco do produto
+  ///
+  /// __[oldPrice]__ Antigo preco do produto (desconto)
+  ///
   static AppRestaurantMenuProductCardComponent standard({
     required Behaviour behaviour,
+    required String title,
+    String? image,
+    required String description,
+    required String price,
+    String? oldPrice,
   }) =>
       AppRestaurantMenuProductCardComponent(
         behaviour: behaviour,
+        title: title,
+        image: image,
+        description: description,
+        price: price,
+        oldPrice: oldPrice,
       );
 }
