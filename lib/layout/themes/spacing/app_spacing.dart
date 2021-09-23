@@ -1,5 +1,7 @@
 class AppSpacing {
-  double get spacer_2 => 4;
+  double get spacer_1 => 1;
+  double get spacer_2 => 2;
+  double get spacer_3 => 3;
   double get spacer_4 => 4;
   double get spacer_6 => 6;
   double get spacer_8 => 8;
@@ -14,12 +16,16 @@ class AppSpacing {
   double get spacer_32 => 32;
   double get spacer_34 => 34;
   double get spacer_48 => 48;
+  double get spacer_54 => 54;
   double get spacer_64 => 64;
+  double get spacer_70 => 70;
   double get spacer_82 => 82;
   double get spacer_128 => 128;
 
   List<Map<String, double>> get namedSpacing => [
-        {'spacer_4': spacer_2},
+        {'spacer_1': spacer_1},
+        {'spacer_2': spacer_2},
+        {'spacer_3': spacer_3},
         {'spacer_4': spacer_4},
         {'spacer_6': spacer_6},
         {'spacer_8': spacer_8},
@@ -34,7 +40,9 @@ class AppSpacing {
         {'spacer_32': spacer_32},
         {'spacer_34': spacer_34},
         {'spacer_48': spacer_48},
+        {'spacer_54': spacer_54},
         {'spacer_64': spacer_64},
+        {'spacer_70': spacer_70},
         {'spacer_82': spacer_82},
         {'spacer_128': spacer_128},
       ];

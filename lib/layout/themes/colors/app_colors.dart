@@ -4,6 +4,9 @@ class AppColors {
   Color get black => Color(0xff000000);
   Color get white => Color(0xffFFFFFF);
 
+  Color get black_50 => Color(0xff000000).withOpacity(0.5);
+  Color get black_30 => Color(0xff000000).withOpacity(0.3);
+
   Color get primaryColor => Color(0xFFF02B3C);
 
   Color get grayScale_1 => Color(0xffF2F2F2);

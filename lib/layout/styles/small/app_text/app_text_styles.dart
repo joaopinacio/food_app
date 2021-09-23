@@ -45,7 +45,191 @@ class AppTextStyles {
   ///
   /// __[textAlign]__ Tipo de alinhamento do texto
   ///
-  static AppTextComponent bold({
+  static AppTextComponent light_8({
+    required String text,
+    TextAlign? textAlign,
+    EdgeInsets? margin,
+    Color? color,
+    bool lineThrough = false,
+    int? maxLines,
+    TextOverflow? overflow,
+  }) =>
+      AppTextComponent(
+        text: text,
+        textStyle: AppThemes.typography.poppinsLight_8,
+        textAlign: textAlign,
+        margin: margin,
+        color: color,
+        lineThrough: lineThrough,
+        maxLines: maxLines,
+        overflow: overflow,
+      );
+
+  /// ## AppTextStyles standard
+  ///
+  /// __[text]__ Texto a ser exibido
+  ///
+  /// __[textAlign]__ Tipo de alinhamento do texto
+  ///
+  static AppTextComponent light_12({
+    required String text,
+    TextAlign? textAlign,
+    EdgeInsets? margin,
+  }) =>
+      AppTextComponent(
+        text: text,
+        textStyle: AppThemes.typography.poppinsLight_12,
+        textAlign: textAlign,
+        margin: margin,
+      );
+
+  /// ## AppTextStyles standard
+  ///
+  /// __[text]__ Texto a ser exibido
+  ///
+  /// __[textAlign]__ Tipo de alinhamento do texto
+  ///
+  static AppTextComponent regular_14({
+    required String text,
+    TextAlign? textAlign,
+    EdgeInsets? margin,
+  }) =>
+      AppTextComponent(
+        text: text,
+        textStyle: AppThemes.typography.poppinsRegular_14,
+        textAlign: textAlign,
+        margin: margin,
+      );
+
+  /// ## AppTextStyles standard
+  ///
+  /// __[text]__ Texto a ser exibido
+  ///
+  /// __[textAlign]__ Tipo de alinhamento do texto
+  ///
+  static AppTextComponent medium_10({
+    required String text,
+    TextAlign? textAlign,
+    EdgeInsets? margin,
+    Color? color,
+    int? maxLines,
+    TextOverflow? overflow,
+  }) =>
+      AppTextComponent(
+        text: text,
+        textStyle: AppThemes.typography.poppinsMedium_10,
+        textAlign: textAlign,
+        margin: margin,
+        color: color,
+        maxLines: maxLines,
+        overflow: overflow,
+      );
+
+  /// ## AppTextStyles standard
+  ///
+  /// __[text]__ Texto a ser exibido
+  ///
+  /// __[textAlign]__ Tipo de alinhamento do texto
+  ///
+  static AppTextComponent semiBold_14({
+    required String text,
+    TextAlign? textAlign,
+    EdgeInsets? margin,
+    Color? color,
+  }) =>
+      AppTextComponent(
+        text: text,
+        textStyle: AppThemes.typography.poppinsSemiBold_14,
+        textAlign: textAlign,
+        margin: margin,
+        color: color,
+      );
+
+  /// ## AppTextStyles standard
+  ///
+  /// __[text]__ Texto a ser exibido
+  ///
+  /// __[textAlign]__ Tipo de alinhamento do texto
+  ///
+  static AppTextComponent semiBold_12({
+    required String text,
+    TextAlign? textAlign,
+    EdgeInsets? margin,
+    Color? color,
+  }) =>
+      AppTextComponent(
+        text: text,
+        textStyle: AppThemes.typography.poppinsSemiBold_12,
+        textAlign: textAlign,
+        margin: margin,
+        color: color,
+      );
+
+  /// ## AppTextStyles standard
+  ///
+  /// __[text]__ Texto a ser exibido
+  ///
+  /// __[textAlign]__ Tipo de alinhamento do texto
+  ///
+  static AppTextComponent semiBold_10({
+    required String text,
+    TextAlign? textAlign,
+    EdgeInsets? margin,
+    Color? color,
+  }) =>
+      AppTextComponent(
+        text: text,
+        textStyle: AppThemes.typography.poppinsSemiBold_10,
+        textAlign: textAlign,
+        margin: margin,
+        color: color,
+      );
+
+  /// ## AppTextStyles standard
+  ///
+  /// __[text]__ Texto a ser exibido
+  ///
+  /// __[textAlign]__ Tipo de alinhamento do texto
+  ///
+  static AppTextComponent semiBold_8({
+    required String text,
+    TextAlign? textAlign,
+    EdgeInsets? margin,
+    Color? color,
+  }) =>
+      AppTextComponent(
+        text: text,
+        textStyle: AppThemes.typography.poppinsSemiBold_8,
+        textAlign: textAlign,
+        margin: margin,
+        color: color,
+      );
+
+  /// ## AppTextStyles standard
+  ///
+  /// __[text]__ Texto a ser exibido
+  ///
+  /// __[textAlign]__ Tipo de alinhamento do texto
+  ///
+  static AppTextComponent bold_24({
+    required String text,
+    TextAlign? textAlign,
+    EdgeInsets? margin,
+  }) =>
+      AppTextComponent(
+        text: text,
+        textStyle: AppThemes.typography.poppinsBold_24,
+        textAlign: textAlign,
+        margin: margin,
+      );
+
+  /// ## AppTextStyles standard
+  ///
+  /// __[text]__ Texto a ser exibido
+  ///
+  /// __[textAlign]__ Tipo de alinhamento do texto
+  ///
+  static AppTextComponent bold_36({
     required String text,
     TextAlign? textAlign,
     EdgeInsets? margin,

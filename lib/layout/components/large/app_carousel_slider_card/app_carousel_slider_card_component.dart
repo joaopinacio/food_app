@@ -8,6 +8,8 @@ import 'package:food_app/layout/styles/small/app_text/app_text_styles.dart';
 class AppCarouselSliderCardComponent extends StatelessWidget with Component {
   /// ## AppCarouselSliderCardComponent
   ///
+  /// __[behaviour]__ Comportamento do Componente
+  ///
   /// __[logoImage]__ Imagem da logo a ser mostrada
   ///
   /// __[primaryImage]__ Imagem principal do card
@@ -18,12 +20,12 @@ class AppCarouselSliderCardComponent extends StatelessWidget with Component {
   ///
   /// __[onTap]__ Clique do card
   ///
+  final Behaviour behaviour;
   final String logoImage;
   final String primaryImage;
   final String title;
   final Color mainColor;
   final Function() onTap;
-  final Behaviour behaviour;
 
   const AppCarouselSliderCardComponent({
     Key? key,
@@ -48,9 +50,12 @@ class AppCarouselSliderCardComponent extends StatelessWidget with Component {
           children: [
             Padding(
               padding: EdgeInsets.only(bottom: 30.h),
-              child: Image.asset(
-                logoImage,
-                scale: 6.sp,
+              child: Hero(
+                tag: title,
+                child: Image.asset(
+                  logoImage,
+                  scale: 6.sp,
+                ),
               ),
             ),
             Expanded(
@@ -72,12 +77,9 @@ class AppCarouselSliderCardComponent extends StatelessWidget with Component {
                           decoration:
                               BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20.r)), color: mainColor),
                           alignment: Alignment.center,
-                          child: Hero(
-                            tag: title,
-                            child: Image.asset(
-                              primaryImage,
-                              scale: 7.sp,
-                            ),
+                          child: Image.asset(
+                            primaryImage,
+                            scale: 7.sp,
                           ),
                         ),
                       ),

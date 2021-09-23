@@ -17,6 +17,9 @@ class AppTextComponent extends StatelessWidget {
   /// __[overflow]__ Tipo de soprepor texto dependendo do espaço livre
   ///
   /// __[textAlign]__ Tipo de Alinhamento do texto a ser exibido
+  ///
+  /// __[lineThrough]__ Linha passando por cima do texto (cortando)
+  ///
 
   final String text;
   final TextStyle? textStyle;
@@ -25,6 +28,7 @@ class AppTextComponent extends StatelessWidget {
   final int? maxLines;
   final TextOverflow? overflow;
   final TextAlign? textAlign;
+  final bool? lineThrough;
 
   const AppTextComponent({
     Key? key,
@@ -35,6 +39,7 @@ class AppTextComponent extends StatelessWidget {
     this.color,
     this.overflow,
     this.textAlign,
+    this.lineThrough = false,
   }) : super(key: key);
 
   @override
@@ -43,8 +48,14 @@ class AppTextComponent extends StatelessWidget {
       margin: margin ?? EdgeInsets.zero,
       child: Text(
         text,
-        style: textStyle?.copyWith(color: AppThemes.colors.black) ??
-            TextStyle(color: AppThemes.colors.black),
+        style: textStyle?.copyWith(
+              color: color ?? AppThemes.colors.black,
+              decoration: lineThrough! ? TextDecoration.lineThrough : TextDecoration.none,
+            ) ??
+            TextStyle(
+              color: color ?? AppThemes.colors.black,
+              decoration: lineThrough! ? TextDecoration.lineThrough : TextDecoration.none,
+            ),
         maxLines: maxLines,
         overflow: overflow,
         textAlign: textAlign,

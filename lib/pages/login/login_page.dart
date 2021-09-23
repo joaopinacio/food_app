@@ -50,7 +50,7 @@ class LoginPage extends GetView<LoginPageController> {
                           from: 50,
                           manualTrigger: true,
                           controller: (controllerAnim) => controller.firstTitleAnimInit(controllerAnim),
-                          child: AppTextStyles.bold(
+                          child: AppTextStyles.bold_36(
                             text: 'Hey,',
                             textAlign: TextAlign.left,
                             margin: EdgeInsets.only(right: 170.w),
@@ -61,7 +61,7 @@ class LoginPage extends GetView<LoginPageController> {
                           from: 50,
                           manualTrigger: true,
                           controller: (controllerAnim) => controller.secondTitleAnimInit(controllerAnim),
-                          child: AppTextStyles.bold(
+                          child: AppTextStyles.bold_36(
                             text: 'Sign In.',
                             textAlign: TextAlign.left,
                             margin: EdgeInsets.only(left: 50.w, right: 170.w),
