@@ -98,6 +98,7 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                               crossAxisCount: 2,
                               childAspectRatio: 0.43.h,
                               shrinkWrap: true,
+                              // listProducts.map((item) { }).toList(),
                               children: [
                                 AppRestaurantMenuProductCardStyles.standard(behaviour: Behaviour.regular),
                                 AppRestaurantMenuProductCardStyles.standard(behaviour: Behaviour.regular),
