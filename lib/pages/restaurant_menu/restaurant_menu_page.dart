@@ -22,9 +22,26 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
           opacity: 1,
           child: FloatingActionButton(
             backgroundColor: controller.mainColor,
-            child: Icon(
-              Icons.shopping_cart_outlined,
-              color: controller.cartIconColor,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Icon(
+                  Icons.shopping_cart_outlined,
+                  color: controller.cartIconColor,
+                ),
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Container(
+                    width: 15.w,
+                    height: 15.h,
+                    decoration: BoxDecoration(
+                      color: AppThemes.colors.generalRed,
+                      borderRadius: BorderRadius.all(Radius.circular(50.r)),
+                    ),
+                    child: Center(child: AppTextStyles.medium_10(text: '1', color: AppThemes.colors.white)),
+                  ),
+                )
+              ],
             ),
             onPressed: () {},
           ),
