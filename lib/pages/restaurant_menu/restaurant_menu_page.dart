@@ -15,14 +15,17 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
-        backgroundColor: AppThemes.colors.black,
+        backgroundColor: controller.mainColor,
         floatingActionButton: AnimatedOpacity(
           duration: Duration(milliseconds: 500),
           curve: Curves.ease,
           opacity: 1,
           child: FloatingActionButton(
             backgroundColor: controller.mainColor,
-            child: Icon(Icons.shopping_cart_outlined),
+            child: Icon(
+              Icons.shopping_cart_outlined,
+              color: controller.cartIconColor,
+            ),
             onPressed: () {},
           ),
         ),

@@ -12,6 +12,7 @@ mixin RestaurantMenuAnimations on GetxController {
   var mainContainerHeight = 550.0.obs;
   var mainContainerBorder = BorderRadius.only(topLeft: Radius.circular(40.r), topRight: Radius.circular(40.r)).obs;
   var mainImageOpacity = 1.0.obs;
+  var cartIconColor = AppThemes.colors.white;
 
   double get getMainContainerHeight => mainContainerHeight.value;
   BorderRadius get getMainContainerBorder => mainContainerBorder.value;
@@ -52,9 +53,11 @@ mixin RestaurantMenuAnimations on GetxController {
     if (luminance < 0.5) {
       appBarIconsColorController.reverse();
       mainAppBarIconsColor = AppThemes.colors.white;
+      cartIconColor = AppThemes.colors.white;
     } else {
       appBarIconsColorController.forward();
       mainAppBarIconsColor = AppThemes.colors.black;
+      cartIconColor = AppThemes.colors.black;
     }
   }
 }
