@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AppUtil {
@@ -18,5 +19,9 @@ class AppUtil {
       return 'this_field_must_be_informed'.tr;
     }
     return null;
+  }
+
+  static double checkLuminanceColor(Color color) {
+    return color.computeLuminance();
   }
 }

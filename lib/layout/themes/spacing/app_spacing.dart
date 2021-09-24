@@ -15,6 +15,8 @@ class AppSpacing {
   double get spacer_24 => 24;
   double get spacer_32 => 32;
   double get spacer_34 => 34;
+  double get spacer_36 => 36;
+  double get spacer_38 => 38;
   double get spacer_48 => 48;
   double get spacer_54 => 54;
   double get spacer_64 => 64;
@@ -39,6 +41,8 @@ class AppSpacing {
         {'spacer_24': spacer_24},
         {'spacer_32': spacer_32},
         {'spacer_34': spacer_34},
+        {'spacer_36': spacer_36},
+        {'spacer_38': spacer_38},
         {'spacer_48': spacer_48},
         {'spacer_54': spacer_54},
         {'spacer_64': spacer_64},

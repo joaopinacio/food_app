@@ -14,6 +14,7 @@ class AppColors {
 
   Color get generalRed => Color(0xffF02B3C);
   Color get generalBlue => Color(0xff1EB4F4);
+  Color get generalGreen => Color(0xFF1ED760);
 
   List<Map<String, Color>> get namedColors => [
         {'black': black},
@@ -22,5 +23,6 @@ class AppColors {
         {'grayScale_1': grayScale_1},
         {'generalRed': generalRed},
         {'generalBlue': generalBlue},
+        {'generalGreen': generalGreen},
       ];
 }
