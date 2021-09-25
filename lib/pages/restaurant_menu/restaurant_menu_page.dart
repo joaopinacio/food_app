@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_app/core/classes/behaviour.dart';
 import 'package:food_app/layout/app_layout_imports.dart';
 import 'package:food_app/layout/styles/medium/app_bar/app_bar_styles.dart';
+import 'package:food_app/layout/styles/medium/app_modal_bottom_sheet/app_modal_bottom_sheet_styles.dart';
 import 'package:food_app/layout/styles/medium/app_restaurant_menu_product_card/app_restaurant_menu_product_card_styles.dart';
 import 'package:food_app/layout/styles/medium/app_restaurant_menu_type_card/app_restaurant_menu_type_card_styles.dart';
 import 'package:food_app/layout/styles/small/app_text/app_text_styles.dart';
@@ -139,6 +140,9 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                                         'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
                                     price: '14,99',
                                     oldPrice: '25,99',
+                                    onTap: () {
+                                      AppModalBottomSheetStyles.standard(title: 'a');
+                                    },
                                   ),
                                   AppRestaurantMenuProductCardStyles.standard(
                                     behaviour: Behaviour.regular,
@@ -146,6 +150,7 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                                     description:
                                         'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
                                     price: '14,99',
+                                    onTap: () {},
                                   ),
                                   AppRestaurantMenuProductCardStyles.standard(
                                     behaviour: Behaviour.regular,
@@ -153,6 +158,7 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                                     description:
                                         'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
                                     price: '14,99',
+                                    onTap: () {},
                                   ),
                                   AppRestaurantMenuProductCardStyles.standard(
                                     behaviour: Behaviour.regular,
@@ -160,6 +166,7 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                                     description:
                                         'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
                                     price: '14,99',
+                                    onTap: () {},
                                   ),
                                   AppRestaurantMenuProductCardStyles.standard(
                                     behaviour: Behaviour.regular,
@@ -167,6 +174,7 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                                     description:
                                         'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
                                     price: '14,99',
+                                    onTap: () {},
                                   ),
                                   AppRestaurantMenuProductCardStyles.standard(
                                     behaviour: Behaviour.regular,
@@ -174,6 +182,7 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                                     description:
                                         'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
                                     price: '14,99',
+                                    onTap: () {},
                                   ),
                                 ],
                               ),

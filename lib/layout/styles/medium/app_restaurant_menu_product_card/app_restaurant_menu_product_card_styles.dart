@@ -25,6 +25,7 @@ class AppRestaurantMenuProductCardStyles {
     required String description,
     required String price,
     String? oldPrice,
+    required Function() onTap,
   }) =>
       AppRestaurantMenuProductCardComponent(
         behaviour: behaviour,
@@ -33,5 +34,6 @@ class AppRestaurantMenuProductCardStyles {
         description: description,
         price: price,
         oldPrice: oldPrice,
+        onTap: onTap,
       );
 }
