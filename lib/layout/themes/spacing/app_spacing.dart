@@ -3,6 +3,7 @@ class AppSpacing {
   double get spacer_2 => 2;
   double get spacer_3 => 3;
   double get spacer_4 => 4;
+  double get spacer_5 => 5;
   double get spacer_6 => 6;
   double get spacer_8 => 8;
   double get spacer_10 => 10;
@@ -29,6 +30,7 @@ class AppSpacing {
         {'spacer_2': spacer_2},
         {'spacer_3': spacer_3},
         {'spacer_4': spacer_4},
+        {'spacer_5': spacer_5},
         {'spacer_6': spacer_6},
         {'spacer_8': spacer_8},
         {'spacer_10': spacer_10},

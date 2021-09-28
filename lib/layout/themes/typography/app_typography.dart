@@ -87,9 +87,33 @@ class AppTypography {
         fontFamily: 'Poppins',
       );
 
+  TextStyle get poppinsSemiBold_18 => TextStyle(
+        fontSize: 18.sp,
+        fontWeight: FontWeight.w600,
+        color: AppThemes.colors.black,
+        letterSpacing: _letterSpacing,
+        fontFamily: 'Poppins',
+      );
+
   // Medium
   TextStyle get poppinsMedium_10 => TextStyle(
         fontSize: 10.sp,
+        fontWeight: FontWeight.w500,
+        color: AppThemes.colors.black,
+        letterSpacing: _letterSpacing,
+        fontFamily: 'Poppins',
+      );
+
+  TextStyle get poppinsMedium_14 => TextStyle(
+        fontSize: 14.sp,
+        fontWeight: FontWeight.w500,
+        color: AppThemes.colors.black,
+        letterSpacing: _letterSpacing,
+        fontFamily: 'Poppins',
+      );
+
+  TextStyle get poppinsMedium_16 => TextStyle(
+        fontSize: 16.sp,
         fontWeight: FontWeight.w500,
         color: AppThemes.colors.black,
         letterSpacing: _letterSpacing,

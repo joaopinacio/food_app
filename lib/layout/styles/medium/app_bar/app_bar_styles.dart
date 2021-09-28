@@ -49,10 +49,12 @@ class AppBarStyles {
     Color? iconsColor,
   }) =>
       AppBarComponent(
-        title: Padding(
-          padding: EdgeInsets.only(left: 24.w),
-          child: GestureDetector(
-            onTap: onTapLeft,
+        title: InkWell(
+          highlightColor: Colors.transparent,
+          splashColor: Colors.transparent,
+          onTap: onTapLeft,
+          child: Padding(
+            padding: EdgeInsets.only(left: 24.w, top: 10.h, right: 24.w, bottom: 10.h),
             child: Icon(
               leftIcon,
               size: 24.sp,
@@ -61,10 +63,12 @@ class AppBarStyles {
           ),
         ),
         actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 24.w),
-            child: GestureDetector(
-              onTap: onTapRight,
+          InkWell(
+            highlightColor: Colors.transparent,
+            splashColor: Colors.transparent,
+            onTap: onTapRight,
+            child: Padding(
+              padding: EdgeInsets.only(left: 24.w, top: 10.h, right: 24.w, bottom: 10.h),
               child: Icon(
                 rightIcon,
                 size: 24.sp,
@@ -89,10 +93,12 @@ class AppBarStyles {
     Color? iconsColor,
   }) =>
       AppBarComponent(
-        title: Padding(
-          padding: EdgeInsets.only(left: 24.w),
-          child: GestureDetector(
-            onTap: onTapReturn,
+        title: InkWell(
+          highlightColor: Colors.transparent,
+          splashColor: Colors.transparent,
+          onTap: onTapReturn,
+          child: Padding(
+            padding: EdgeInsets.only(left: 24.w, top: 10.h, right: 24.w, bottom: 10.h),
             child: Icon(
               Icons.arrow_back_ios_new_rounded,
               size: 24.sp,
@@ -101,10 +107,12 @@ class AppBarStyles {
           ),
         ),
         actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 24.w),
-            child: GestureDetector(
-              onTap: onTapSearch,
+          InkWell(
+            highlightColor: Colors.transparent,
+            splashColor: Colors.transparent,
+            onTap: onTapSearch,
+            child: Padding(
+              padding: EdgeInsets.only(left: 24.w, top: 10.h, right: 24.w, bottom: 10.h),
               child: Icon(
                 Icons.search,
                 size: 24.sp,

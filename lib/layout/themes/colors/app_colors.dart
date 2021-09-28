@@ -12,6 +12,7 @@ class AppColors {
 
   Color get grayScale_1 => Color(0xffF2F2F2);
   Color get grayScale_2 => Color(0xffD8D8D8);
+  Color get grayScale_3 => Color(0xffF5F5F5);
 
   Color get generalRed => Color(0xffF02B3C);
   Color get generalBlue => Color(0xff1EB4F4);

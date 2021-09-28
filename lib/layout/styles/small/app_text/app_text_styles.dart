@@ -89,6 +89,30 @@ class AppTextStyles {
   ///
   /// __[textAlign]__ Tipo de alinhamento do texto
   ///
+  static AppTextComponent regular_12({
+    required String text,
+    TextAlign? textAlign,
+    EdgeInsets? margin,
+    Color? color,
+    int? maxLines,
+    TextOverflow? overflow,
+  }) =>
+      AppTextComponent(
+        text: text,
+        textStyle: AppThemes.typography.poppinsRegular_12,
+        textAlign: textAlign,
+        margin: margin,
+        color: color,
+        maxLines: maxLines,
+        overflow: overflow,
+      );
+
+  /// ## AppTextStyles regular_14
+  ///
+  /// __[text]__ Texto a ser exibido
+  ///
+  /// __[textAlign]__ Tipo de alinhamento do texto
+  ///
   static AppTextComponent regular_14({
     required String text,
     TextAlign? textAlign,
@@ -99,6 +123,30 @@ class AppTextStyles {
         textStyle: AppThemes.typography.poppinsRegular_14,
         textAlign: textAlign,
         margin: margin,
+      );
+
+  /// ## AppTextStyles medium_16
+  ///
+  /// __[text]__ Texto a ser exibido
+  ///
+  /// __[textAlign]__ Tipo de alinhamento do texto
+  ///
+  static AppTextComponent medium_16({
+    required String text,
+    TextAlign? textAlign,
+    EdgeInsets? margin,
+    Color? color,
+    int? maxLines,
+    TextOverflow? overflow,
+  }) =>
+      AppTextComponent(
+        text: text,
+        textStyle: AppThemes.typography.poppinsMedium_16,
+        textAlign: textAlign,
+        margin: margin,
+        color: color,
+        maxLines: maxLines,
+        overflow: overflow,
       );
 
   /// ## AppTextStyles medium_10
@@ -123,6 +171,50 @@ class AppTextStyles {
         color: color,
         maxLines: maxLines,
         overflow: overflow,
+      );
+
+  /// ## AppTextStyles medium_14
+  ///
+  /// __[text]__ Texto a ser exibido
+  ///
+  /// __[textAlign]__ Tipo de alinhamento do texto
+  ///
+  static AppTextComponent medium_14({
+    required String text,
+    TextAlign? textAlign,
+    EdgeInsets? margin,
+    Color? color,
+    int? maxLines,
+    TextOverflow? overflow,
+  }) =>
+      AppTextComponent(
+        text: text,
+        textStyle: AppThemes.typography.poppinsMedium_14,
+        textAlign: textAlign,
+        margin: margin,
+        color: color,
+        maxLines: maxLines,
+        overflow: overflow,
+      );
+
+  /// ## AppTextStyles semiBold_14
+  ///
+  /// __[text]__ Texto a ser exibido
+  ///
+  /// __[textAlign]__ Tipo de alinhamento do texto
+  ///
+  static AppTextComponent semiBold_18({
+    required String text,
+    TextAlign? textAlign,
+    EdgeInsets? margin,
+    Color? color,
+  }) =>
+      AppTextComponent(
+        text: text,
+        textStyle: AppThemes.typography.poppinsSemiBold_18,
+        textAlign: textAlign,
+        margin: margin,
+        color: color,
       );
 
   /// ## AppTextStyles semiBold_14

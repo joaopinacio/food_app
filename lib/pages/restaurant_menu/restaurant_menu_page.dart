@@ -7,6 +7,7 @@ import 'package:food_app/layout/styles/medium/app_modal_bottom_sheet/app_modal_b
 import 'package:food_app/layout/styles/medium/app_restaurant_menu_product_card/app_restaurant_menu_product_card_styles.dart';
 import 'package:food_app/layout/styles/medium/app_restaurant_menu_type_card/app_restaurant_menu_type_card_styles.dart';
 import 'package:food_app/layout/styles/small/app_text/app_text_styles.dart';
+import 'package:food_app/layout/themes/app_themes.dart';
 import 'package:get/get.dart';
 
 import 'restaurant_menu_page_controller.dart';
@@ -141,7 +142,15 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                                     price: '14,99',
                                     oldPrice: '25,99',
                                     onTap: () {
-                                      AppModalBottomSheetStyles.standard(title: 'a');
+                                      AppModalBottomSheetStyles.product(
+                                        title: 'Food One',
+                                        price: '15,99',
+                                        description:
+                                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum viverra,  sit amet, consectetur adipiscing elit. Lorem ipsum dolor, consec',
+                                        onSave: () {},
+                                        colorQty: controller.mainColor,
+                                        colorQtyIcons: controller.cartIconColor,
+                                      );
                                     },
                                   ),
                                   AppRestaurantMenuProductCardStyles.standard(
