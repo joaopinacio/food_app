@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_app/core/classes/behaviour.dart';
 import 'package:food_app/core/classes/component.dart';
 import 'package:food_app/layout/app_layout_imports.dart';
-import 'package:food_app/layout/components/small/app_text/app_text_component.dart';
 import 'package:food_app/layout/styles/small/app_text/app_text_styles.dart';
 import 'package:food_app/layout/themes/app_themes.dart';
 import 'package:holding_gesture/holding_gesture.dart';

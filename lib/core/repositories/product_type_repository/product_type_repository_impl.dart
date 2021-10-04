@@ -1,6 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:food_app/core/models/image_model/image_model.dart';
-import 'package:food_app/core/models/product_model/product_model.dart';
 import 'package:food_app/core/models/product_type_model/product_type_model.dart';
 
 import 'product_type_repository_interface.dart';

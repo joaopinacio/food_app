@@ -1,4 +1,6 @@
 import 'package:food_app/core/router/restaurant_menu_pages.dart';
+import 'package:food_app/pages/aux_pages/camera/camera_page.dart';
+import 'package:food_app/pages/aux_pages/camera/camera_page_bindings.dart';
 import 'package:food_app/pages/home/home_page.dart';
 import 'package:food_app/pages/home/home_page_bindings.dart';
 import 'package:food_app/pages/login/login_page.dart';
@@ -15,6 +17,7 @@ class AppPages with RestaurantMenuPages {
   final splash = '/splash';
   final login = '/login';
   final home = '/home';
+  final camera = '/camera';
 
   get splashPage => GetPage(
         name: splash,
@@ -38,10 +41,18 @@ class AppPages with RestaurantMenuPages {
         transition: Transition.noTransition,
       );
 
+  get cameraPage => GetPage(
+        name: camera,
+        page: () => CameraPage(),
+        binding: CameraPageBindings(),
+        transition: Transition.cupertino,
+      );
+
   List<GetPage<dynamic>>? get getPagesList => [
         splashPage,
         loginPage,
         homePage,
+        cameraPage,
         ...getRestaurantMenuPagesList,
       ];
 }

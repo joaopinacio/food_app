@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_app/layout/app_layout_imports.dart';
 import 'package:food_app/layout/components/medium/app_bar/app_bar_component.dart';
+import 'package:food_app/layout/styles/small/app_text/app_text_styles.dart';
 
 class AppBarStyles {
   AppBarStyles._();
@@ -121,5 +122,38 @@ class AppBarStyles {
             ),
           ),
         ],
+      );
+
+  /// ## AppBarStyles.onlyTitleAndBack
+  ///
+  /// __[title]__ Titulo da Pagina
+  ///
+  /// __[onTapReturn]__ Function Tap para voltar a pagina
+  ///
+  static AppBarComponent onlyTitleAndBack({
+    required String title,
+    required Function() onTapBack,
+  }) =>
+      AppBarComponent(
+        title: Row(
+          children: [
+            InkWell(
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
+              onTap: onTapBack,
+              child: Padding(
+                padding: EdgeInsets.only(left: 24.w, top: 10.h, right: 24.w, bottom: 10.h),
+                child: Icon(
+                  Icons.arrow_back_ios_new_rounded,
+                  size: 24.sp,
+                  color: AppThemes.colors.black,
+                ),
+              ),
+            ),
+            AppTextStyles.bold_24(
+              text: title,
+            ),
+          ],
+        ),
       );
 }
