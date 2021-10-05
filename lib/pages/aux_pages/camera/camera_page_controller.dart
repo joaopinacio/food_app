@@ -12,7 +12,7 @@ import 'package:mime/mime.dart';
 
 class CameraPageController extends GetxController {
   CameraPageController() {
-    image = Get.arguments['data'];
+    image = Get.arguments['data'] ?? ImageModel.init();
     initCamera();
   }
 
@@ -42,31 +42,55 @@ class CameraPageController extends GetxController {
 
   Future<void> loadImage() async {
     try {
-      PickedFile? file;
-      file = await picker.getImage(source: ImageSource.gallery);
+      XFile? file;
+      file = await picker.pickImage(source: ImageSource.gallery);
       editImage(file!.path);
     } catch (e) {
       print('🟥 Error Load Galery ${e.toString()}');
     }
   }
 
-  Future<bool> onWillPop() async {
-    await pop();
-    return false;
-  }
-
   Future<void> loadCamera() async {
     try {
-      PickedFile? file;
-      file = await picker.getImage(source: ImageSource.camera);
+      XFile? file;
+      file = await picker.pickImage(source: ImageSource.camera);
       editImage(file!.path);
     } catch (e) {
       print('🟥 Error Load Camera ${e.toString()}');
     }
   }
 
+  Future<void> editImage(String path) async {
+    final File? file = new File(path);
+    // final File? croppedFile = await ImageCropper.cropImage(
+    //     sourcePath: path,
+    //     aspectRatio: CropAspectRatio(ratioX: 1.0, ratioY: 1.0),
+    //     androidUiSettings: AndroidUiSettings(
+    //       toolbarTitle: 'edit_image'.tr,
+    //       toolbarColor: AppThemes.colors.white,
+    //       toolbarWidgetColor: AppThemes.colors.black,
+    //     ),
+    //     iosUiSettings: IOSUiSettings(
+    //       title: 'edit_image'.tr,
+    //       cancelButtonTitle: 'cancel'.tr,
+    //       doneButtonTitle: 'conclude'.tr,
+    //     ));
+    if (file != null) {
+      onImageSelected(file);
+    }
+  }
+
+  onImageSelected(File file) async {
+    imagePath.value = file.path;
+    if (imagePath.value.isNotEmpty) {
+      imageBase64 = (await convertImageInBase64(getImagePath));
+      hashMD5.value = (await applyHashMD5(imageBase64!.trim()))!;
+      _addImageModel();
+    }
+  }
+
   _addImageModel() {
-    image = ImageModel();
+    image = ImageModel.init();
     image!.base64 = imageBase64;
     image!.hashMd5 = getHashMD5;
     image!.mimeImage = mimeImage;
@@ -128,32 +152,9 @@ class CameraPageController extends GetxController {
     Get.back(result: image);
   }
 
-  Future<void> editImage(String path) async {
-    final File? croppedFile = await ImageCropper.cropImage(
-        sourcePath: path,
-        aspectRatio: CropAspectRatio(ratioX: 1.0, ratioY: 1.0),
-        androidUiSettings: AndroidUiSettings(
-          toolbarTitle: 'edit_image'.tr,
-          toolbarColor: AppThemes.colors.white,
-          toolbarWidgetColor: AppThemes.colors.black,
-        ),
-        iosUiSettings: IOSUiSettings(
-          title: 'edit_image'.tr,
-          cancelButtonTitle: 'cancel'.tr,
-          doneButtonTitle: 'conclude'.tr,
-        ));
-    if (croppedFile != null) {
-      onImageSelected(croppedFile);
-    }
-  }
-
-  onImageSelected(File file) async {
-    imagePath.value = file.path;
-    if (imagePath.value.isNotEmpty) {
-      imageBase64 = (await convertImageInBase64(getImagePath));
-      hashMD5.value = (await applyHashMD5(imageBase64!.trim()))!;
-      _addImageModel();
-    }
+  Future<bool> onWillPop() async {
+    await pop();
+    return false;
   }
 
   @override

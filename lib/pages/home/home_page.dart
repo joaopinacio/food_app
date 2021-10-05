@@ -23,7 +23,7 @@ class HomePage extends GetView<HomePageController> {
             leftIcon: AppThemes.icons.menu,
             onTapRight: () {},
             rightIcon: Icons.search,
-            onTapLeft: () {},
+            onTapLeft: controller.goToCameraPage,
             iconsColor: controller.appBarIconsColorAnim.value,
           ),
           floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

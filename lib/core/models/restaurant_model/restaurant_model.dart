@@ -42,7 +42,7 @@ class RestaurantModel extends RestaurantEntity {
       logo: json['logo'] ?? ImageModel.init(),
       primaryImage: json['primaryImage'] ?? ImageModel.init(),
       rate: json['rate'] ?? 0.0,
-      listProducts: json['rate'] ?? <ProductModel>[],
+      listProducts: json['listProducts'] ?? <ProductModel>[],
     );
   }
 

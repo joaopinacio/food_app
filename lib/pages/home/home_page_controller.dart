@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app/core/classes/behaviour.dart';
+import 'package:food_app/core/models/image_model/image_model.dart';
 import 'package:food_app/core/models/restaurant_model/restaurant_model.dart';
 import 'package:food_app/core/repositories/restaurant_repository/restaurant_repository_interface.dart';
 import 'package:food_app/core/router/app_pages.dart';
@@ -84,6 +85,10 @@ class HomePageController extends GetxController with SingleGetTickerProviderMixi
 
   goToRestaurantMenu() {
     Get.toNamed(_appPages.restaurantMenu);
+  }
+
+  goToCameraPage() async {
+    ImageModel result = await Get.toNamed(_appPages.camera, arguments: {'data': null});
   }
 
   @override
