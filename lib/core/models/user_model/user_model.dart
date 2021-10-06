@@ -5,11 +5,15 @@ class UserModel extends UserEntity {
     required String uid,
     required String email,
     required String password,
+    required String firstName,
+    required String lastName,
     required String userType,
   }) : super(
           uid: uid,
           email: email,
           password: password,
+          firstName: firstName,
+          lastName: lastName,
           userType: userType,
         );
 
@@ -18,6 +22,8 @@ class UserModel extends UserEntity {
       uid: '',
       email: '',
       password: '',
+      firstName: '',
+      lastName: '',
       userType: '',
     );
   }
@@ -27,6 +33,8 @@ class UserModel extends UserEntity {
       uid: json['uid'] ?? null,
       email: json['email'] ?? null,
       password: json['password'] ?? null,
+      firstName: json['firstName'] ?? null,
+      lastName: json['lastName'] ?? null,
       userType: json['userType'] ?? null,
     );
   }
@@ -36,6 +44,8 @@ class UserModel extends UserEntity {
       'uid': uid,
       'email': email,
       'password': password,
+      'firstName': firstName,
+      'lastName': lastName,
       'userType': userType,
     };
   }

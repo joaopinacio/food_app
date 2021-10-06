@@ -125,6 +125,54 @@ class AppTextStyles {
         margin: margin,
       );
 
+  /// ## AppTextStyles regular_18
+  ///
+  /// __[text]__ Texto a ser exibido
+  ///
+  /// __[textAlign]__ Tipo de alinhamento do texto
+  ///
+  static AppTextComponent regular_16({
+    required String text,
+    TextAlign? textAlign,
+    EdgeInsets? margin,
+    Color? color,
+    int? maxLines,
+    TextOverflow? overflow,
+  }) =>
+      AppTextComponent(
+        text: text,
+        textStyle: AppThemes.typography.poppinsRegular_16,
+        textAlign: textAlign,
+        margin: margin,
+        color: color,
+        maxLines: maxLines,
+        overflow: overflow,
+      );
+
+  /// ## AppTextStyles regular_18
+  ///
+  /// __[text]__ Texto a ser exibido
+  ///
+  /// __[textAlign]__ Tipo de alinhamento do texto
+  ///
+  static AppTextComponent regular_18({
+    required String text,
+    TextAlign? textAlign,
+    EdgeInsets? margin,
+    Color? color,
+    int? maxLines,
+    TextOverflow? overflow,
+  }) =>
+      AppTextComponent(
+        text: text,
+        textStyle: AppThemes.typography.poppinsRegular_18,
+        textAlign: textAlign,
+        margin: margin,
+        color: color,
+        maxLines: maxLines,
+        overflow: overflow,
+      );
+
   /// ## AppTextStyles medium_16
   ///
   /// __[text]__ Texto a ser exibido

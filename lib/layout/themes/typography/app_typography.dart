@@ -121,14 +121,6 @@ class AppTypography {
       );
 
   // Regular
-  TextStyle get poppinsRegular_14 => TextStyle(
-        fontSize: 14.sp,
-        fontWeight: FontWeight.w400,
-        color: AppThemes.colors.black,
-        letterSpacing: _letterSpacing,
-        fontFamily: 'Poppins',
-      );
-
   TextStyle get poppinsRegular_12 => TextStyle(
         fontSize: 12.sp,
         fontWeight: FontWeight.w400,
@@ -137,8 +129,24 @@ class AppTypography {
         fontFamily: 'Poppins',
       );
 
+  TextStyle get poppinsRegular_14 => TextStyle(
+        fontSize: 14.sp,
+        fontWeight: FontWeight.w400,
+        color: AppThemes.colors.black,
+        letterSpacing: _letterSpacing,
+        fontFamily: 'Poppins',
+      );
+
   TextStyle get poppinsRegular_16 => TextStyle(
         fontSize: 16.sp,
+        fontWeight: FontWeight.w400,
+        color: AppThemes.colors.black,
+        letterSpacing: _letterSpacing,
+        fontFamily: 'Poppins',
+      );
+
+  TextStyle get poppinsRegular_18 => TextStyle(
+        fontSize: 18.sp,
         fontWeight: FontWeight.w400,
         color: AppThemes.colors.black,
         letterSpacing: _letterSpacing,

@@ -1,5 +1,6 @@
 import 'package:food_app/core/models/image_model/image_model.dart';
 import 'package:food_app/core/models/product_model/product_model.dart';
+import 'package:food_app/core/models/user_model/user_model.dart';
 
 import 'restaurant_entity.dart';
 
@@ -11,6 +12,7 @@ class RestaurantModel extends RestaurantEntity {
     required ImageModel logo,
     required ImageModel primaryImage,
     required num rate,
+    required UserModel user,
     List<ProductModel>? listProducts,
   }) : super(
           uid: uid,
@@ -19,6 +21,7 @@ class RestaurantModel extends RestaurantEntity {
           logo: logo,
           primaryImage: primaryImage,
           rate: rate,
+          user: user,
           listProducts: listProducts,
         );
 
@@ -30,6 +33,7 @@ class RestaurantModel extends RestaurantEntity {
       logo: ImageModel.init(),
       primaryImage: ImageModel.init(),
       rate: 0.0,
+      user: UserModel.init(),
       listProducts: <ProductModel>[],
     );
   }
@@ -42,6 +46,7 @@ class RestaurantModel extends RestaurantEntity {
       logo: json['logo'] ?? ImageModel.init(),
       primaryImage: json['primaryImage'] ?? ImageModel.init(),
       rate: json['rate'] ?? 0.0,
+      user: json['user'] ?? UserModel.init(),
       listProducts: json['listProducts'] ?? <ProductModel>[],
     );
   }
@@ -54,6 +59,7 @@ class RestaurantModel extends RestaurantEntity {
       'logo': logo,
       'primaryImage': primaryImage,
       'rate': rate,
+      'user': user,
       'listProducts': listProducts,
     };
   }

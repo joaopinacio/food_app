@@ -91,6 +91,7 @@ class AppTextButtonStyles {
     double? height,
     bool hasBounce = false,
     TextStyle? textStyle,
+    Color? color,
   }) =>
       AppTextButtonComponent(
         label: label ?? '',
@@ -99,7 +100,7 @@ class AppTextButtonStyles {
         width: width ?? 280,
         borderRadius: BorderRadius.all(Radius.circular(36.r)),
         textStyle: textStyle ?? AppThemes.typography.poppinsBold_18,
-        backgroundColor: AppThemes.colors.black,
+        backgroundColor: color ?? AppThemes.colors.black,
         showIconNext: showIconNext,
         padding: padding,
         margin: margin,

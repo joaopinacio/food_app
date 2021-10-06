@@ -125,12 +125,12 @@ class LoginPage extends GetView<LoginPageController> {
                           manualTrigger: true,
                           controller: (controllerAnim) => controller.signInAnimInit(controllerAnim),
                           child: AppTextButtonStyles.rounded(
-                            label: 'Sign In',
+                            label: 'sign_in'.tr,
                             onTap: controller.login,
                             hasBounce: true,
                           ),
                         ),
-                        SizedBox(height: AppThemes.spacing.spacer_48.h),
+                        SizedBox(height: AppThemes.spacing.spacer_54.h),
                         FadeInUp(
                           delay: Duration(milliseconds: 2600),
                           from: 50,
@@ -138,20 +138,21 @@ class LoginPage extends GetView<LoginPageController> {
                           controller: (controllerAnim) => controller.signUpAnimInit(controllerAnim),
                           child: RichText(
                             text: TextSpan(
-                              text: 'I\'m a new user. ',
-                              style: AppThemes.typography.poppinsRegular_16,
+                              text: '${'new_user'.tr} ',
+                              style: AppThemes.typography.poppinsRegular_14,
                               children: <TextSpan>[
                                 TextSpan(
-                                  text: 'Sign Up',
+                                  text: 'sign_up'.tr,
                                   style: TextStyle(
                                     color: AppThemes.colors.primaryColor,
                                   ),
-                                  recognizer: new TapGestureRecognizer()..onTap = () {},
+                                  recognizer: new TapGestureRecognizer()..onTap = controller.goToSignUpPage,
                                 ),
                               ],
                             ),
                           ),
                         ),
+                        SizedBox(height: AppThemes.spacing.spacer_64.h),
                       ],
                     ),
                   ),

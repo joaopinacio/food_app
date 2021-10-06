@@ -18,6 +18,8 @@ class AppColors {
   Color get generalBlue => Color(0xff1EB4F4);
   Color get generalGreen => Color(0xFF1ED760);
 
+  Color get generalRed_25 => Color(0xffF02B3C).withOpacity(0.25);
+
   List<Map<String, Color>> get namedColors => [
         {'black': black},
         {'white': white},

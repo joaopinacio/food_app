@@ -103,7 +103,7 @@ class CameraPageController extends GetxController {
     try {
       var bytes = utf8.encode(imageBase64);
       digest = md5.convert(bytes);
-      print('🟦 HASH MD5 ${digest.toString()}');
+      print('🟦 Hash MD5 ${digest.toString()}');
       return digest.toString();
     } catch (e) {
       print('🟥 Error MD5 ${e.toString()}');

@@ -46,16 +46,21 @@ class AuthControllerImpl implements IAuthController {
   }
 
   @override
-  Future<bool> signUp({required String email, required String password}) async {
+  Future<bool> signUp({required UserModel user}) async {
     try {
       var result;
-      var userModel = UserModel(uid: AppUuid.generateUuid(), email: email, password: password, userType: 'free_user');
-      var encryptedPassword = (md5.convert(utf8.encode('FIRESTORE${email.toLowerCase()}PASS$password'))).toString();
 
-      var firebaseUser = await _authRepository.signUp(email: email, password: encryptedPassword);
+      var encryptedPassword =
+          (md5.convert(utf8.encode('FIRESTORE${user.email.toLowerCase()}PASS${user.password}'))).toString();
+
+      user.uid = AppUuid.generateUuid();
+      user.password = encryptedPassword;
+      // userType: 'free_user'
+
+      var firebaseUser = await _authRepository.signUp(email: user.email, password: encryptedPassword);
 
       if (firebaseUser != null) {
-        result = await _userRepository.saveUser(data: userModel);
+        result = await _userRepository.saveUser(data: user);
       }
 
       print('🟩 AuthControllerImpl.signUp -> $result');

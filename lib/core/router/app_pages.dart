@@ -1,21 +1,25 @@
 import 'package:food_app/core/router/restaurant_menu_pages.dart';
+import 'package:food_app/core/router/sign_up_pages.dart';
 import 'package:food_app/pages/aux_pages/camera/camera_page.dart';
 import 'package:food_app/pages/aux_pages/camera/camera_page_bindings.dart';
 import 'package:food_app/pages/home/home_page.dart';
 import 'package:food_app/pages/home/home_page_bindings.dart';
 import 'package:food_app/pages/login/login_page.dart';
 import 'package:food_app/pages/login/login_page_bindings.dart';
+import 'package:food_app/pages/sign_up/sign_up_page.dart';
+import 'package:food_app/pages/sign_up/sign_up_page_bindings.dart';
 import 'package:food_app/pages/splash/splash_page.dart';
 import 'package:food_app/pages/splash/splash_page_bindings.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
-class AppPages with RestaurantMenuPages {
+class AppPages with RestaurantMenuPages, SignUpPages {
   AppPages._();
 
   static final AppPages instance = AppPages._();
 
   final splash = '/splash';
   final login = '/login';
+  final signUp = '/signUp';
   final home = '/home';
   final camera = '/camera';
 
@@ -32,6 +36,13 @@ class AppPages with RestaurantMenuPages {
         binding: LoginPageBindings(),
         transition: Transition.noTransition,
         transitionDuration: Duration(milliseconds: 1500),
+      );
+
+  get signUpPage => GetPage(
+        name: signUp,
+        page: () => SignUpPage(),
+        binding: SignUpPageBindings(),
+        transition: Transition.cupertino,
       );
 
   get homePage => GetPage(
@@ -51,8 +62,10 @@ class AppPages with RestaurantMenuPages {
   List<GetPage<dynamic>>? get getPagesList => [
         splashPage,
         loginPage,
+        signUpPage,
         homePage,
         cameraPage,
         ...getRestaurantMenuPagesList,
+        ...getSignUpPagesList,
       ];
 }

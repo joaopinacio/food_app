@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/core/auxiliary_widgets/app_loading.dart';
 import 'package:food_app/core/controllers/auth_controller/auth_controller.dart';
+import 'package:food_app/core/models/user_model/user_model.dart';
 import 'package:food_app/core/router/app_pages.dart';
 import 'package:food_app/core/utils/app_util.dart';
 import 'package:get/get.dart';
@@ -106,7 +107,15 @@ class LoginPageController extends GetxController with LoginAnimationsMixin {
   }
 
   signUpTest() {
-    _authController.signUp(email: loginController.text, password: passwordController.text);
+    var user = UserModel.init();
+    user.email = loginController.text;
+    user.password = passwordController.text;
+
+    _authController.signUp(user: user);
+  }
+
+  goToSignUpPage() {
+    Get.toNamed(_appPages.signUp);
   }
 
   // Teste de pegar todos os usuarios numa stream
