@@ -3,7 +3,7 @@ const Map<String, String> pt = {
   "password": "Senha",
   "forgot_password": "Esqueceu sua senha?",
   "this_field_must_be_informed": "Este campo deve ser informado.",
-  "wrong_email_format": "Formado de email incorreto.",
+  "wrong_email_format": "Formato de email incorreto.",
   "email_not_found": "Email não encontrado.",
   "wrong_password": "Senha incorreta.",
   "want_register_as": "Quero me registrar como um",
@@ -17,4 +17,9 @@ const Map<String, String> pt = {
   "first_name": "Nome",
   "last_name": "Sobrenome",
   "tell_us_your_name": "Ok! Primeiro, diga-nos o seu nome",
+  "tell_us_your_email": "Prazer em conhecê-lo, @first_name! Agora, você pode nos dizer seu e-mail?",
+  "choose_your_password": "Para terminar, escolha sua senha e você está pronto para usar o Jelo!",
+  "return": "Voltar",
+  "confirm_password": "Confirmar senha",
+  "passwords_do_not_match": "As senhas não são iguais.",
 };

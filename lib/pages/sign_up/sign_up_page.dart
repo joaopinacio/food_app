@@ -31,13 +31,13 @@ class SignUpPage extends GetView<SignUpPageController> {
               label: 'customer'.tr,
               hasBounce: true,
               color: AppThemes.colors.generalRed,
-              onTap: controller.goToStepOne,
+              onTap: controller.goToStepOneCustomer,
             ),
             SizedBox(height: AppThemes.spacing.spacer_16.h),
             AppTextButtonStyles.rounded(
               label: 'restaurant'.tr,
               hasBounce: true,
-              onTap: controller.goToStepOne,
+              onTap: controller.goToStepOneRestaurant,
             ),
             Spacer(),
             RichText(

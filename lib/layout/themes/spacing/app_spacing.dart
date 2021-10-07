@@ -29,6 +29,7 @@ class AppSpacing {
   double get spacer_98 => 98;
   double get spacer_104 => 104;
   double get spacer_128 => 128;
+  double get spacer_137 => 137;
 
   List<Map<String, double>> get namedSpacing => [
         {'spacer_1': spacer_1},
@@ -61,5 +62,6 @@ class AppSpacing {
         {'spacer_98': spacer_98},
         {'spacer_104': spacer_104},
         {'spacer_128': spacer_128},
+        {'spacer_137': spacer_137},
       ];
 }

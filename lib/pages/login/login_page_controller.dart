@@ -58,7 +58,7 @@ class LoginPageController extends GetxController with LoginAnimationsMixin {
       loginFocusNode.requestFocus();
       return getLoginErrorLabel;
     } else {
-      loginErrorLabel.value = AppUtil.emailValidator(email) ?? '';
+      loginErrorLabel.value = AppUtil.emailValidator(email);
       return getLoginErrorLabel == '' ? null : getLoginErrorLabel;
     }
   }

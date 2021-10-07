@@ -17,4 +17,9 @@ const Map<String, String> en = {
   "first_name": "First Name",
   "last_name": "Last Name",
   "tell_us_your_name": "Okay! First, tell us your name",
+  "tell_us_your_email": "Nice to meet you, @first_name! Now, can you tell us your email?",
+  "choose_your_password": "To finish, choose your password and you’re ready to use Jelo!",
+  "return": "Return",
+  "confirm_password": "Confirm password",
+  "passwords_do_not_match": "Passwords do not match.",
 };

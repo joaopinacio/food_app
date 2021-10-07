@@ -17,4 +17,9 @@ const Map<String, String> es = {
   "first_name": "Nombre",
   "last_name": "Apellido",
   "tell_us_your_name": "¡Okey! Primero, dinos tu nombre",
+  "tell_us_your_email": "¡Encantado de conocerte, @first_name! Ahora, ¿puedes decirnos tu correo electrónico?",
+  "choose_your_password": "Para finalizar, elija su contraseña y estará listo para usar Jelo.",
+  "return": "Vuelve",
+  "confirm_password": "Confirmar contraseña",
+  "passwords_do_not_match": "Las contraseñas no coinciden.",
 };

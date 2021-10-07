@@ -2,7 +2,9 @@ import 'package:food_app/layout/app_layout_imports.dart';
 import 'package:food_app/pages/sign_up/sign_up_page_controller.dart';
 import 'package:get/get.dart';
 
-class SignUpStepOnePageController extends GetxController {
+import 'mixins/sign_up_step_one/sign_up_step_one_animation_mixin.dart';
+
+class SignUpStepOnePageController extends GetxController with SignUpStepOneAnimationMixin {
   final SignUpPageController _signUpPageController;
 
   SignUpStepOnePageController({required SignUpPageController signUpPageController})
@@ -15,9 +17,7 @@ class SignUpStepOnePageController extends GetxController {
   var lastNameController = TextEditingController();
   var lastNameFocusNode = FocusNode();
 
-  var goTo = 0.0.obs;
-
-  double get getGoTo => goTo.value;
+  SignUpPageController get getSignUpPageController => _signUpPageController;
 
   String? validatorFirstName(String? value) {
     var text = value ?? '';
@@ -41,13 +41,18 @@ class SignUpStepOnePageController extends GetxController {
     }
   }
 
-  toStepTwo() {
+  toStepTwo() async {
     if (firstNameKey.currentState!.validate()) {
       if (lastNameKey.currentState!.validate()) {
-        goTo.value = 1;
+        _signUpPageController.goTo.value = 1;
         _signUpPageController.user.firstName = firstNameController.text;
         _signUpPageController.user.lastName = lastNameController.text;
-        // Get.toNamed(_signUpPageController.getAppPages.signUpStepTwo);
+
+        reverseAllAnimation();
+        await Future.delayed(Duration(milliseconds: 800), () async {
+          await Get.toNamed(_signUpPageController.getAppPages.signUpStepTwo);
+          forwardAllAnimation();
+        });
       }
     }
   }

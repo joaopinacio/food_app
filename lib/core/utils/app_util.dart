@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AppUtil {
-  static String? emailValidator(String email) {
+  static String emailValidator(String email) {
     final RegExp regex = RegExp(
         r"^(([^<>()[\]\\.,;:\s@\']+(\.[^<>()[\]\\.,;:\s@\']+)*)|(\'.+\'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$");
 
@@ -11,7 +11,7 @@ class AppUtil {
     } else if (!regex.hasMatch(email)) {
       return 'wrong_email_format'.tr;
     }
-    return null;
+    return '';
   }
 
   static String? passwordValidator(String password) {
