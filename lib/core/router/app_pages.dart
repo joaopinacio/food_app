@@ -6,6 +6,8 @@ import 'package:food_app/pages/home/home_page.dart';
 import 'package:food_app/pages/home/home_page_bindings.dart';
 import 'package:food_app/pages/login/login_page.dart';
 import 'package:food_app/pages/login/login_page_bindings.dart';
+import 'package:food_app/pages/restaurants/restaurants_page.dart';
+import 'package:food_app/pages/restaurants/restaurants_page_bindings.dart';
 import 'package:food_app/pages/sign_up/sign_up_page.dart';
 import 'package:food_app/pages/sign_up/sign_up_page_bindings.dart';
 import 'package:food_app/pages/splash/splash_page.dart';
@@ -21,6 +23,7 @@ class AppPages with RestaurantMenuPages, SignUpPages {
   final login = '/login';
   final signUp = '/signUp';
   final home = '/home';
+  final restaurants = '/restaurants';
   final camera = '/camera';
 
   get splashPage => GetPage(
@@ -52,6 +55,13 @@ class AppPages with RestaurantMenuPages, SignUpPages {
         transition: Transition.noTransition,
       );
 
+  get restaurantsPage => GetPage(
+        name: restaurants,
+        page: () => RestaurantsPage(),
+        binding: RestaurantsPageBindings(),
+        transition: Transition.noTransition,
+      );
+
   get cameraPage => GetPage(
         name: camera,
         page: () => CameraPage(),
@@ -65,6 +75,7 @@ class AppPages with RestaurantMenuPages, SignUpPages {
         signUpPage,
         homePage,
         cameraPage,
+        restaurantsPage,
         ...getRestaurantMenuPagesList,
         ...getSignUpPagesList,
       ];

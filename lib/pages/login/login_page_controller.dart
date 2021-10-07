@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_app/core/auxiliary_widgets/app_loading.dart';
 import 'package:food_app/core/controllers/auth_controller/auth_controller.dart';
 import 'package:food_app/core/models/user_model/user_model.dart';
+import 'package:food_app/core/repositories/user_repository/user_repository_interface.dart';
 import 'package:food_app/core/router/app_pages.dart';
 import 'package:food_app/core/utils/app_util.dart';
 import 'package:get/get.dart';
@@ -11,15 +12,15 @@ import 'mixins/login_animation_mixin.dart';
 class LoginPageController extends GetxController with LoginAnimationsMixin {
   final AppPages _appPages;
   final IAuthController _authController;
-  // final IUserRepository _userRepository;
+  final IUserRepository _userRepository;
 
   LoginPageController({
     required AppPages appPages,
     required IAuthController authController,
-    // required IUserRepository userRepository,
+    required IUserRepository userRepository,
   })  : _appPages = appPages,
-        _authController = authController {
-    // _userRepository = userRepository {
+        _authController = authController,
+        _userRepository = userRepository {
     init();
   }
 
@@ -83,12 +84,18 @@ class LoginPageController extends GetxController with LoginAnimationsMixin {
     } else {
       AppLoading.loading();
       var result = await _authController.signIn(email: loginController.text, password: passwordController.text);
-      Get.back();
 
       if (result.success!) {
-        // Get.toNamed(_appPages.home);
-        Get.offNamedUntil(_appPages.home, (route) => false);
+        var user = await _userRepository.getUser(email: loginController.text);
+        Get.back();
+
+        if (user!.userType == 'customer') {
+          Get.offAllNamed(_appPages.restaurants);
+        } else {
+          Get.offAllNamed(_appPages.home);
+        }
       } else {
+        Get.back();
         switch (result.errorType) {
           case 'user-not-found':
             loginErrorLabel.value = 'email_not_found'.tr;

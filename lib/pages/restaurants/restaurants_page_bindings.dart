@@ -3,9 +3,9 @@ import 'package:food_app/core/repositories/restaurant_repository/restaurant_repo
 import 'package:food_app/core/repositories/restaurant_repository/restaurant_repository_interface.dart';
 import 'package:get/get.dart';
 
-import 'home_page_controller.dart';
+import 'restaurants_page_controller.dart';
 
-class HomePageBindings implements CoreBindings {
+class RestaurantsPageBindings implements CoreBindings {
   @override
   void dependencies() {
     registerRepositories();
@@ -22,6 +22,6 @@ class HomePageBindings implements CoreBindings {
 
   @override
   void registerControllers() {
-    Get.lazyPut(() => HomePageController(), fenix: true);
+    Get.lazyPut(() => RestaurantsPageController(restaurantRepository: Get.find(), appPages: Get.find()), fenix: true);
   }
 }

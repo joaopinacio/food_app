@@ -42,6 +42,22 @@ class UserRepositoryImpl implements IUserRepository {
   }
 
   @override
+  Future<UserModel>? getUser({
+    required String email,
+  }) {
+    try {
+      return usersCollection.where('email', isEqualTo: email).get().then((snapshot) {
+        return snapshot.docs.map((doc) {
+          return UserModel.fromJson(doc.data());
+        }).toList()[0];
+      });
+    } catch (e) {
+      print('🟥 UserRepositoryImpl.getUser -> $e');
+      return null;
+    }
+  }
+
+  @override
   Future<bool>? deleteUser({
     required UserModel data,
   }) async {
