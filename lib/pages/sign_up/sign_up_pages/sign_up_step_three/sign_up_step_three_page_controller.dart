@@ -80,7 +80,7 @@ class SignUpStepThreePageController extends GetxController with SignUpStepThreeA
             Get.offAllNamed(_signUpPageController.getAppPages.home);
           } else {
             // TODO: Ir para cadastro de Restaurante
-            Get.offAllNamed(_signUpPageController.getAppPages.home);
+            Get.offAllNamed(_signUpPageController.getAppPages.restaurantAdd, arguments: {'fromSignUp': true});
           }
         }
       }
@@ -98,5 +98,14 @@ class SignUpStepThreePageController extends GetxController with SignUpStepThreeA
     Future.delayed(Duration(milliseconds: 800), () {
       Get.back();
     });
+  }
+
+  @override
+  void onClose() {
+    passwordController.dispose();
+    passwordFocusNode.dispose();
+    confirmPasswordController.dispose();
+    confirmPasswordFocusNode.dispose();
+    super.onClose();
   }
 }

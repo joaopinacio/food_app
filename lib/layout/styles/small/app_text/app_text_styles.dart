@@ -369,6 +369,28 @@ class AppTextStyles {
         overflow: overflow,
       );
 
+  /// ## AppTextStyles bold_20
+  ///
+  /// __[text]__ Texto a ser exibido
+  ///
+  /// __[textAlign]__ Tipo de alinhamento do texto
+  ///
+  static AppTextComponent bold_20({
+    required String text,
+    TextAlign? textAlign,
+    EdgeInsets? margin,
+    int? maxLines,
+    TextOverflow? overflow,
+  }) =>
+      AppTextComponent(
+        text: text,
+        textStyle: AppThemes.typography.poppinsBold_20,
+        textAlign: textAlign,
+        margin: margin,
+        maxLines: maxLines,
+        overflow: overflow,
+      );
+
   /// ## AppTextStyles bold_24
   ///
   /// __[text]__ Texto a ser exibido

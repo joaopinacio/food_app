@@ -30,6 +30,14 @@ class AppTypography {
         fontFamily: 'Poppins',
       );
 
+  TextStyle get poppinsBold_20 => TextStyle(
+        fontSize: 20.sp,
+        fontWeight: FontWeight.w700,
+        color: AppThemes.colors.black,
+        letterSpacing: _letterSpacing,
+        fontFamily: 'Poppins',
+      );
+
   TextStyle get poppinsBold_18 => TextStyle(
         fontSize: 18.sp,
         fontWeight: FontWeight.w700,

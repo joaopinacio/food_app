@@ -12,6 +12,7 @@ class RestaurantModel extends RestaurantEntity {
     required ImageModel logo,
     required ImageModel primaryImage,
     required num rate,
+    required String restaurantType,
     required UserModel user,
     List<ProductModel>? listProducts,
   }) : super(
@@ -21,6 +22,7 @@ class RestaurantModel extends RestaurantEntity {
           logo: logo,
           primaryImage: primaryImage,
           rate: rate,
+          restaurantType: restaurantType,
           user: user,
           listProducts: listProducts,
         );
@@ -33,6 +35,7 @@ class RestaurantModel extends RestaurantEntity {
       logo: ImageModel.init(),
       primaryImage: ImageModel.init(),
       rate: 0.0,
+      restaurantType: '',
       user: UserModel.init(),
       listProducts: <ProductModel>[],
     );
@@ -46,6 +49,7 @@ class RestaurantModel extends RestaurantEntity {
       logo: json['logo'] ?? ImageModel.init(),
       primaryImage: json['primaryImage'] ?? ImageModel.init(),
       rate: json['rate'] ?? 0.0,
+      restaurantType: json['restaurantType'] ?? '',
       user: json['user'] ?? UserModel.init(),
       listProducts: json['listProducts'] ?? <ProductModel>[],
     );
@@ -59,6 +63,7 @@ class RestaurantModel extends RestaurantEntity {
       'logo': logo,
       'primaryImage': primaryImage,
       'rate': rate,
+      'restaurantType': restaurantType,
       'user': user,
       'listProducts': listProducts,
     };

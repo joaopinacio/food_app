@@ -9,6 +9,7 @@ abstract class RestaurantEntity {
   ImageModel logo;
   ImageModel primaryImage;
   num rate;
+  String restaurantType;
   UserModel user;
   List<ProductModel>? listProducts;
 
@@ -19,6 +20,7 @@ abstract class RestaurantEntity {
     required this.logo,
     required this.primaryImage,
     required this.rate,
+    required this.restaurantType,
     required this.user,
     this.listProducts,
   });

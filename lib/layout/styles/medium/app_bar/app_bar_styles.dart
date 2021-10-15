@@ -150,7 +150,7 @@ class AppBarStyles {
                 ),
               ),
             ),
-            AppTextStyles.bold_24(
+            AppTextStyles.bold_20(
               text: title,
             ),
           ],

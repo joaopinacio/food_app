@@ -52,4 +52,11 @@ class SignUpStepTwoPageController extends GetxController with SignUpStepTwoAnima
       Get.back();
     });
   }
+
+  @override
+  void onClose() {
+    emailController.dispose();
+    emailFocusNode.dispose();
+    super.onClose();
+  }
 }

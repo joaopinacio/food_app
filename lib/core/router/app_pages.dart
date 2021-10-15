@@ -1,4 +1,5 @@
 import 'package:food_app/core/router/restaurant_menu_pages.dart';
+import 'package:food_app/core/router/restaurant_pages.dart';
 import 'package:food_app/core/router/sign_up_pages.dart';
 import 'package:food_app/pages/aux_pages/camera/camera_page.dart';
 import 'package:food_app/pages/aux_pages/camera/camera_page_bindings.dart';
@@ -14,7 +15,7 @@ import 'package:food_app/pages/splash/splash_page.dart';
 import 'package:food_app/pages/splash/splash_page_bindings.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
-class AppPages with RestaurantMenuPages, SignUpPages {
+class AppPages with SignUpPages, RestaurantPages, RestaurantMenuPages {
   AppPages._();
 
   static final AppPages instance = AppPages._();
@@ -76,7 +77,8 @@ class AppPages with RestaurantMenuPages, SignUpPages {
         homePage,
         cameraPage,
         restaurantsPage,
-        ...getRestaurantMenuPagesList,
         ...getSignUpPagesList,
+        ...getRestaurantPagesList,
+        ...getRestaurantMenuPagesList,
       ];
 }
