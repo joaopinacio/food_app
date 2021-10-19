@@ -5,7 +5,7 @@ import 'package:crypto/crypto.dart';
 import 'package:food_app/core/models/image_model/image_model.dart';
 import 'package:food_app/layout/themes/app_themes.dart';
 import 'package:get/get.dart';
-import 'package:image_cropper/image_cropper.dart';
+// import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_native_image/flutter_native_image.dart';
 import 'package:mime/mime.dart';

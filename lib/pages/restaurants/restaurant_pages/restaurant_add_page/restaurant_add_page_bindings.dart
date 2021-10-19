@@ -12,7 +12,7 @@ class RestaurantAddPageBindings implements CoreBindings {
 
   @override
   void registerControllers() {
-    Get.lazyPut(() => RestaurantAddController(), fenix: true);
+    Get.lazyPut(() => RestaurantAddController(appPages: Get.find()), fenix: true);
   }
 
   @override
