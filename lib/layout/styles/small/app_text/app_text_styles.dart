@@ -375,7 +375,7 @@ class AppTextStyles {
   ///
   /// __[textAlign]__ Tipo de alinhamento do texto
   ///
-  static AppTextComponent bold_20({
+  static AppTextComponent bold_18({
     required String text,
     TextAlign? textAlign,
     EdgeInsets? margin,
@@ -384,7 +384,7 @@ class AppTextStyles {
   }) =>
       AppTextComponent(
         text: text,
-        textStyle: AppThemes.typography.poppinsBold_20,
+        textStyle: AppThemes.typography.poppinsBold_18,
         textAlign: textAlign,
         margin: margin,
         maxLines: maxLines,

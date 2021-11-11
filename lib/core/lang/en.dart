@@ -22,4 +22,5 @@ const Map<String, String> en = {
   "return": "Return",
   "confirm_password": "Confirm password",
   "passwords_do_not_match": "Passwords do not match.",
+  "name": "Name",
 };

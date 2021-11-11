@@ -47,6 +47,7 @@ class CameraPage extends GetView<CameraPageController> {
                           : Center(child: _loadImageStorage())
                       : Image.file(
                           File(controller.getImagePath),
+                          height: 200.h,
                           fit: BoxFit.fitHeight,
                           color: Color(0xffEBEBEB).withOpacity(0.5),
                           colorBlendMode: BlendMode.multiply,

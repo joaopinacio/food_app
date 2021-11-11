@@ -10,7 +10,7 @@ class AppColors {
 
   Color get primaryColor => Color(0xFFF02B3C);
 
-  Color get grayScale_1 => Color(0xffF2F2F2);
+  Color get grayScale_1 => Color(0xffC5C5C5);
   Color get grayScale_2 => Color(0xffD8D8D8);
   Color get grayScale_3 => Color(0xffF5F5F5);
 

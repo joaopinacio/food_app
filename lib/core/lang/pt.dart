@@ -22,4 +22,10 @@ const Map<String, String> pt = {
   "return": "Voltar",
   "confirm_password": "Confirmar senha",
   "passwords_do_not_match": "As senhas não são iguais.",
+  "name": "Nome",
+  "restaurant_type": "Tipo do Restaurante",
+  "restaurant_name": "Nome do Restaurante",
+  "save": "Salvar",
+  "color": "Cor",
+  "pick_a_color": "Escolha uma cor",
 };

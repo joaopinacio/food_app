@@ -17,16 +17,28 @@ class AppTextButtonStyles {
     bool showIconNext = false,
     EdgeInsets? padding,
     EdgeInsets? margin,
+    bool hasBounce = false,
+    double? width,
+    double? height,
+    bool? isStretched,
+    Color? foregroundColor,
+    Color? backgroundColor,
+    BorderRadius? borderRadius,
   }) =>
       AppTextButtonComponent(
         label: label ?? '',
         onPressed: onTap,
-        isStretched: true,
-        height: 50,
+        isStretched: isStretched ?? true,
+        height: height ?? 50,
         textStyle: AppThemes.typography.poppinsBold_14,
         showIconNext: showIconNext,
         padding: padding,
         margin: margin,
+        hasBounce: hasBounce,
+        width: width,
+        foregroundColor: foregroundColor,
+        backgroundColor: backgroundColor,
+        borderRadius: borderRadius,
       );
 
   /// ## AppTextButtonStyles.link

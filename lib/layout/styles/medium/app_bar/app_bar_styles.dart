@@ -142,15 +142,15 @@ class AppBarStyles {
               splashColor: Colors.transparent,
               onTap: onTapBack,
               child: Padding(
-                padding: EdgeInsets.only(left: 24.w, top: 10.h, right: 24.w, bottom: 10.h),
+                padding: EdgeInsets.only(left: 24.w, top: 10.h, right: 15.w, bottom: 10.h),
                 child: Icon(
                   Icons.arrow_back_ios_new_rounded,
-                  size: 24.sp,
+                  size: 20.sp,
                   color: AppThemes.colors.black,
                 ),
               ),
             ),
-            AppTextStyles.bold_20(
+            AppTextStyles.bold_18(
               text: title,
             ),
           ],

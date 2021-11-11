@@ -147,41 +147,30 @@ class _AppInputTextComponentState extends State<AppInputTextComponent> {
           minLines: widget.minLines ?? 1,
           enabled: widget.enabled,
           obscureText: widget.obscureText ?? false,
-          textCapitalization: widget.textCapitalization == true
-              ? TextCapitalization.words
-              : TextCapitalization.none,
-          textAlign:
-              widget.inputQty == true ? TextAlign.center : TextAlign.start,
+          textCapitalization: widget.textCapitalization == true ? TextCapitalization.words : TextCapitalization.none,
+          textAlign: widget.inputQty == true ? TextAlign.center : TextAlign.start,
           showCursor: true,
-          style: widget.inputQty == true
-              ? AppThemes.typography.poppinsBold_30
-              : AppThemes.typography.poppinsRegular_16,
+          style: widget.inputQty == true ? AppThemes.typography.poppinsBold_30 : AppThemes.typography.poppinsRegular_16,
           decoration: InputDecoration(
-            contentPadding:
-                EdgeInsets.symmetric(horizontal: 15.w, vertical: 13.w),
+            contentPadding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 13.w),
             labelText: widget.floatingLabel ?? false ? widget.hintText : null,
             labelStyle: AppThemes.typography.poppinsSemiBold_12.copyWith(
               color: widget.hasError == true
                   ? AppThemes.colors.generalRed
                   : (hasFocus
-                      ? widget.focusedBorderColor ??
-                          AppThemes.colors.generalBlue
-                      : widget.unfocusedBorderColor ??
-                          AppThemes.colors.grayScale_2),
+                      ? widget.focusedBorderColor ?? AppThemes.colors.generalBlue
+                      : widget.unfocusedBorderColor ?? AppThemes.colors.grayScale_2),
             ),
             hintText: widget.floatingLabel ?? false ? null : widget.hintText,
             hintStyle: widget.inputQty == true
                 ? AppThemes.typography.poppinsBold_30
-                : AppThemes.typography.poppinsRegular_16
-                    .copyWith(color: AppThemes.colors.grayScale_2),
-            floatingLabelBehavior: widget.floatingLabel == true
-                ? FloatingLabelBehavior.auto
-                : FloatingLabelBehavior.never,
+                : AppThemes.typography.poppinsRegular_14.copyWith(color: AppThemes.colors.grayScale_1),
+            floatingLabelBehavior:
+                widget.floatingLabel == true ? FloatingLabelBehavior.auto : FloatingLabelBehavior.never,
             enabledBorder: widget.border != null
                 ? widget.border?.copyWith(
                     borderSide: BorderSide(
-                      color: widget.unfocusedBorderColor ??
-                          AppThemes.colors.grayScale_2,
+                      color: widget.unfocusedBorderColor ?? AppThemes.colors.grayScale_2,
                     ),
                   )
                 : InputBorder.none,
@@ -202,16 +191,14 @@ class _AppInputTextComponentState extends State<AppInputTextComponent> {
             focusedBorder: widget.border != null
                 ? widget.border?.copyWith(
                     borderSide: BorderSide(
-                      color: widget.focusedBorderColor ??
-                          AppThemes.colors.generalBlue,
+                      color: widget.focusedBorderColor ?? AppThemes.colors.generalBlue,
                     ),
                   )
                 : InputBorder.none,
             focusedErrorBorder: widget.border != null
                 ? widget.border?.copyWith(
                     borderSide: BorderSide(
-                      color: widget.focusedBorderColor ??
-                          AppThemes.colors.generalRed,
+                      color: widget.focusedBorderColor ?? AppThemes.colors.generalRed,
                     ),
                   )
                 : InputBorder.none,

@@ -26,6 +26,9 @@ dependencies:
   image_cropper: ^1.4.1
   flutter_native_image: ^0.0.6+1
   mime: ^1.0.0
+  flutter_colorpicker: ^0.6.1
+  awesome_dialog: ^2.1.1
+  flare_flutter: ^3.0.2
 
   # Firebase dependencies
   firebase_core: ^1.4.0
@@ -51,6 +54,7 @@ flutter:
   assets:
     - assets/images/
     - assets/svg_images/
+    - assets/animations/flare/
 
   fonts:
     - family: appIcons
