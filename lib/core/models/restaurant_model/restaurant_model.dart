@@ -42,16 +42,20 @@ class RestaurantModel extends RestaurantEntity {
   }
 
   factory RestaurantModel.fromJson(Map<String, dynamic> json) {
+    List<ProductModel> listProducts = [];
+    var listProductsModel = json['listProducts'] as List;
+    listProducts = listProductsModel.map((product) => ProductModel.fromJson(product)).toList();
+
     return RestaurantModel(
       uid: json['uid'] ?? '',
       name: json['name'] ?? '',
       primaryColor: json['primaryColor'] ?? '',
-      logo: json['logo'] ?? ImageModel.init(),
-      primaryImage: json['primaryImage'] ?? ImageModel.init(),
+      logo: ImageModel.fromJson(json['logo']),
+      primaryImage: ImageModel.fromJson(json['primaryImage']),
       rate: json['rate'] ?? 0.0,
       restaurantType: json['restaurantType'] ?? '',
-      user: json['user'] ?? UserModel.init(),
-      listProducts: json['listProducts'] ?? <ProductModel>[],
+      user: UserModel.fromJson(json['user']),
+      listProducts: listProducts,
     );
   }
 

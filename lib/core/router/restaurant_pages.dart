@@ -10,7 +10,7 @@ mixin RestaurantPages {
         name: restaurantAdd,
         page: () => RestaurantAddPage(),
         binding: RestaurantAddPageBindings(),
-        transition: Transition.fadeIn,
+        transition: Transition.cupertino,
       );
 
   List<GetPage<dynamic>> get getRestaurantPagesList => [

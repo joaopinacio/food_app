@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app/core/classes/behaviour.dart';
-import 'package:food_app/core/models/image_model/image_model.dart';
 import 'package:food_app/core/models/restaurant_model/restaurant_model.dart';
 import 'package:food_app/core/repositories/restaurant_repository/restaurant_repository_interface.dart';
 import 'package:food_app/core/router/app_pages.dart';
+import 'package:food_app/core/utils/app_util.dart';
 import 'package:food_app/layout/app_layout_imports.dart';
 import 'package:get/get.dart';
 
@@ -22,9 +22,12 @@ class RestaurantsPageController extends GetxController with SingleGetTickerProvi
     init();
   }
 
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
+
   late StreamSubscription _restaurantsStream;
   late CarouselOptions carouselOptions;
   var behaviour = Behaviour.loading.obs;
+  var user = Get.arguments['user'];
 
   get getBehaviour => behaviour.value;
   List<String> teste = ['aq', 'aw'];
@@ -67,11 +70,12 @@ class RestaurantsPageController extends GetxController with SingleGetTickerProvi
   _listenRestaurantsStream(List<RestaurantModel> list) async {
     restaurantList.value = list;
 
-    // TODO: Remover quando estiver tudo funcional da parte de restaurantes
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 1));
 
     if (getBehaviour == Behaviour.loading) {
-      var restaurantColor = Color(int.parse(restaurantList[0].primaryColor.replaceAll('#', '0xff')));
+      var restaurantColor = AppUtil.stringColorToColor(restaurantList[0].primaryColor);
+      // Color(int.parse(restaurantList[0].primaryColor.replaceAll('#', '0xff')));
+
       backgroundColorAnim =
           ColorTween(begin: AppThemes.colors.primaryColor, end: restaurantColor).animate(backgroundColorController);
       checkLuminanceColor(restaurantColor);
@@ -85,10 +89,6 @@ class RestaurantsPageController extends GetxController with SingleGetTickerProvi
 
   goToRestaurantMenu() {
     Get.toNamed(_appPages.restaurantMenu);
-  }
-
-  goToCameraPage() async {
-    ImageModel result = await Get.toNamed(_appPages.camera, arguments: {'data': null});
   }
 
   @override

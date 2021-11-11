@@ -20,7 +20,8 @@ class RestaurantAddController extends GetxController {
   })  : _appPages = appPages,
         _restaurantRepository = restaurantRepository;
 
-  var fromSignUp = Get.arguments['fromSignUp'];
+  var user = Get.arguments['user'];
+
   var nameKey = GlobalKey<FormState>();
   var nameController = TextEditingController();
   var nameFocusNode = FocusNode();
@@ -84,7 +85,7 @@ class RestaurantAddController extends GetxController {
           if (result) {
             await AppAlertStatus.showSuccess();
             print('🟦 RestaurantAddController.save -> ${restaurant.name}');
-            Get.back();
+            Get.offAllNamed(_appPages.restaurants, arguments: {'user': user});
           } else {
             AppAlertStatus.showError();
           }

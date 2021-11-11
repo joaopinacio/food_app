@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_app/core/auxiliary_widgets/app_sidebar.dart';
 import 'package:food_app/core/classes/behaviour.dart';
 import 'package:food_app/layout/app_layout_imports.dart';
 import 'package:food_app/layout/styles/large/app_carousel_slider_card/app_carousel_slider_card_styles.dart';
@@ -18,12 +19,17 @@ class RestaurantsPage extends GetView<RestaurantsPageController> {
       child: AnimatedBuilder(
         animation: controller.backgroundColorController,
         builder: (contextAnim, child) => Scaffold(
+          key: controller.scaffoldKey,
           backgroundColor: controller.backgroundColorAnim.value,
+          drawer: AppSidebar(),
           appBar: AppBarStyles.leftAndRightIcon(
             leftIcon: AppThemes.icons.menu,
-            onTapRight: () {},
+            onTapLeft: () {
+              controller.scaffoldKey.currentState!.openDrawer();
+            },
+            leftIconVisible: true,
             rightIcon: Icons.search,
-            onTapLeft: controller.goToCameraPage,
+            onTapRight: () {},
             iconsColor: controller.appBarIconsColorAnim.value,
           ),
           floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -45,7 +51,7 @@ class RestaurantsPage extends GetView<RestaurantsPageController> {
               child: controller.getBehaviour == Behaviour.loading
                   ? CarouselSlider.builder(
                       options: controller.carouselOptions,
-                      itemCount: 3,
+                      itemCount: 1,
                       itemBuilder: (BuildContext carouselContext, int index, _) {
                         return AppCarouselSliderCardStyles.standard(
                           behaviour: Behaviour.loading,
@@ -64,8 +70,8 @@ class RestaurantsPage extends GetView<RestaurantsPageController> {
                         var restaurant = controller.restaurantList[index];
                         return AppCarouselSliderCardStyles.standard(
                           behaviour: Behaviour.regular,
-                          logoImage: 'assets/images/bag-icon.png', // restaurant.logo,
-                          primaryImage: 'assets/images/drumstick-icon.png', // restaurant.primaryImage,
+                          logoImage: restaurant.logo.url!, // restaurant.logo,
+                          primaryImage: restaurant.primaryImage.url!, // restaurant.primaryImage,
                           title: restaurant.name,
                           mainColor: AppThemes.colors.primaryColor, // restaurant.primaryColor,
                           onTap: controller.goToRestaurantMenu,

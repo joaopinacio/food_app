@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_app/core/classes/behaviour.dart';
 import 'package:food_app/core/classes/component.dart';
 import 'package:food_app/layout/app_layout_imports.dart';
+import 'package:food_app/layout/styles/small/app_network_image/app_network_image_styles.dart';
 import 'package:food_app/layout/styles/small/app_text/app_text_styles.dart';
 
 class AppCarouselSliderCardComponent extends StatelessWidget with Component {
@@ -52,9 +53,12 @@ class AppCarouselSliderCardComponent extends StatelessWidget with Component {
               padding: EdgeInsets.only(bottom: 30.h),
               child: Hero(
                 tag: title,
-                child: Image.asset(
-                  logoImage,
-                  scale: 6.sp,
+                child: AppNetworkImageStyles.standard(
+                  behaviour: behaviour,
+                  image: logoImage,
+                  height: 50.h,
+                  width: 60.w,
+                  borderRadius: BorderRadius.circular(50.r),
                 ),
               ),
             ),
@@ -77,9 +81,12 @@ class AppCarouselSliderCardComponent extends StatelessWidget with Component {
                           decoration:
                               BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20.r)), color: mainColor),
                           alignment: Alignment.center,
-                          child: Image.asset(
-                            primaryImage,
-                            scale: 7.sp,
+                          child: AppNetworkImageStyles.standard(
+                            behaviour: behaviour,
+                            image: primaryImage,
+                            height: 90.h,
+                            width: 100.w,
+                            boxFit: BoxFit.fitWidth,
                           ),
                         ),
                       ),

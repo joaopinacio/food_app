@@ -20,7 +20,7 @@ class RestaurantAddPage extends GetView<RestaurantAddController> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async => controller.fromSignUp,
+      onWillPop: () async => false,
       child: Obx(
         () => Scaffold(
           body: Scaffold(

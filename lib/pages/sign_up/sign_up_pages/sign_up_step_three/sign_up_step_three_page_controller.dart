@@ -77,10 +77,13 @@ class SignUpStepThreePageController extends GetxController with SignUpStepThreeA
           Get.back();
 
           if (_signUpPageController.user.userType == 'customer') {
-            Get.offAllNamed(_signUpPageController.getAppPages.home);
+            Get.offAllNamed(_signUpPageController.getAppPages.restaurants, arguments: {
+              'user': _signUpPageController.user,
+            });
           } else {
-            // TODO: Ir para cadastro de Restaurante
-            Get.offAllNamed(_signUpPageController.getAppPages.restaurantAdd, arguments: {'fromSignUp': true});
+            Get.offAllNamed(_signUpPageController.getAppPages.restaurantAdd, arguments: {
+              'user': _signUpPageController.user,
+            });
           }
         }
       }

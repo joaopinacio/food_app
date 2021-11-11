@@ -29,4 +29,5 @@ const Map<String, String> pt = {
   "color": "Cor",
   "pick_a_color": "Escolha uma cor",
   "insert_a_color": "Insira uma cor",
+  "edit_restaurant": "Editar Restaurante",
 };

@@ -403,6 +403,7 @@ class AppTextStyles {
     EdgeInsets? margin,
     int? maxLines,
     TextOverflow? overflow,
+    Color? color,
   }) =>
       AppTextComponent(
         text: text,
@@ -411,6 +412,7 @@ class AppTextStyles {
         margin: margin,
         maxLines: maxLines,
         overflow: overflow,
+        color: color,
       );
 
   /// ## AppTextStyles bold_36

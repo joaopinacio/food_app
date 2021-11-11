@@ -45,21 +45,25 @@ class AppBarStyles {
   static AppBarComponent leftAndRightIcon({
     required IconData leftIcon,
     Function()? onTapLeft,
+    bool leftIconVisible = false,
     required IconData rightIcon,
     Function()? onTapRight,
     Color? iconsColor,
   }) =>
       AppBarComponent(
-        title: InkWell(
-          highlightColor: Colors.transparent,
-          splashColor: Colors.transparent,
-          onTap: onTapLeft,
-          child: Padding(
-            padding: EdgeInsets.only(left: 24.w, top: 10.h, right: 24.w, bottom: 10.h),
-            child: Icon(
-              leftIcon,
-              size: 24.sp,
-              color: iconsColor ?? AppThemes.colors.black,
+        title: Visibility(
+          visible: leftIconVisible,
+          child: InkWell(
+            highlightColor: Colors.transparent,
+            splashColor: Colors.transparent,
+            onTap: onTapLeft,
+            child: Padding(
+              padding: EdgeInsets.only(left: 24.w, top: 10.h, right: 24.w, bottom: 10.h),
+              child: Icon(
+                leftIcon,
+                size: 24.sp,
+                color: iconsColor ?? AppThemes.colors.black,
+              ),
             ),
           ),
         ),
@@ -78,6 +82,42 @@ class AppBarStyles {
             ),
           ),
         ],
+      );
+
+  /// ## AppBarStyles.leftIconWithTitle
+  ///
+  /// __[leftIcon]__ Widget ao lado esquerdo
+  ///
+  /// __[onTapLeft]__ Function Tap do icone esquerdo
+  ///
+  /// __[title]__ Titulo da pagina
+  ///
+  static AppBarComponent leftIconWithTitle({
+    required IconData leftIcon,
+    Function()? onTapLeft,
+    required String title,
+  }) =>
+      AppBarComponent(
+        title: Row(
+          children: [
+            InkWell(
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
+              onTap: onTapLeft,
+              child: Padding(
+                padding: EdgeInsets.only(left: 24.w, top: 10.h, right: 15.w, bottom: 10.h),
+                child: Icon(
+                  leftIcon,
+                  size: 24.sp,
+                  color: AppThemes.colors.black,
+                ),
+              ),
+            ),
+            AppTextStyles.bold_18(
+              text: title,
+            ),
+          ],
+        ),
       );
 
   /// ## AppBarStyles.searchWithReturn
