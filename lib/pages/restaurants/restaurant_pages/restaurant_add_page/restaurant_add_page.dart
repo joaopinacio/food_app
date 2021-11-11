@@ -66,7 +66,9 @@ class RestaurantAddPage extends GetView<RestaurantAddController> {
                                 onTap: () {
                                   controller.goToCameraPage(true);
                                 },
-                                child: AppDefaultPhotoStyles.standard(),
+                                child: AppDefaultPhotoStyles.standard(
+                                  color: controller.getErrorRequiredLogo ? AppThemes.colors.generalRed_25 : null,
+                                ),
                               ),
                         SizedBox(width: 10.h),
                         Expanded(
@@ -75,6 +77,7 @@ class RestaurantAddPage extends GetView<RestaurantAddController> {
                             hintText: 'restaurant_name'.tr,
                             controller: controller.nameController,
                             focusNode: controller.nameFocusNode,
+                            validator: controller.validatorName,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20.r),
                             ),
@@ -103,7 +106,10 @@ class RestaurantAddPage extends GetView<RestaurantAddController> {
                                 onTap: () {
                                   controller.goToCameraPage(false);
                                 },
-                                child: AppDefaultPhotoStyles.standard(),
+                                child: AppDefaultPhotoStyles.standard(
+                                  color:
+                                      controller.getErrorRequiredPrimaryImage ? AppThemes.colors.generalRed_25 : null,
+                                ),
                               ),
                         SizedBox(width: 10.w),
                         Expanded(
@@ -112,6 +118,7 @@ class RestaurantAddPage extends GetView<RestaurantAddController> {
                             hintText: 'restaurant_type'.tr,
                             controller: controller.restaurantTypeController,
                             focusNode: controller.restaurantTypeFocusNode,
+                            validator: controller.validatorRestauranteType,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20.r),
                             ),
@@ -132,6 +139,17 @@ class RestaurantAddPage extends GetView<RestaurantAddController> {
                         borderRadius: BorderRadius.circular(15.r),
                       ),
                     ),
+                    SizedBox(height: 10.h),
+                    Visibility(
+                      visible: controller.getRequiredColorVisible,
+                      child: Center(
+                        child: AppTextStyles.semiBold_14(
+                          text: '${'insert_a_color'.tr}!',
+                          color: AppThemes.colors.generalRed,
+                        ),
+                      ),
+                    ),
+
                     // SizedBox(height: 60.h),
                     // Center(
                     //   child: AppTextButtonStyles.rounded(

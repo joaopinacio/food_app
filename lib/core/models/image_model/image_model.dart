@@ -36,7 +36,7 @@ class ImageModel extends ImageEntity {
       filePath: json['filePath'] ?? '',
       hashMd5: json['hashMd5'] ?? '',
       mimeImage: json['mimeImage'] ?? '',
-      imageFile: json['imageFile'] ?? File(''),
+      imageFile: File(''),
       url: json['url'] ?? '',
     );
   }
@@ -47,7 +47,6 @@ class ImageModel extends ImageEntity {
     data['filePath'] = this.filePath;
     data['hashMd5'] = this.hashMd5;
     data['mimeImage'] = this.mimeImage;
-    data['imageFile'] = this.imageFile;
     data['url'] = this.url;
     return data;
   }

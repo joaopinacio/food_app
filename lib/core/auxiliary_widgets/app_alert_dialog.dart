@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 class AppAlertDialog {
   AppAlertDialog._();
 
-  static showDialogDefault({required Widget widget, bool autoHide = false}) {
+  static showDialogDefault({required Widget widget, bool autoHide = false}) async {
     showDialog(
       context: Get.context!,
       barrierColor: AppThemes.colors.black_40,
@@ -14,7 +14,7 @@ class AppAlertDialog {
       },
     );
     if (autoHide)
-      Future.delayed(Duration(seconds: 2), () {
+      await Future.delayed(Duration(seconds: 2), () {
         Get.back();
       });
   }

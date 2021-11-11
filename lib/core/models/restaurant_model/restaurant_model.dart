@@ -56,16 +56,18 @@ class RestaurantModel extends RestaurantEntity {
   }
 
   Map<String, dynamic> toJson() {
+    var listProductsJson = listProducts!.map((product) => product.toJson()).toList();
+
     return {
       'uid': uid,
       'name': name,
       'primaryColor': primaryColor,
-      'logo': logo,
-      'primaryImage': primaryImage,
+      'logo': logo.toJson(),
+      'primaryImage': primaryImage.toJson(),
       'rate': rate,
       'restaurantType': restaurantType,
-      'user': user,
-      'listProducts': listProducts,
+      'user': user.toJson(),
+      'listProducts': listProductsJson,
     };
   }
 }

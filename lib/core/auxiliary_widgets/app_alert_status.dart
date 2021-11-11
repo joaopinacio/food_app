@@ -30,4 +30,30 @@ class AppAlertStatus {
           ),
         ),
       );
+
+  static showError() => AppAlertDialog.showDialogDefault(
+        autoHide: true,
+        widget: Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Material(
+                shape: CircleBorder(
+                  side: BorderSide.none,
+                ),
+                child: CircleAvatar(
+                  backgroundColor: AppThemes.colors.white,
+                  radius: 55.0,
+                  child: FlareActor(
+                    'assets/animations/flare/error.flr',
+                    alignment: Alignment.center,
+                    fit: BoxFit.fill,
+                    animation: 'Error_no_loop',
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
 }

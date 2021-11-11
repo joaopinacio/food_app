@@ -4,9 +4,11 @@ import 'package:food_app/layout/themes/app_themes.dart';
 
 class AppDefaultPhotoComponent extends StatelessWidget {
   final double? size;
+  final Color? color;
 
   const AppDefaultPhotoComponent({
     this.size,
+    this.color,
   });
 
   @override
@@ -16,7 +18,7 @@ class AppDefaultPhotoComponent extends StatelessWidget {
       height: size?.sp ?? 70.sp,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50.r),
-        color: AppThemes.colors.grayScale_2,
+        color: color ?? AppThemes.colors.grayScale_2,
       ),
       child: Center(
         child: Icon(Icons.photo_camera_rounded),

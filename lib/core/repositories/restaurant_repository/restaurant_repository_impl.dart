@@ -41,10 +41,11 @@ class RestaurantRepositoryImpl implements IRestaurantRepository {
   }
 
   @override
-  Future<bool>? saveRestaurant(
-      {required RestaurantModel data,
-      required ImageModel primaryImageModel,
-      required ImageModel logoImageModel}) async {
+  Future<bool> saveRestaurant({
+    required RestaurantModel data,
+    required ImageModel primaryImageModel,
+    required ImageModel logoImageModel,
+  }) async {
     try {
       if ((primaryImageModel.hashMd5 != null && primaryImageModel.hashMd5?.isNotEmpty == true) &&
           (logoImageModel.hashMd5 != null && logoImageModel.hashMd5?.isNotEmpty == true)) {
@@ -61,6 +62,8 @@ class RestaurantRepositoryImpl implements IRestaurantRepository {
         );
 
         if (loadPrimaryImage.isNotEmpty && loadLogoImage.isNotEmpty) {
+          primaryImageModel.url = loadPrimaryImage;
+          logoImageModel.url = loadLogoImage;
           data.primaryImage = primaryImageModel;
           data.logo = logoImageModel;
         } else {
