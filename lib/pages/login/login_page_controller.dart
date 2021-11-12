@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_app/core/auxiliary_widgets/app_loading.dart';
 import 'package:food_app/core/controllers/auth_controller/auth_controller.dart';
 import 'package:food_app/core/models/user_model/user_model.dart';
+import 'package:food_app/core/repositories/restaurant_repository/restaurant_repository_interface.dart';
 import 'package:food_app/core/repositories/user_repository/user_repository_interface.dart';
 import 'package:food_app/core/router/app_pages.dart';
 import 'package:food_app/core/utils/app_util.dart';
@@ -13,14 +14,17 @@ class LoginPageController extends GetxController with LoginAnimationsMixin {
   final AppPages _appPages;
   final IAuthController _authController;
   final IUserRepository _userRepository;
+  final IRestaurantRepository _restaurantRepository;
 
   LoginPageController({
     required AppPages appPages,
     required IAuthController authController,
     required IUserRepository userRepository,
+    required IRestaurantRepository restaurantRepository,
   })  : _appPages = appPages,
         _authController = authController,
-        _userRepository = userRepository {
+        _userRepository = userRepository,
+        _restaurantRepository = restaurantRepository {
     init();
   }
 
@@ -89,7 +93,13 @@ class LoginPageController extends GetxController with LoginAnimationsMixin {
         var user = await _userRepository.getUser(email: loginController.text);
         Get.back();
 
-        Get.offAllNamed(_appPages.restaurants, arguments: {'user': user});
+        var restaurant = (await _restaurantRepository.getRestaurantByUser(user!.uid))!;
+
+        if (restaurant.uid != '') {
+          Get.offAllNamed(_appPages.restaurants, arguments: {'user': user});
+        } else {
+          Get.offAllNamed(_appPages.restaurantAdd, arguments: {'user': user});
+        }
       } else {
         Get.back();
         switch (result.errorType) {

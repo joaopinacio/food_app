@@ -11,6 +11,7 @@ class ProductModel extends ProductEntity {
     num? oldPrice,
     required ImageModel image,
     ProductTypeModel? productType,
+    String? restaurantUid,
   }) : super(
           uid: uid,
           name: name,
@@ -18,6 +19,7 @@ class ProductModel extends ProductEntity {
           oldPrice: oldPrice,
           image: image,
           productType: productType,
+          restaurantUid: restaurantUid,
         );
 
   static ProductModel init() {
@@ -28,6 +30,7 @@ class ProductModel extends ProductEntity {
       oldPrice: 0,
       image: ImageModel.init(),
       productType: ProductTypeModel.init(),
+      restaurantUid: '',
     );
   }
 
@@ -39,6 +42,7 @@ class ProductModel extends ProductEntity {
       oldPrice: json['oldPrice'] ?? 0,
       image: json['image'] ?? ImageModel.init(),
       productType: json['productType'] ?? ProductTypeModel.init(),
+      restaurantUid: json['restaurantUid'] ?? '',
     );
   }
 
@@ -50,6 +54,7 @@ class ProductModel extends ProductEntity {
       'oldPrice': oldPrice,
       'image': image,
       'productType': productType,
+      'restaurantUid': restaurantUid,
     };
   }
 }

@@ -9,19 +9,23 @@ import 'package:food_app/core/router/app_pages.dart';
 import 'package:food_app/core/utils/app_util.dart';
 import 'package:food_app/core/utils/app_uuid.dart';
 import 'package:food_app/layout/app_layout_imports.dart';
+import 'package:food_app/pages/restaurants/restaurants_page_controller.dart';
 import 'package:get/get.dart';
 
-class RestaurantAddController extends GetxController {
+class RestaurantEditController extends GetxController {
   final AppPages _appPages;
   final IRestaurantRepository _restaurantRepository;
+  final RestaurantsPageController _restaurantsPageController;
 
-  RestaurantAddController({
+  RestaurantEditController({
     required AppPages appPages,
     required IRestaurantRepository restaurantRepository,
+    required RestaurantsPageController restaurantsPageController,
   })  : _appPages = appPages,
-        _restaurantRepository = restaurantRepository;
-
-  UserModel user = Get.arguments['user'];
+        _restaurantRepository = restaurantRepository,
+        _restaurantsPageController = restaurantsPageController {
+    init();
+  }
 
   var nameKey = GlobalKey<FormState>();
   var nameController = TextEditingController();
@@ -40,7 +44,7 @@ class RestaurantAddController extends GetxController {
   var errorRequiredLogo = false.obs;
   var errorRequiredPrimaryImage = false.obs;
 
-  RestaurantModel restaurant = RestaurantModel.init();
+  late RestaurantModel restaurant;
 
   ImageModel get getLogoImage => logoImage.value;
   ImageModel get getPrimaryImage => primaryImage.value;
@@ -51,6 +55,26 @@ class RestaurantAddController extends GetxController {
   bool get getRequiredColorVisible => requiredColorVisible.value;
   bool get getErrorRequiredLogo => errorRequiredLogo.value;
   bool get getErrorRequiredPrimaryImage => errorRequiredPrimaryImage.value;
+
+  UserModel get getUserLogged => _restaurantsPageController.user;
+
+  init() async {
+    try {
+      restaurant = (await _restaurantRepository.getRestaurantByUser(getUserLogged.uid))!;
+
+      nameController.text = restaurant.name;
+      restaurantTypeController.text = restaurant.restaurantType;
+      logoImage.value = restaurant.logo;
+      logoImage.value.hashMd5 = '';
+      primaryImage.value = restaurant.primaryImage;
+      primaryImage.value.hashMd5 = '';
+
+      mainColor.value = AppUtil.stringColorToColor(restaurant.primaryColor);
+      choosedColor.value = true;
+    } catch (e) {
+      print('🟥 RestaurantEditController.init -> $e');
+    }
+  }
 
   chooseColor() async {
     var result = await AppColorPicker.showPicker(color: getMainColor);
@@ -66,13 +90,12 @@ class RestaurantAddController extends GetxController {
     try {
       if (getChoosedColor) {
         if (validImages() && nameKey.currentState!.validate() && restaurantTypeKey.currentState!.validate()) {
-          restaurant.uid = AppUuid.generateUuid();
           restaurant.logo.hashMd5 = getLogoImage.hashMd5;
           restaurant.primaryImage.hashMd5 = getPrimaryImage.hashMd5;
           restaurant.name = nameController.text;
           restaurant.restaurantType = restaurantTypeController.text;
           restaurant.primaryColor = getMainColor.toString();
-          restaurant.user = user;
+          restaurant.user = getUserLogged;
 
           AppLoading.loading();
 
@@ -86,8 +109,8 @@ class RestaurantAddController extends GetxController {
 
           if (result) {
             await AppAlertStatus.showSuccess();
-            print('🟦 RestaurantAddController.save -> ${restaurant.name}');
-            Get.offAllNamed(_appPages.restaurants, arguments: {'user': user});
+            print('🟦 RestaurantEditController.save -> ${restaurant.name}');
+            Get.back();
           } else {
             AppAlertStatus.showError();
           }
@@ -96,7 +119,7 @@ class RestaurantAddController extends GetxController {
         requiredColorVisible.value = true;
       }
     } catch (e) {
-      print('🟥 RestaurantAddController.save -> $e');
+      print('🟥 RestaurantEditController.save -> $e');
       AppAlertStatus.showError();
     }
   }
@@ -115,6 +138,10 @@ class RestaurantAddController extends GetxController {
       primaryImage.value = result;
       if (getPrimaryImage.filePath != '') errorRequiredPrimaryImage.value = false;
     }
+  }
+
+  void goToProductsPage() {
+    Get.toNamed(_appPages.products);
   }
 
   checkLuminanceColor(Color color) {

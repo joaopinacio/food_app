@@ -4,6 +4,7 @@ import 'package:carousel_slider/carousel_options.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app/core/classes/behaviour.dart';
 import 'package:food_app/core/models/restaurant_model/restaurant_model.dart';
+import 'package:food_app/core/models/user_model/user_model.dart';
 import 'package:food_app/core/repositories/restaurant_repository/restaurant_repository_interface.dart';
 import 'package:food_app/core/router/app_pages.dart';
 import 'package:food_app/core/utils/app_util.dart';
@@ -26,8 +27,9 @@ class RestaurantsPageController extends GetxController with SingleGetTickerProvi
 
   late StreamSubscription _restaurantsStream;
   late CarouselOptions carouselOptions;
+
+  UserModel user = Get.arguments['user'];
   var behaviour = Behaviour.loading.obs;
-  var user = Get.arguments['user'];
 
   get getBehaviour => behaviour.value;
 
@@ -68,6 +70,7 @@ class RestaurantsPageController extends GetxController with SingleGetTickerProvi
 
   _listenRestaurantsStream(List<RestaurantModel> list) async {
     restaurantList.value = list;
+    restaurantSelected = restaurantList[0];
 
     await Future.delayed(Duration(seconds: 1));
 
@@ -87,7 +90,7 @@ class RestaurantsPageController extends GetxController with SingleGetTickerProvi
   }
 
   goToRestaurantMenu(RestaurantModel restaurant) {
-    Get.toNamed(_appPages.restaurantMenu, arguments: {'restaurant': restaurant});
+    if (restaurant.name != '') Get.toNamed(_appPages.restaurantMenu, arguments: {'restaurant': restaurant});
   }
 
   @override

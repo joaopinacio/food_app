@@ -40,6 +40,7 @@ class AppModalBottomSheetStyles {
     required Function() onSave,
     required Color colorQty,
     required Color colorQtyIcons,
+    required bool isUserRestaurant,
   }) =>
       showModalBottomSheetComponent(
         radiusTopLeft: 34.r,
@@ -184,15 +185,18 @@ class AppModalBottomSheetStyles {
                         overflow: TextOverflow.ellipsis,
                       ),
                       Spacer(),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: AppThemes.spacing.spacer_24.w),
-                        child: AppTextButtonStyles.rounded(
-                          height: 57,
-                          width: double.infinity,
-                          hasBounce: true,
-                          textStyle: AppThemes.typography.poppinsBold_14,
-                          label: 'Add to Cart',
-                          onTap: onSave,
+                      Opacity(
+                        opacity: isUserRestaurant ? 0.3 : 1,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: AppThemes.spacing.spacer_24.w),
+                          child: AppTextButtonStyles.rounded(
+                            height: 57,
+                            width: double.infinity,
+                            hasBounce: isUserRestaurant ? false : true,
+                            textStyle: AppThemes.typography.poppinsBold_14,
+                            label: 'Add to Cart',
+                            onTap: isUserRestaurant ? () {} : onSave,
+                          ),
                         ),
                       ),
                       Spacer(),

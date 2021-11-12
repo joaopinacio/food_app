@@ -196,4 +196,76 @@ class AppBarStyles {
           ],
         ),
       );
+
+  /// ## AppBarStyles.onlyTitleAndBack
+  ///
+  /// __[title]__ Titulo da Pagina
+  ///
+  /// __[onTapReturn]__ Function Tap para voltar a pagina
+  ///
+  static AppBarComponent onlyTitle({
+    required String title,
+  }) =>
+      AppBarComponent(
+        title: Padding(
+          padding: EdgeInsets.only(left: 24.w, top: 10.h, right: 15.w, bottom: 10.h),
+          child: AppTextStyles.bold_18(
+            text: title,
+          ),
+        ),
+      );
+
+  /// ## AppBarStyles.titleBackAndRightIcon
+  ///
+  /// __[title]__ Titulo da Pagina
+  ///
+  /// __[onTapReturn]__ Function Tap para voltar a pagina
+  ///
+  /// __[rightIcon]__ Icone da direita
+  ///
+  /// __[onTapRight]__ Function Tap do icone da direita
+  ///
+  static AppBarComponent titleBackAndRightIcon({
+    required String title,
+    required Function() onTapBack,
+    required IconData rightIcon,
+    required Function() onTapRight,
+  }) =>
+      AppBarComponent(
+        title: Row(
+          children: [
+            InkWell(
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
+              onTap: onTapBack,
+              child: Padding(
+                padding: EdgeInsets.only(left: 24.w, top: 10.h, right: 15.w, bottom: 10.h),
+                child: Icon(
+                  Icons.arrow_back_ios_new_rounded,
+                  size: 20.sp,
+                  color: AppThemes.colors.black,
+                ),
+              ),
+            ),
+            AppTextStyles.bold_18(
+              text: title,
+            ),
+          ],
+        ),
+        actions: [
+          InkWell(
+            highlightColor: Colors.transparent,
+            splashColor: Colors.transparent,
+            onTap: onTapRight,
+            child: Padding(
+              padding: EdgeInsets.only(left: 24.w, top: 10.h, right: 24.w, bottom: 10.h),
+              child: Icon(
+                rightIcon,
+                size: 24.sp,
+                color: AppThemes.colors.black,
+              ),
+            ),
+          ),
+        ],
+      );
 }

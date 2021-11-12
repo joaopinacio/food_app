@@ -3,9 +3,9 @@ import 'package:food_app/core/repositories/restaurant_repository/restaurant_repo
 import 'package:food_app/core/repositories/restaurant_repository/restaurant_repository_interface.dart';
 import 'package:get/get.dart';
 
-import 'login_page_controller.dart';
+import 'restaurant_edit_page_controller.dart';
 
-class LoginPageBindings implements CoreBindings {
+class RestaurantEditPageBindings implements CoreBindings {
   @override
   void dependencies() {
     registerRepositories();
@@ -15,14 +15,12 @@ class LoginPageBindings implements CoreBindings {
   @override
   void registerControllers() {
     Get.lazyPut(
-      () => LoginPageController(
-        appPages: Get.find(),
-        authController: Get.find(),
-        userRepository: Get.find(),
-        restaurantRepository: Get.find(),
-      ),
-      fenix: true,
-    );
+        () => RestaurantEditController(
+              appPages: Get.find(),
+              restaurantRepository: Get.find(),
+              restaurantsPageController: Get.find(),
+            ),
+        fenix: true);
   }
 
   @override

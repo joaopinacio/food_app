@@ -21,7 +21,9 @@ class RestaurantsPage extends GetView<RestaurantsPageController> {
         builder: (contextAnim, child) => Scaffold(
           key: controller.scaffoldKey,
           backgroundColor: controller.backgroundColorAnim.value,
-          drawer: AppSidebar(),
+          drawer: AppSidebar(
+            isRestaurant: controller.user.userType == 'restaurant',
+          ),
           appBar: AppBarStyles.leftAndRightIcon(
             leftIcon: AppThemes.icons.menu,
             onTapLeft: () {
@@ -39,8 +41,8 @@ class RestaurantsPage extends GetView<RestaurantsPageController> {
               width: 230.w,
               height: 50.h,
               child: FloatingActionButton.extended(
-                onPressed: () {},
-                label: AppTextStyles.bold_14(text: 'Order Here', color: AppThemes.colors.white),
+                onPressed: () => controller.goToRestaurantMenu(controller.restaurantSelected),
+                label: AppTextStyles.bold_14(text: 'order_here'.tr, color: AppThemes.colors.white),
                 backgroundColor: Colors.black,
               ),
             ),

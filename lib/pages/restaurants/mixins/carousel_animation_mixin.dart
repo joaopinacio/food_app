@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/core/models/restaurant_model/restaurant_model.dart';
+import 'package:food_app/core/utils/app_util.dart';
 import 'package:food_app/layout/app_layout_imports.dart';
 import 'package:get/get.dart';
 
@@ -12,8 +13,10 @@ mixin CarouselAnimationMixin on GetxController {
   var currentColor;
   late AnimationController backgroundColorController;
   late AnimationController appBarIconsColorController;
+  RestaurantModel restaurantSelected = RestaurantModel.init();
 
   void onPageChanged(int index, reason) {
+    restaurantSelected = restaurantList[index];
     var restaurantColor = Color(int.parse(restaurantList[index].primaryColor.replaceAll('#', '0xff')));
     var pastRestaurantColor = Color(int.parse(restaurantList[pastIndex].primaryColor.replaceAll('#', '0xff')));
 
@@ -36,7 +39,7 @@ mixin CarouselAnimationMixin on GetxController {
   }
 
   changeBackgroundColorByList() {
-    var restaurantColor = Color(int.parse(restaurantList[pastIndex].primaryColor.replaceAll('#', '0xff')));
+    var restaurantColor = AppUtil.stringColorToColor(restaurantList[pastIndex].primaryColor);
 
     if (forward) {
       backgroundColorAnim = ColorTween(begin: restaurantColor, end: currentColor).animate(backgroundColorController);

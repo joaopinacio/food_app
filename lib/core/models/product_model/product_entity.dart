@@ -8,6 +8,7 @@ abstract class ProductEntity {
   num? oldPrice;
   ImageModel image;
   ProductTypeModel? productType;
+  String? restaurantUid;
 
   ProductEntity({
     required this.uid,
@@ -16,5 +17,6 @@ abstract class ProductEntity {
     this.oldPrice,
     required this.image,
     this.productType,
+    this.restaurantUid,
   });
 }

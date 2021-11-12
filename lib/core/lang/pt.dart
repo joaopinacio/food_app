@@ -25,9 +25,11 @@ const Map<String, String> pt = {
   "name": "Nome",
   "restaurant_type": "Tipo do Restaurante",
   "restaurant_name": "Nome do Restaurante",
+  "order_here": "Peça Aqui",
   "save": "Salvar",
   "color": "Cor",
   "pick_a_color": "Escolha uma cor",
   "insert_a_color": "Insira uma cor",
   "edit_restaurant": "Editar Restaurante",
+  "products": "Produtos",
 };

@@ -22,7 +22,7 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
         floatingActionButton: AnimatedOpacity(
           duration: Duration(milliseconds: 500),
           curve: Curves.ease,
-          opacity: 1,
+          opacity: controller.checkUserIsRestaurant() ? 0.3 : 1,
           child: FloatingActionButton(
             backgroundColor: controller.mainColor,
             child: Stack(
@@ -151,6 +151,7 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                                         onSave: () {},
                                         colorQty: controller.mainColor,
                                         colorQtyIcons: controller.cartIconColor,
+                                        isUserRestaurant: controller.checkUserIsRestaurant(),
                                       );
                                     },
                                   ),

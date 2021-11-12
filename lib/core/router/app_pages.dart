@@ -5,6 +5,8 @@ import 'package:food_app/pages/aux_pages/camera/camera_page.dart';
 import 'package:food_app/pages/aux_pages/camera/camera_page_bindings.dart';
 import 'package:food_app/pages/login/login_page.dart';
 import 'package:food_app/pages/login/login_page_bindings.dart';
+import 'package:food_app/pages/product/products_page.dart';
+import 'package:food_app/pages/product/products_page_bindings.dart';
 import 'package:food_app/pages/restaurants/restaurants_page.dart';
 import 'package:food_app/pages/restaurants/restaurants_page_bindings.dart';
 import 'package:food_app/pages/sign_up/sign_up_page.dart';
@@ -22,6 +24,7 @@ class AppPages with SignUpPages, RestaurantPages, RestaurantMenuPages {
   final login = '/login';
   final signUp = '/signUp';
   final restaurants = '/restaurants';
+  final products = '/products';
   final camera = '/camera';
 
   get splashPage => GetPage(
@@ -53,6 +56,13 @@ class AppPages with SignUpPages, RestaurantPages, RestaurantMenuPages {
         transition: Transition.noTransition,
       );
 
+  get productsPage => GetPage(
+        name: products,
+        page: () => ProductsPage(),
+        binding: ProductsPageBindings(),
+        transition: Transition.cupertino,
+      );
+
   get cameraPage => GetPage(
         name: camera,
         page: () => CameraPage(),
@@ -66,6 +76,7 @@ class AppPages with SignUpPages, RestaurantPages, RestaurantMenuPages {
         signUpPage,
         cameraPage,
         restaurantsPage,
+        productsPage,
         ...getSignUpPagesList,
         ...getRestaurantPagesList,
         ...getRestaurantMenuPagesList,

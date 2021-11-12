@@ -13,6 +13,25 @@ class RestaurantRepositoryImpl implements IRestaurantRepository {
   RestaurantRepositoryImpl({required this.firestore, required this.cameraRepository});
 
   @override
+  Future<RestaurantModel?> getRestaurantByUser(String userUid) async {
+    try {
+      var restaurantList = await restaurantCollection.get().then((snapshot) {
+        return snapshot.docs.map((doc) {
+          return RestaurantModel.fromJson(doc.data());
+        }).toList();
+      });
+
+      return restaurantList.singleWhere(
+        (restaurant) => restaurant.user.uid == userUid,
+        orElse: () => RestaurantModel.init(),
+      );
+    } catch (e) {
+      print('🟥 ResturantRepositoryImpl.getRestaurants -> $e');
+      return null;
+    }
+  }
+
+  @override
   Stream<List<RestaurantModel>>? getRestaurants() {
     try {
       return restaurantCollection.snapshots().map((snapshots) {

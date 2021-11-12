@@ -5,6 +5,13 @@ import 'package:food_app/layout/styles/small/app_text/app_text_styles.dart';
 import 'package:get/get.dart';
 
 class AppSidebar extends StatelessWidget {
+  final bool isRestaurant;
+
+  const AppSidebar({
+    Key? key,
+    required this.isRestaurant,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -36,21 +43,24 @@ class AppSidebar extends StatelessWidget {
               ),
             ),
           ),
-          ListTile(
-            title: Row(
-              children: [
-                Icon(
-                  Icons.edit_rounded,
-                  color: Colors.black,
-                  size: 20.sp,
-                ),
-                SizedBox(width: 8.w),
-                AppTextStyles.bold_14(text: 'edit_restaurant'.tr),
-              ],
+          Visibility(
+            visible: isRestaurant,
+            child: ListTile(
+              title: Row(
+                children: [
+                  Icon(
+                    Icons.edit_rounded,
+                    color: Colors.black,
+                    size: 20.sp,
+                  ),
+                  SizedBox(width: 8.w),
+                  AppTextStyles.bold_14(text: 'edit_restaurant'.tr),
+                ],
+              ),
+              onTap: () {
+                Get.toNamed(AppPages.instance.restaurantEdit);
+              },
             ),
-            onTap: () {
-              Get.toNamed(AppPages.instance.restaurantAdd);
-            },
           ),
         ],
       ),

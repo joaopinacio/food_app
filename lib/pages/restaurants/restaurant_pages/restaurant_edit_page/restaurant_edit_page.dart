@@ -10,9 +10,9 @@ import 'package:food_app/layout/styles/small/app_text/app_text_styles.dart';
 import 'package:food_app/layout/themes/app_themes.dart';
 import 'package:get/get.dart';
 
-import 'restaurant_add_page_controller.dart';
+import 'restaurant_edit_page_controller.dart';
 
-class RestaurantAddPage extends GetView<RestaurantAddController> {
+class RestaurantEditPage extends GetView<RestaurantEditController> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -20,8 +20,11 @@ class RestaurantAddPage extends GetView<RestaurantAddController> {
       child: Obx(
         () => Scaffold(
           body: Scaffold(
-            appBar: AppBarStyles.onlyTitle(
+            appBar: AppBarStyles.titleBackAndRightIcon(
               title: 'restaurant'.tr,
+              onTapBack: Get.back,
+              rightIcon: Icons.fastfood_rounded,
+              onTapRight: controller.goToProductsPage,
             ),
             bottomNavigationBar: AppTextButtonStyles.rounded(
               label: 'save'.tr,
