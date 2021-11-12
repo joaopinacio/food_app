@@ -32,4 +32,10 @@ const Map<String, String> pt = {
   "insert_a_color": "Insira uma cor",
   "edit_restaurant": "Editar Restaurante",
   "products": "Produtos",
+  "product": "Produto",
+  "price": "Preço",
+  "promotion": "Promoção",
+  "image": "Imagem",
+  "gallery": "Galeria",
+  "take_a_picture": "Tire uma foto",
 };

@@ -1,3 +1,4 @@
+import 'package:food_app/core/router/product_pages.dart';
 import 'package:food_app/core/router/restaurant_menu_pages.dart';
 import 'package:food_app/core/router/restaurant_pages.dart';
 import 'package:food_app/core/router/sign_up_pages.dart';
@@ -15,7 +16,7 @@ import 'package:food_app/pages/splash/splash_page.dart';
 import 'package:food_app/pages/splash/splash_page_bindings.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
-class AppPages with SignUpPages, RestaurantPages, RestaurantMenuPages {
+class AppPages with SignUpPages, RestaurantPages, RestaurantMenuPages, ProductPages {
   AppPages._();
 
   static final AppPages instance = AppPages._();
@@ -80,5 +81,6 @@ class AppPages with SignUpPages, RestaurantPages, RestaurantMenuPages {
         ...getSignUpPagesList,
         ...getRestaurantPagesList,
         ...getRestaurantMenuPagesList,
+        ...getProductPagesList,
       ];
 }

@@ -54,12 +54,13 @@ class AppProductCardComponent extends StatelessWidget with Component {
               AppNetworkImageStyles.standard(
                 behaviour: behaviour,
                 image: imageUrl,
-                height: 60.h,
-                width: 70.w,
+                height: 50.h,
+                width: 60.w,
                 borderRadius: BorderRadius.circular(50.r),
               ),
               SizedBox(width: 10.w),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   AppTextStyles.semiBold_14(text: name, overflow: TextOverflow.ellipsis),
                   SizedBox(height: 5.h),

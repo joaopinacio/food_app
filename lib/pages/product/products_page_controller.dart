@@ -3,18 +3,22 @@ import 'dart:async';
 import 'package:food_app/core/classes/behaviour.dart';
 import 'package:food_app/core/models/product_model/product_model.dart';
 import 'package:food_app/core/repositories/product_repository/product_repository_interface.dart';
+import 'package:food_app/core/router/app_pages.dart';
 import 'package:food_app/core/utils/app_util.dart';
 import 'package:food_app/pages/restaurants/restaurant_pages/restaurant_edit_page/restaurant_edit_page_controller.dart';
 import 'package:get/get.dart';
 
 class ProductsPageController extends GetxController {
+  final AppPages _appPages;
   final RestaurantEditController _restaurantEditController;
   final IProductRepository _productRepository;
 
   ProductsPageController({
+    required AppPages appPages,
     required RestaurantEditController restaurantEditController,
     required IProductRepository productRepository,
-  })  : _restaurantEditController = restaurantEditController,
+  })  : _appPages = appPages,
+        _restaurantEditController = restaurantEditController,
         _productRepository = productRepository {
     init();
   }
@@ -47,7 +51,9 @@ class ProductsPageController extends GetxController {
     return AppUtil.formatMoney(value);
   }
 
-  void goToProductAdd() {}
+  void goToProductAdd() {
+    Get.toNamed(_appPages.productAdd);
+  }
 
   @override
   void onClose() {

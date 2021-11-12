@@ -55,7 +55,7 @@ class ProductRepositoryImpl implements IProductRepository {
   }
 
   @override
-  Future<bool>? saveProduct({
+  Future<bool> saveProduct({
     required ProductModel data,
     required ImageModel imageModel,
   }) async {

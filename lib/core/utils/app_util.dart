@@ -1,3 +1,4 @@
+import 'package:extended_masked_text/extended_masked_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -51,6 +52,48 @@ class AppUtil {
         name: 'formatMoney',
       );
       return formatter.format(value).toString();
+    }
+  }
+
+  static MoneyMaskedTextController getValueFormatting(
+      {double? price, bool? showSymbol = true, String? symbol, bool? symbolRight = false, int? customPrecision = 2}) {
+    try {
+      var _symbol = symbol ?? 'R\$';
+
+      MoneyMaskedTextController result;
+      var precision = 2;
+      if (symbolRight == false) {
+        result = MoneyMaskedTextController(
+          decimalSeparator: ',',
+          initialValue: price ?? 0,
+          leftSymbol: showSymbol!
+              ? _symbol != ''
+                  ? '$_symbol '
+                  : 'R\$'
+              : '',
+          thousandSeparator: '.',
+          precision: customPrecision ?? precision,
+        );
+      } else {
+        _symbol = symbol ?? '%';
+        result = MoneyMaskedTextController(
+          decimalSeparator: ',',
+          initialValue: price ?? 0,
+          rightSymbol: ' $_symbol',
+          thousandSeparator: '.',
+          precision: precision,
+        );
+      }
+      return result;
+    } catch (e) {
+      print('🟥 getValueFormatting -> $e');
+      return MoneyMaskedTextController(
+        decimalSeparator: ',',
+        initialValue: 0,
+        leftSymbol: 'R\$',
+        thousandSeparator: '.',
+        precision: 2,
+      );
     }
   }
 }

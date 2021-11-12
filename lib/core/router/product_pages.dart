@@ -1,15 +1,17 @@
+import 'package:food_app/pages/product/product_pages/product_add_page/product_add_page.dart';
+import 'package:food_app/pages/product/product_pages/product_add_page/product_add_page_bindings.dart';
 import 'package:get/get.dart';
 
-mixin RestaurantPages {
+mixin ProductPages {
   final productAdd = '/product_add';
   final productEdit = '/product_edit';
 
-  // get productAddPage => GetPage(
-  //       name: productAdd,
-  //       page: () => ProductAddPage(),
-  //       binding: ProductAddPageBindings(),
-  //       transition: Transition.cupertino,
-  //     );
+  get productAddPage => GetPage(
+        name: productAdd,
+        page: () => ProductAddPage(),
+        binding: ProductAddPageBindings(),
+        transition: Transition.cupertino,
+      );
 
   // get productEditPage => GetPage(
   //       name: productEdit,
@@ -18,8 +20,7 @@ mixin RestaurantPages {
   //       transition: Transition.cupertino,
   //     );
 
-  // List<GetPage<dynamic>> get getRestaurantPagesList => [
-  //       productAddPage,
-  //       productEditPage,
-  //     ];
+  List<GetPage<dynamic>> get getProductPagesList => [
+        productAddPage,
+      ];
 }

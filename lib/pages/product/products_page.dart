@@ -13,7 +13,7 @@ class ProductsPage extends GetView<ProductsPageController> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async => false,
+      onWillPop: () async => true,
       child: Obx(
         () => Scaffold(
           appBar: AppBarStyles.onlyTitleAndBack(
@@ -29,43 +29,46 @@ class ProductsPage extends GetView<ProductsPageController> {
             ),
             onPressed: controller.goToProductAdd,
           ),
-          body: Center(
-            child: controller.getPageBehaviour == Behaviour.loading
-                ? ListView.builder(
-                    physics: BouncingScrollPhysics(),
-                    itemCount: 5,
-                    itemBuilder: (BuildContext contextList, int index) {
-                      return AppProductCardStyles.standard(
-                        behaviour: Behaviour.loading,
-                        name: '',
-                        price: '',
-                        imageUrl: '',
-                        onTap: () {},
-                      );
-                    })
-                : controller.productList.length == 0
-                    ? Center(
-                        child: Padding(
-                          padding: EdgeInsets.only(bottom: 100.h),
-                          child: Container(
-                            child: AppTextStyles.bold_18(text: 'Não há Produtos :c'),
+          body: Padding(
+            padding: EdgeInsets.only(top: 10.h),
+            child: Center(
+              child: controller.getPageBehaviour == Behaviour.loading
+                  ? ListView.builder(
+                      physics: BouncingScrollPhysics(),
+                      itemCount: 5,
+                      itemBuilder: (BuildContext contextList, int index) {
+                        return AppProductCardStyles.standard(
+                          behaviour: Behaviour.loading,
+                          name: '',
+                          price: '',
+                          imageUrl: '',
+                          onTap: () {},
+                        );
+                      })
+                  : controller.productList.length == 0
+                      ? Center(
+                          child: Padding(
+                            padding: EdgeInsets.only(bottom: 110.h),
+                            child: Container(
+                              child: AppTextStyles.bold_18(text: 'Não há Produtos :c'),
+                            ),
                           ),
-                        ),
-                      )
-                    : ListView.builder(
-                        physics: BouncingScrollPhysics(),
-                        itemCount: controller.productList.length,
-                        itemBuilder: (BuildContext contextList, int index) {
-                          var product = controller.productList[index];
-                          return AppProductCardStyles.standard(
-                            behaviour: Behaviour.regular,
-                            name: product.name,
-                            price: controller.formatPrice(product.price),
-                            oldPrice: controller.formatPrice(product.oldPrice!),
-                            imageUrl: product.image.url!,
-                            onTap: () {},
-                          );
-                        }),
+                        )
+                      : ListView.builder(
+                          physics: BouncingScrollPhysics(),
+                          itemCount: controller.productList.length,
+                          itemBuilder: (BuildContext contextList, int index) {
+                            var product = controller.productList[index];
+                            return AppProductCardStyles.standard(
+                              behaviour: Behaviour.regular,
+                              name: product.name,
+                              price: controller.formatPrice(product.price),
+                              oldPrice: controller.formatPrice(product.oldPrice!),
+                              imageUrl: product.image.url!,
+                              onTap: () {},
+                            );
+                          }),
+            ),
           ),
         ),
       ),

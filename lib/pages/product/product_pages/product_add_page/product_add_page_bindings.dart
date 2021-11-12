@@ -3,9 +3,9 @@ import 'package:food_app/core/repositories/product_repository/product_repository
 import 'package:food_app/core/repositories/product_repository/product_repository_interface.dart';
 import 'package:get/get.dart';
 
-import 'products_page_controller.dart';
+import 'product_add_page_controller.dart';
 
-class ProductsPageBindings implements CoreBindings {
+class ProductAddPageBindings implements CoreBindings {
   @override
   void dependencies() {
     registerRepositories();
@@ -15,7 +15,7 @@ class ProductsPageBindings implements CoreBindings {
   @override
   void registerControllers() {
     Get.lazyPut(
-        () => ProductsPageController(
+        () => ProductAddController(
               appPages: Get.find(),
               productRepository: Get.find(),
               restaurantEditController: Get.find(),
