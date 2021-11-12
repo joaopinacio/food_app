@@ -40,8 +40,8 @@ class ProductModel extends ProductEntity {
       name: json['name'] ?? '',
       price: json['price'] ?? 0,
       oldPrice: json['oldPrice'] ?? 0,
-      image: json['image'] ?? ImageModel.init(),
-      productType: json['productType'] ?? ProductTypeModel.init(),
+      image: ImageModel.fromJson(json['image']),
+      productType: ProductTypeModel.fromJson(json['productType']),
       restaurantUid: json['restaurantUid'] ?? '',
     );
   }
@@ -52,8 +52,8 @@ class ProductModel extends ProductEntity {
       'name': name,
       'price': price,
       'oldPrice': oldPrice,
-      'image': image,
-      'productType': productType,
+      'image': image.toJson(),
+      'productType': productType!.toJson(),
       'restaurantUid': restaurantUid,
     };
   }

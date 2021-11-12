@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 class AppUtil {
   static String emailValidator(String email) {
@@ -29,5 +30,27 @@ class AppUtil {
     String valueString = colorString.split('(0x')[1].split(')')[0]; // kind of hacky..
     int value = int.parse(valueString, radix: 16);
     return Color(value);
+  }
+
+  static String formatMoney(num value) {
+    try {
+      final formatter = new NumberFormat.currency(
+        locale: 'pt-BR',
+        symbol: 'R\$',
+        decimalDigits: 2,
+        name: 'formatMoney',
+      );
+
+      return formatter.format(value).toString();
+    } catch (e) {
+      print('Error formatMoney >>> ${e.toString()}');
+      final formatter = new NumberFormat.currency(
+        locale: 'pt-BR',
+        symbol: 'R\$',
+        decimalDigits: 2,
+        name: 'formatMoney',
+      );
+      return formatter.format(value).toString();
+    }
   }
 }

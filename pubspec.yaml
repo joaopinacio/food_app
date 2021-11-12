@@ -29,6 +29,8 @@ dependencies:
   flutter_colorpicker: ^0.6.1
   awesome_dialog: ^2.1.1
   flare_flutter: ^3.0.2
+  extended_masked_text: ^2.3.1
+  intl: ^0.17.0
 
   # Firebase dependencies
   firebase_core: ^1.4.0

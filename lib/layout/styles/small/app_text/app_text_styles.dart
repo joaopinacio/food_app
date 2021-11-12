@@ -276,6 +276,7 @@ class AppTextStyles {
     TextAlign? textAlign,
     EdgeInsets? margin,
     Color? color,
+    TextOverflow? overflow,
   }) =>
       AppTextComponent(
         text: text,
@@ -283,6 +284,7 @@ class AppTextStyles {
         textAlign: textAlign,
         margin: margin,
         color: color,
+        overflow: overflow,
       );
 
   /// ## AppTextStyles semiBold_12

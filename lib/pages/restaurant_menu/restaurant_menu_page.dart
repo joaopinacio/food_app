@@ -223,7 +223,7 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
               child: Align(
                 alignment: Alignment(0, -0.57.h),
                 child: Hero(
-                  tag: controller.restaurant.name,
+                  tag: controller.restaurant.logo.url!,
                   child: AppNetworkImageStyles.standard(
                     behaviour: Behaviour.regular,
                     image: controller.restaurant.logo.url!,

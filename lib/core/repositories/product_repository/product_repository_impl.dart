@@ -27,6 +27,20 @@ class ProductRepositoryImpl implements IProductRepository {
   }
 
   @override
+  Stream<List<ProductModel>>? getProductsByRestaurant({required String restaurantUid}) {
+    try {
+      return productCollection.where('restaurantUid', isEqualTo: restaurantUid).snapshots().map((snapshots) {
+        return snapshots.docs.map((doc) {
+          return ProductModel.fromJson(doc.data());
+        }).toList();
+      });
+    } catch (e) {
+      print('🟥 ProductRepositoryImpl.getProducts -> $e');
+      return null;
+    }
+  }
+
+  @override
   Future<List<ProductModel>>? getProductsOnce() {
     try {
       return productCollection.get().then((snapshot) {
@@ -54,6 +68,7 @@ class ProductRepositoryImpl implements IProductRepository {
         );
 
         if (loadImage.isNotEmpty) {
+          imageModel.url = loadImage;
           data.image = imageModel;
         } else {
           return false;

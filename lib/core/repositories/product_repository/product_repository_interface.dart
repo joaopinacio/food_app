@@ -3,6 +3,7 @@ import 'package:food_app/core/models/product_model/product_model.dart';
 
 abstract class IProductRepository {
   Stream<List<ProductModel>>? getProducts();
+  Stream<List<ProductModel>>? getProductsByRestaurant({required String restaurantUid});
   Future<List<ProductModel>>? getProductsOnce();
   Future<bool>? saveProduct({required ProductModel data, required ImageModel imageModel});
   Future<bool>? deleteProduct({required ProductModel data});

@@ -52,7 +52,7 @@ class AppCarouselSliderCardComponent extends StatelessWidget with Component {
             Padding(
               padding: EdgeInsets.only(bottom: 30.h),
               child: Hero(
-                tag: title,
+                tag: logoImage,
                 child: AppNetworkImageStyles.standard(
                   behaviour: behaviour,
                   image: logoImage,
