@@ -6,6 +6,7 @@ import 'package:food_app/layout/styles/medium/app_bar/app_bar_styles.dart';
 import 'package:food_app/layout/styles/medium/app_modal_bottom_sheet/app_modal_bottom_sheet_styles.dart';
 import 'package:food_app/layout/styles/medium/app_restaurant_menu_product_card/app_restaurant_menu_product_card_styles.dart';
 import 'package:food_app/layout/styles/medium/app_restaurant_menu_type_card/app_restaurant_menu_type_card_styles.dart';
+import 'package:food_app/layout/styles/small/app_network_image/app_network_image_styles.dart';
 import 'package:food_app/layout/styles/small/app_text/app_text_styles.dart';
 import 'package:food_app/layout/themes/app_themes.dart';
 import 'package:get/get.dart';
@@ -67,7 +68,7 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                   children: [
                     SizedBox(height: AppThemes.spacing.spacer_36.h),
                     AppTextStyles.bold_24(
-                      text: "Restaurante 01",
+                      text: controller.restaurant.name,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -219,12 +220,15 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
               duration: Duration(milliseconds: 200),
               opacity: controller.getMainImageOpacity,
               child: Align(
-                alignment: Alignment(0, -0.56.h),
+                alignment: Alignment(0, -0.57.h),
                 child: Hero(
-                  tag: 'Lala',
-                  child: Image.asset(
-                    'assets/images/bag-icon.png',
-                    scale: 5.sp,
+                  tag: controller.restaurant.name,
+                  child: AppNetworkImageStyles.standard(
+                    behaviour: Behaviour.regular,
+                    image: controller.restaurant.logo.url!,
+                    height: 60.h,
+                    width: 70.w,
+                    borderRadius: BorderRadius.circular(50.r),
                   ),
                 ),
               ),

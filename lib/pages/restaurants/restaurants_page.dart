@@ -74,7 +74,7 @@ class RestaurantsPage extends GetView<RestaurantsPageController> {
                           primaryImage: restaurant.primaryImage.url!, // restaurant.primaryImage,
                           title: restaurant.name,
                           mainColor: AppThemes.colors.primaryColor, // restaurant.primaryColor,
-                          onTap: controller.goToRestaurantMenu,
+                          onTap: () => controller.goToRestaurantMenu(restaurant),
                         );
                       },
                     ),

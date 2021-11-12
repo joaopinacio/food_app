@@ -30,7 +30,6 @@ class RestaurantsPageController extends GetxController with SingleGetTickerProvi
   var user = Get.arguments['user'];
 
   get getBehaviour => behaviour.value;
-  List<String> teste = ['aq', 'aw'];
 
   init() async {
     fetchRestaurants();
@@ -87,8 +86,8 @@ class RestaurantsPageController extends GetxController with SingleGetTickerProvi
     behaviour.value = Behaviour.regular;
   }
 
-  goToRestaurantMenu() {
-    Get.toNamed(_appPages.restaurantMenu);
+  goToRestaurantMenu(RestaurantModel restaurant) {
+    Get.toNamed(_appPages.restaurantMenu, arguments: {'restaurant': restaurant});
   }
 
   @override
