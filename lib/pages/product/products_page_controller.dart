@@ -48,7 +48,7 @@ class ProductsPageController extends GetxController {
   }
 
   String formatPrice(num value) {
-    return AppUtil.formatMoney(value);
+    return AppUtil.formatMoney(value: value);
   }
 
   void goToProductAdd() {

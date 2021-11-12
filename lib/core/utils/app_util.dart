@@ -33,11 +33,11 @@ class AppUtil {
     return Color(value);
   }
 
-  static String formatMoney(num value) {
+  static String formatMoney({required num value, String? symbol}) {
     try {
       final formatter = new NumberFormat.currency(
         locale: 'pt-BR',
-        symbol: 'R\$',
+        symbol: symbol ?? 'R\$',
         decimalDigits: 2,
         name: 'formatMoney',
       );

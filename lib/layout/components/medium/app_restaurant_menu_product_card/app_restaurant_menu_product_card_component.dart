@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_app/core/classes/behaviour.dart';
 import 'package:food_app/core/classes/component.dart';
 import 'package:food_app/layout/app_layout_imports.dart';
+import 'package:food_app/layout/styles/small/app_network_image/app_network_image_styles.dart';
 import 'package:food_app/layout/styles/small/app_text/app_text_styles.dart';
 import 'package:food_app/layout/themes/app_themes.dart';
 
@@ -71,12 +72,23 @@ class AppRestaurantMenuProductCardComponent extends StatelessWidget with Compone
         ),
         child: Column(
           children: <Widget>[
-            Image.asset(
-              image ?? 'assets/images/image_food.png',
-              fit: BoxFit.fitWidth,
-              height: 132.h,
+            AppNetworkImageStyles.standard(
+              behaviour: Behaviour.regular,
+              image: image!,
+              boxFit: BoxFit.cover,
+              height: 100.h,
               width: double.infinity,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(10.r),
+                topRight: Radius.circular(10.r),
+              ),
             ),
+            // Image.asset(
+            //   'assets/images/image_food.png',
+            //   fit: BoxFit.fitWidth,
+            //   height: 132.h,
+            //   width: double.infinity,
+            // ),
             SizedBox(height: AppThemes.spacing.spacer_6.h),
             AppTextStyles.medium_10(
               text: title,

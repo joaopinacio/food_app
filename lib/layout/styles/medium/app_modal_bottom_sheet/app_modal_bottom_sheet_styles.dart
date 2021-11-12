@@ -5,6 +5,7 @@ import 'package:food_app/layout/app_layout_imports.dart';
 import 'package:food_app/layout/components/medium/app_modal_bottom_sheet/app_modal_bottom_sheet_component.dart';
 import 'package:food_app/layout/styles/medium/app_text_button/app_text_button_styles.dart';
 import 'package:food_app/layout/styles/small/app_counter/app_counter_styles.dart';
+import 'package:food_app/layout/styles/small/app_network_image/app_network_image_styles.dart';
 import 'package:food_app/layout/styles/small/app_text/app_text_styles.dart';
 import 'package:food_app/layout/themes/app_themes.dart';
 
@@ -53,12 +54,23 @@ class AppModalBottomSheetStyles {
                 height: 190.h,
                 child: ClipRRect(
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(34.r), topRight: Radius.circular(34.r)),
-                  child: Image.asset(
-                    image ?? 'assets/images/image_food.png',
-                    fit: BoxFit.fitWidth,
-                    height: 132.h,
+                  child: AppNetworkImageStyles.standard(
+                    behaviour: Behaviour.regular,
+                    image: image!,
+                    boxFit: BoxFit.cover,
+                    height: 100.h,
                     width: double.infinity,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10.r),
+                      topRight: Radius.circular(10.r),
+                    ),
                   ),
+                  // Image.asset(
+                  //   image ?? 'assets/images/image_food.png',
+                  //   fit: BoxFit.fitWidth,
+                  //   height: 132.h,
+                  //   width: double.infinity,
+                  // ),
                 ),
               ),
               Align(

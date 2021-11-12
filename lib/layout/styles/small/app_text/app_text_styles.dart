@@ -83,7 +83,31 @@ class AppTextStyles {
         margin: margin,
       );
 
-  /// ## AppTextStyles regular_14
+  /// ## AppTextStyles regular_12
+  ///
+  /// __[text]__ Texto a ser exibido
+  ///
+  /// __[textAlign]__ Tipo de alinhamento do texto
+  ///
+  static AppTextComponent regular_10({
+    required String text,
+    TextAlign? textAlign,
+    EdgeInsets? margin,
+    Color? color,
+    int? maxLines,
+    TextOverflow? overflow,
+  }) =>
+      AppTextComponent(
+        text: text,
+        textStyle: AppThemes.typography.poppinsRegular_12,
+        textAlign: textAlign,
+        margin: margin,
+        color: color,
+        maxLines: maxLines,
+        overflow: overflow,
+      );
+
+  /// ## AppTextStyles regular_12
   ///
   /// __[text]__ Texto a ser exibido
   ///

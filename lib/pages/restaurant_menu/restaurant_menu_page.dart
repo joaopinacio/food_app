@@ -96,7 +96,7 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                                     children: [
                                       AppRestaurantMenuTypeCardStyles.standard(
                                         behaviour: Behaviour.regular,
-                                        title: 'Promotions',
+                                        title: 'Produtos',
                                       ),
                                       AppRestaurantMenuTypeCardStyles.standard(
                                         behaviour: Behaviour.regular,
@@ -122,7 +122,7 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                               // listProducts.map((item) { }).toList(),
                               Padding(
                                 padding: EdgeInsets.symmetric(horizontal: AppThemes.spacing.spacer_24.w),
-                                child: AppTextStyles.semiBold_14(text: "Promotions"),
+                                child: AppTextStyles.semiBold_14(text: 'products'.tr),
                               ),
                               SizedBox(height: AppThemes.spacing.spacer_12.h),
                               GridView.count(
@@ -133,69 +133,32 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                                 crossAxisCount: 2,
                                 childAspectRatio: 0.43.h,
                                 shrinkWrap: true,
-                                // listProducts.map((item) { }).toList(),
-                                children: [
-                                  AppRestaurantMenuProductCardStyles.standard(
-                                    behaviour: Behaviour.regular,
-                                    title: 'Food One',
-                                    description:
-                                        'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
-                                    price: '14,99',
-                                    oldPrice: '25,99',
-                                    onTap: () {
-                                      AppModalBottomSheetStyles.product(
-                                        title: 'Food One',
-                                        price: '15,99',
+                                children: controller.productList
+                                    .map(
+                                      (product) => AppRestaurantMenuProductCardStyles.standard(
+                                        behaviour: Behaviour.regular,
+                                        title: product.name,
+                                        image: product.image.url,
                                         description:
-                                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum viverra,  sit amet, consectetur adipiscing elit. Lorem ipsum dolor, consec',
-                                        onSave: () {},
-                                        colorQty: controller.mainColor,
-                                        colorQtyIcons: controller.cartIconColor,
-                                        isUserRestaurant: controller.checkUserIsRestaurant(),
-                                      );
-                                    },
-                                  ),
-                                  AppRestaurantMenuProductCardStyles.standard(
-                                    behaviour: Behaviour.regular,
-                                    title: 'Food One',
-                                    description:
-                                        'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
-                                    price: '14,99',
-                                    onTap: () {},
-                                  ),
-                                  AppRestaurantMenuProductCardStyles.standard(
-                                    behaviour: Behaviour.regular,
-                                    title: 'Food One',
-                                    description:
-                                        'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
-                                    price: '14,99',
-                                    onTap: () {},
-                                  ),
-                                  AppRestaurantMenuProductCardStyles.standard(
-                                    behaviour: Behaviour.regular,
-                                    title: 'Food One',
-                                    description:
-                                        'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
-                                    price: '14,99',
-                                    onTap: () {},
-                                  ),
-                                  AppRestaurantMenuProductCardStyles.standard(
-                                    behaviour: Behaviour.regular,
-                                    title: 'Food One',
-                                    description:
-                                        'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
-                                    price: '14,99',
-                                    onTap: () {},
-                                  ),
-                                  AppRestaurantMenuProductCardStyles.standard(
-                                    behaviour: Behaviour.regular,
-                                    title: 'Food One',
-                                    description:
-                                        'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
-                                    price: '14,99',
-                                    onTap: () {},
-                                  ),
-                                ],
+                                            'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
+                                        price: controller.formatMoney(product.price)!,
+                                        oldPrice: controller.formatMoney(product.oldPrice!),
+                                        onTap: () {
+                                          AppModalBottomSheetStyles.product(
+                                            title: product.name,
+                                            image: product.image.url,
+                                            price: controller.formatMoney(product.price)!,
+                                            description:
+                                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum viverra,  sit amet, consectetur adipiscing elit. Lorem ipsum dolor, consec',
+                                            onSave: () {},
+                                            colorQty: controller.mainColor,
+                                            colorQtyIcons: controller.cartIconColor,
+                                            isUserRestaurant: controller.checkUserIsRestaurant(),
+                                          );
+                                        },
+                                      ),
+                                    )
+                                    .toList(),
                               ),
                             ],
                           ),
