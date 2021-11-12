@@ -55,6 +55,10 @@ class ProductsPageController extends GetxController {
     Get.toNamed(_appPages.productAdd);
   }
 
+  void goToProductEdit(ProductModel product) {
+    Get.toNamed(_appPages.productEdit, arguments: {'product': product});
+  }
+
   @override
   void onClose() {
     super.onClose();

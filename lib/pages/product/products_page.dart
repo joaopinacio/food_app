@@ -65,7 +65,7 @@ class ProductsPage extends GetView<ProductsPageController> {
                               price: controller.formatPrice(product.price),
                               oldPrice: controller.formatPrice(product.oldPrice!),
                               imageUrl: product.image.url!,
-                              onTap: () {},
+                              onTap: () => controller.goToProductEdit(product),
                             );
                           }),
             ),

@@ -45,37 +45,45 @@ class AppProductCardComponent extends StatelessWidget with Component {
 
   @override
   Widget whenRegular(BuildContext context, Behaviour behaviour) {
-    return Column(
-      children: [
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
-          child: Row(
-            children: [
-              AppNetworkImageStyles.standard(
-                behaviour: behaviour,
-                image: imageUrl,
-                height: 50.h,
-                width: 60.w,
-                borderRadius: BorderRadius.circular(50.r),
-              ),
-              SizedBox(width: 10.w),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  AppTextStyles.semiBold_14(text: name, overflow: TextOverflow.ellipsis),
-                  SizedBox(height: 5.h),
-                  AppTextStyles.semiBold_14(text: price),
-                ],
-              ),
-            ],
+    return InkWell(
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      onTap: onTap,
+      child: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+            child: Row(
+              children: [
+                Hero(
+                  tag: imageUrl,
+                  child: AppNetworkImageStyles.standard(
+                    behaviour: behaviour,
+                    image: imageUrl,
+                    height: 50.h,
+                    width: 60.w,
+                    borderRadius: BorderRadius.circular(50.r),
+                  ),
+                ),
+                SizedBox(width: 10.w),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    AppTextStyles.semiBold_14(text: name, overflow: TextOverflow.ellipsis),
+                    SizedBox(height: 5.h),
+                    AppTextStyles.semiBold_14(text: price),
+                  ],
+                ),
+              ],
+            ),
           ),
-        ),
-        Container(
-          width: double.infinity,
-          height: 1.h,
-          color: AppThemes.colors.grayScale_3,
-        ),
-      ],
+          Container(
+            width: double.infinity,
+            height: 1.h,
+            color: AppThemes.colors.grayScale_3,
+          ),
+        ],
+      ),
     );
   }
 

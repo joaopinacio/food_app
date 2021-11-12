@@ -18,7 +18,7 @@ class AppPhotoComponent extends StatelessWidget {
       borderRadius: BorderRadius.circular(50.r),
       child: Image.file(
         File(filePath),
-        fit: BoxFit.fitWidth,
+        fit: BoxFit.cover,
         width: size?.sp ?? 70.sp,
         height: size?.sp ?? 70.sp,
       ),

@@ -66,8 +66,10 @@ class RestaurantEditController extends GetxController {
       restaurantTypeController.text = restaurant.restaurantType;
       logoImage.value = restaurant.logo;
       logoImage.value.hashMd5 = '';
+      logoImage.value.filePath = '';
       primaryImage.value = restaurant.primaryImage;
       primaryImage.value.hashMd5 = '';
+      primaryImage.value.filePath = '';
 
       mainColor.value = AppUtil.stringColorToColor(restaurant.primaryColor);
       choosedColor.value = true;
@@ -179,7 +181,7 @@ class RestaurantEditController extends GetxController {
   bool validImages() {
     var valid = false;
 
-    if (getLogoImage.filePath != '') {
+    if (getLogoImage.filePath != '' || getLogoImage.url != '') {
       errorRequiredLogo.value = false;
       valid = true;
     } else {
@@ -187,7 +189,7 @@ class RestaurantEditController extends GetxController {
       valid = false;
     }
 
-    if (getPrimaryImage.filePath != '') {
+    if (getPrimaryImage.filePath != '' || getPrimaryImage.url != '') {
       errorRequiredPrimaryImage.value = false;
       valid = true;
     } else {

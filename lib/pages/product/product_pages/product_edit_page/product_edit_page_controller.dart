@@ -10,18 +10,20 @@ import 'package:food_app/layout/app_layout_imports.dart';
 import 'package:food_app/pages/restaurants/restaurant_pages/restaurant_edit_page/restaurant_edit_page_controller.dart';
 import 'package:get/get.dart';
 
-class ProductAddController extends GetxController {
+class ProductEditController extends GetxController {
   final AppPages _appPages;
   final IProductRepository _productRepository;
   final RestaurantEditController _restaurantEditController;
 
-  ProductAddController({
+  ProductEditController({
     required AppPages appPages,
     required IProductRepository productRepository,
     required RestaurantEditController restaurantEditController,
   })  : _appPages = appPages,
         _productRepository = productRepository,
-        _restaurantEditController = restaurantEditController;
+        _restaurantEditController = restaurantEditController {
+    init();
+  }
 
   var nameKey = GlobalKey<FormState>();
   var nameController = TextEditingController();
@@ -43,10 +45,20 @@ class ProductAddController extends GetxController {
 
   bool get getErrorRequiredImage => errorRequiredImage.value;
 
-  save() async {
+  void init() {
+    product = Get.arguments['product'];
+
+    nameController.text = product.name;
+    priceController = AppUtil.getValueFormatting(price: product.price.toDouble());
+    oldPriceController = AppUtil.getValueFormatting(price: product.oldPrice!.toDouble());
+    productImage.value = product.image;
+    productImage.value.filePath = '';
+    productImage.value.hashMd5 = '';
+  }
+
+  void save() async {
     try {
       if (validImage() && nameKey.currentState!.validate()) {
-        product.uid = AppUuid.generateUuid();
         product.image.hashMd5 = getProductImage.hashMd5;
         product.name = nameController.text;
         product.price = priceController.numberValue;
@@ -99,7 +111,7 @@ class ProductAddController extends GetxController {
   bool validImage() {
     var valid = false;
 
-    if (getProductImage.filePath != '') {
+    if (getProductImage.filePath != '' || getProductImage.url != '') {
       errorRequiredImage.value = false;
       valid = true;
     } else {

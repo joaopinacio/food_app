@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_app/layout/app_layout_imports.dart';
 import 'package:food_app/layout/styles/medium/app_bar/app_bar_styles.dart';
 import 'package:food_app/layout/styles/medium/app_text_button/app_text_button_styles.dart';
+import 'package:food_app/layout/styles/small/app_default_photo/app_default_photo_styles.dart';
 import 'package:food_app/layout/styles/small/app_text/app_text_styles.dart';
 import 'package:food_app/layout/themes/app_themes.dart';
 import 'package:food_app/pages/aux_pages/camera/camera_page_controller.dart';
@@ -113,16 +114,11 @@ class CameraPage extends GetView<CameraPageController> {
     return CachedNetworkImage(
       color: Color(0xffEBEBEB).withOpacity(0.5),
       colorBlendMode: BlendMode.multiply,
-      fit: BoxFit.contain,
+      height: 200.h,
+      fit: BoxFit.fitHeight,
       imageUrl: controller.getUrl,
-      placeholder: (context, url) => Image.asset(
-        'assets/images/product_image_default.png',
-        fit: BoxFit.contain,
-      ),
-      errorWidget: (context, url, error) => Image.asset(
-        'assets/images/product_image_default.png',
-        fit: BoxFit.contain,
-      ),
+      placeholder: (context, url) => AppDefaultPhotoStyles.standard(),
+      errorWidget: (context, url, error) => AppDefaultPhotoStyles.standard(),
     );
   }
 }
