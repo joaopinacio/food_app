@@ -17,8 +17,8 @@ mixin CarouselAnimationMixin on GetxController {
 
   void onPageChanged(int index, reason) {
     restaurantSelected = restaurantList[index];
-    var restaurantColor = Color(int.parse(restaurantList[index].primaryColor.replaceAll('#', '0xff')));
-    var pastRestaurantColor = Color(int.parse(restaurantList[pastIndex].primaryColor.replaceAll('#', '0xff')));
+    var restaurantColor = AppUtil.stringColorToColor(restaurantList[index].primaryColor);
+    var pastRestaurantColor = AppUtil.stringColorToColor(restaurantList[pastIndex].primaryColor);
 
     if (forward) {
       backgroundColorAnim =
