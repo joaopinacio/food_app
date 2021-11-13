@@ -126,13 +126,22 @@ class RestaurantMenuPageController extends GetxController with RestaurantMenuAni
   }
 
   void changeProductQty(int value, int index) {
-    cart.value.productsCart[index].qty = value;
+    var actualProduct = cart.value.productsCart[index];
+    actualProduct.qty = value;
+    actualProduct.total = (actualProduct.price * actualProduct.qty);
     updateCartTotalAndQty();
   }
 
   void removeProductCart(int index) {
     cart.value.productsCart.removeAt(index);
     updateCartTotalAndQty();
+  }
+
+  void emptyCart() {
+    cart.value.productsCart.clear();
+    cart.value.qty = 0;
+    cart.value.total = 0;
+    cart.refresh();
   }
 
   bool productInCart(String uid) {

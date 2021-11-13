@@ -2,8 +2,6 @@ import 'package:food_app/core/classes/behaviour.dart';
 import 'package:food_app/layout/app_layout_imports.dart';
 import 'package:food_app/layout/components/medium/app_card_product_cart/app_card_product_cart.dart';
 
-typedef IntCallback(int);
-
 class AppCardProductCartStyles {
   AppCardProductCartStyles._();
 

@@ -40,4 +40,8 @@ const Map<String, String> pt = {
   "take_a_picture": "Tire uma foto",
   "order_details": "Detalhes do Pedido",
   "my_cart": "Meu Carrinho",
+  "empty_cart": "Esvaziar carrinho",
+  "conclude": "Concluir",
+  "cart_is_empty": "Carrinho vazio",
+  "new_order": "Novo Pedido",
 };

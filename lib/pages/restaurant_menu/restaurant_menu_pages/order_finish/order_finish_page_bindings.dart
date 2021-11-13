@@ -1,9 +1,9 @@
 import 'package:food_app/core/classes/core_bindings.dart';
 import 'package:get/get.dart';
 
-import 'cart_page_controller.dart';
+import 'order_finish_page_controller.dart';
 
-class CartPageBindings implements CoreBindings {
+class OrderFinishPageBindings implements CoreBindings {
   @override
   void dependencies() {
     registerRepositories();
@@ -13,8 +13,7 @@ class CartPageBindings implements CoreBindings {
   @override
   void registerControllers() {
     Get.lazyPut(
-        () => CartPageController(
-              restaurantMenuPageController: Get.find(),
+        () => OrderFinishPageController(
               appPages: Get.find(),
             ),
         fenix: true);
