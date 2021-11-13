@@ -6,6 +6,7 @@ import 'package:food_app/core/models/product_cart_model/product_cart_model.dart'
 import 'package:food_app/core/models/product_model/product_model.dart';
 import 'package:food_app/core/models/restaurant_model/restaurant_model.dart';
 import 'package:food_app/core/repositories/product_repository/product_repository_interface.dart';
+import 'package:food_app/core/router/app_pages.dart';
 import 'package:food_app/core/utils/app_util.dart';
 import 'package:food_app/layout/app_layout_imports.dart';
 import 'package:food_app/pages/restaurant_menu/mixins/restaurant_menu_animations.dart';
@@ -13,13 +14,16 @@ import 'package:food_app/pages/restaurants/restaurants_page_controller.dart';
 import 'package:get/get.dart';
 
 class RestaurantMenuPageController extends GetxController with RestaurantMenuAnimations, SingleGetTickerProviderMixin {
+  final AppPages _appPages;
   final RestaurantsPageController _restaurantsPageController;
   final IProductRepository _productRepository;
 
   RestaurantMenuPageController({
+    required AppPages appPages,
     required RestaurantsPageController restaurantsPageController,
     required IProductRepository productRepository,
-  })  : _restaurantsPageController = restaurantsPageController,
+  })  : _appPages = appPages,
+        _restaurantsPageController = restaurantsPageController,
         _productRepository = productRepository;
 
   RestaurantsPageController get getRestaurantsPageController => _restaurantsPageController;
@@ -91,6 +95,7 @@ class RestaurantMenuPageController extends GetxController with RestaurantMenuAni
       productType: product.productType,
       restaurantUid: product.restaurantUid,
       qty: qtySelected,
+      total: (product.price * qtySelected),
     );
 
     if (hasProduct.length == 0) {
@@ -99,13 +104,39 @@ class RestaurantMenuPageController extends GetxController with RestaurantMenuAni
       cart.value.productsCart.forEach((element) {
         if (element.uid == product.uid) {
           element.qty += qtySelected;
+          element.total = (product.price * element.qty);
         }
       });
     }
 
-    cart.value.qty += qtySelected;
+    updateCartTotalAndQty();
     qtySelected = 1;
+  }
+
+  void updateCartTotalAndQty() {
+    num total = 0;
+    int qty = 0;
+    cart.value.productsCart.forEach((element) {
+      total += element.total;
+      qty += element.qty;
+    });
+    cart.value.total = total;
+    cart.value.qty = qty;
     cart.refresh();
+  }
+
+  void changeProductQty(int value, int index) {
+    cart.value.productsCart[index].qty = value;
+    updateCartTotalAndQty();
+  }
+
+  void removeProductCart(int index) {
+    cart.value.productsCart.removeAt(index);
+    updateCartTotalAndQty();
+  }
+
+  void goToCartPage() {
+    Get.toNamed(_appPages.cart);
   }
 
   @override

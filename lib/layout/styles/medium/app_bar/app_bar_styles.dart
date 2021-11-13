@@ -141,7 +141,7 @@ class AppBarStyles {
           child: Padding(
             padding: EdgeInsets.only(left: 24.w, top: 10.h, right: 24.w, bottom: 10.h),
             child: Icon(
-              Icons.arrow_back_ios_new_rounded,
+              Icons.arrow_back_rounded,
               size: 24.sp,
               color: iconsColor ?? AppThemes.colors.black,
             ),
@@ -184,7 +184,7 @@ class AppBarStyles {
               child: Padding(
                 padding: EdgeInsets.only(left: 24.w, top: 10.h, right: 15.w, bottom: 10.h),
                 child: Icon(
-                  Icons.arrow_back_ios_new_rounded,
+                  Icons.arrow_back_rounded,
                   size: 20.sp,
                   color: AppThemes.colors.black,
                 ),
@@ -241,7 +241,7 @@ class AppBarStyles {
               child: Padding(
                 padding: EdgeInsets.only(left: 24.w, top: 10.h, right: 15.w, bottom: 10.h),
                 child: Icon(
-                  Icons.arrow_back_ios_new_rounded,
+                  Icons.arrow_back_rounded,
                   size: 20.sp,
                   color: AppThemes.colors.black,
                 ),

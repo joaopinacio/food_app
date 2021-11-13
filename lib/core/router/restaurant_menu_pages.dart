@@ -1,9 +1,12 @@
 import 'package:food_app/pages/restaurant_menu/restaurant_menu_page.dart';
 import 'package:food_app/pages/restaurant_menu/restaurant_menu_page_bindings.dart';
+import 'package:food_app/pages/restaurant_menu/restaurant_menu_pages/cart/cart_page.dart';
+import 'package:food_app/pages/restaurant_menu/restaurant_menu_pages/cart/cart_page_bindings.dart';
 import 'package:get/get.dart';
 
 mixin RestaurantMenuPages {
   final restaurantMenu = '/restaurant_menu';
+  final cart = '/cart';
 
   get restaurantMenuPage => GetPage(
         name: restaurantMenu,
@@ -12,7 +15,15 @@ mixin RestaurantMenuPages {
         transition: Transition.fadeIn,
       );
 
+  get cartPage => GetPage(
+        name: cart,
+        page: () => CartPage(),
+        binding: CartPageBindings(),
+        transition: Transition.cupertino,
+      );
+
   List<GetPage<dynamic>> get getRestaurantMenuPagesList => [
         restaurantMenuPage,
+        cartPage,
       ];
 }

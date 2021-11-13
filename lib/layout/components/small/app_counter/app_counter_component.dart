@@ -39,6 +39,12 @@ class AppCounterComponent extends StatefulWidget {
   final Color color;
   final Color colorIcons;
   final IntCallback onChange;
+  final double? widthQty;
+  final double? heightQty;
+  final double? iconSize;
+  final double? fontSizeQty;
+  final double? alignIconLeft;
+  final double? alignIconRight;
 
   AppCounterComponent({
     Key? key,
@@ -51,6 +57,12 @@ class AppCounterComponent extends StatefulWidget {
     required this.color,
     required this.colorIcons,
     required this.onChange,
+    this.widthQty,
+    this.heightQty,
+    this.iconSize,
+    this.fontSizeQty,
+    this.alignIconLeft,
+    this.alignIconRight,
   });
 
   @override
@@ -101,14 +113,14 @@ class _AppCounterComponentState extends State<AppCounterComponent> with Componen
       child: Stack(
         children: <Widget>[
           Align(
-            alignment: Alignment.centerLeft,
+            alignment: Alignment(widget.alignIconLeft ?? -1.0, 0.0),
             child: HoldDetector(
               onHold: _remove,
               holdTimeout: Duration(milliseconds: 1),
               child: IconButton(
                 color: AppThemes.colors.white,
                 icon: Icon(Icons.remove),
-                iconSize: 20.sp,
+                iconSize: widget.iconSize?.sp ?? 20.sp,
                 onPressed: _remove,
               ),
             ),
@@ -116,26 +128,30 @@ class _AppCounterComponentState extends State<AppCounterComponent> with Componen
           Align(
             alignment: Alignment.center,
             child: Container(
-              width: 28.w,
-              height: 28.w,
+              width: widget.widthQty?.w ?? 28.w,
+              height: widget.heightQty?.h ?? 28.w,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(34.r),
                 color: AppThemes.colors.white,
               ),
               child: Center(
-                child: AppTextStyles.medium_16(text: _number.toString(), color: AppThemes.colors.black),
+                child: AppTextStyles.medium_16(
+                  text: _number.toString(),
+                  color: AppThemes.colors.black,
+                  fontSize: widget.fontSizeQty,
+                ),
               ),
             ),
           ),
           Align(
-            alignment: Alignment.centerRight,
+            alignment: Alignment(widget.alignIconRight ?? 1.0, 0.0),
             child: HoldDetector(
               onHold: _add,
               holdTimeout: Duration(milliseconds: 100),
               child: IconButton(
                 color: AppThemes.colors.white,
                 icon: Icon(Icons.add),
-                iconSize: 20.sp,
+                iconSize: widget.iconSize?.sp ?? 20.sp,
                 onPressed: _add,
               ),
             ),

@@ -35,6 +35,12 @@ class AppCounterStyles {
     required double height,
     required Color color,
     required Color colorIcons,
+    double? widthQty,
+    double? heightQty,
+    double? iconSize,
+    double? alignIconLeft,
+    double? alignIconRight,
+    double? fontSizeQty,
   }) =>
       AppCounterComponent(
         behaviour: behaviour,
@@ -44,11 +50,17 @@ class AppCounterStyles {
         onChange: onChange,
         width: width,
         height: height,
+        widthQty: widthQty,
+        heightQty: heightQty,
+        iconSize: iconSize,
+        alignIconLeft: alignIconLeft,
+        alignIconRight: alignIconRight,
+        fontSizeQty: fontSizeQty,
         color: color,
         colorIcons: colorIcons,
       );
 
-  /// ## AppCounterStyles.standard
+  /// ## AppCounterStyles.product
   ///
   /// __[behaviour]__ Comportamento do Componente
   ///
@@ -68,6 +80,40 @@ class AppCounterStyles {
         behaviour: behaviour,
         width: 100,
         height: 36,
+        max: 99,
+        min: min,
+        initialValue: initialValue ?? 0,
+        onChange: onChange,
+        color: color,
+        colorIcons: colorIcons,
+      );
+
+  /// ## AppCounterStyles.mini
+  ///
+  /// __[behaviour]__ Comportamento do Componente
+  ///
+  /// __[onChange]__ Callback do contador
+  ///
+  /// __[color]__ Cor do componente
+  ///
+  static AppCounterComponent mini({
+    required Behaviour behaviour,
+    required IntCallback onChange,
+    required Color color,
+    required Color colorIcons,
+    int? initialValue,
+    int? min,
+  }) =>
+      AppCounterComponent(
+        behaviour: behaviour,
+        width: 75,
+        height: 30,
+        widthQty: 20,
+        heightQty: 20,
+        iconSize: 15,
+        alignIconLeft: -1.3,
+        alignIconRight: 1.3,
+        fontSizeQty: 14,
         max: 99,
         min: min,
         initialValue: initialValue ?? 0,

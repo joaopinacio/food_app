@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_app/layout/app_layout_imports.dart';
 import 'package:food_app/layout/components/small/app_text/app_text_component.dart';
 
@@ -210,10 +211,13 @@ class AppTextStyles {
     Color? color,
     int? maxLines,
     TextOverflow? overflow,
+    double? fontSize,
   }) =>
       AppTextComponent(
         text: text,
-        textStyle: AppThemes.typography.poppinsMedium_16,
+        textStyle: AppThemes.typography.poppinsMedium_16.copyWith(
+          fontSize: fontSize?.sp ?? 16.sp,
+        ),
         textAlign: textAlign,
         margin: margin,
         color: color,
@@ -238,6 +242,30 @@ class AppTextStyles {
       AppTextComponent(
         text: text,
         textStyle: AppThemes.typography.poppinsMedium_10,
+        textAlign: textAlign,
+        margin: margin,
+        color: color,
+        maxLines: maxLines,
+        overflow: overflow,
+      );
+
+  /// ## AppTextStyles medium_14
+  ///
+  /// __[text]__ Texto a ser exibido
+  ///
+  /// __[textAlign]__ Tipo de alinhamento do texto
+  ///
+  static AppTextComponent medium_12({
+    required String text,
+    TextAlign? textAlign,
+    EdgeInsets? margin,
+    Color? color,
+    int? maxLines,
+    TextOverflow? overflow,
+  }) =>
+      AppTextComponent(
+        text: text,
+        textStyle: AppThemes.typography.poppinsMedium_12,
         textAlign: textAlign,
         margin: margin,
         color: color,

@@ -8,7 +8,7 @@ class CartModel extends CartEntity {
   CartModel({
     required String uid,
     required List<ProductCartModel> productsCart,
-    required num qty,
+    required int qty,
     required num total,
   }) : super(
           uid: uid,

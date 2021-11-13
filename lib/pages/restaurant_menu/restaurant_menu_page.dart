@@ -54,7 +54,7 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                 )
               ],
             ),
-            onPressed: () {},
+            onPressed: controller.goToCartPage,
           ),
         ),
         body: Stack(

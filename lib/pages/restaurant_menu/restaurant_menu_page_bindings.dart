@@ -16,6 +16,7 @@ class RestaurantMenuPageBindings implements CoreBindings {
   void registerControllers() {
     Get.lazyPut(
         () => RestaurantMenuPageController(
+              appPages: Get.find(),
               restaurantsPageController: Get.find(),
               productRepository: Get.find(),
             ),

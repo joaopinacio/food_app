@@ -12,7 +12,8 @@ class ProductCartModel extends ProductCartEntity {
     required ImageModel image,
     ProductTypeModel? productType,
     String? restaurantUid,
-    required num qty,
+    required int qty,
+    required num total,
   }) : super(
           uid: uid,
           name: name,
@@ -22,6 +23,7 @@ class ProductCartModel extends ProductCartEntity {
           productType: productType,
           restaurantUid: restaurantUid,
           qty: qty,
+          total: total,
         );
 
   static ProductCartModel init() {
@@ -34,6 +36,7 @@ class ProductCartModel extends ProductCartEntity {
       productType: ProductTypeModel.init(),
       restaurantUid: '',
       qty: 0,
+      total: 0,
     );
   }
 
@@ -47,6 +50,7 @@ class ProductCartModel extends ProductCartEntity {
       productType: ProductTypeModel.fromJson(json['productType']),
       restaurantUid: json['restaurantUid'] ?? '',
       qty: json['qty'] ?? 0,
+      total: json['total'] ?? 0,
     );
   }
 
@@ -60,6 +64,7 @@ class ProductCartModel extends ProductCartEntity {
       'productType': productType!.toJson(),
       'restaurantUid': restaurantUid,
       'qty': qty,
+      'total': total,
     };
   }
 }

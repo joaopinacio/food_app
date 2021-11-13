@@ -112,6 +112,14 @@ class AppTypography {
         fontFamily: 'Poppins',
       );
 
+  TextStyle get poppinsMedium_12 => TextStyle(
+        fontSize: 12.sp,
+        fontWeight: FontWeight.w500,
+        color: AppThemes.colors.black,
+        letterSpacing: _letterSpacing,
+        fontFamily: 'Poppins',
+      );
+
   TextStyle get poppinsMedium_14 => TextStyle(
         fontSize: 14.sp,
         fontWeight: FontWeight.w500,

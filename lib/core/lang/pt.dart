@@ -38,4 +38,6 @@ const Map<String, String> pt = {
   "image": "Imagem",
   "gallery": "Galeria",
   "take_a_picture": "Tire uma foto",
+  "order_details": "Detalhes do Pedido",
+  "my_cart": "Meu Carrinho",
 };

@@ -9,7 +9,8 @@ abstract class ProductCartEntity {
   ImageModel image;
   ProductTypeModel? productType;
   String? restaurantUid;
-  num qty;
+  int qty;
+  num total;
 
   ProductCartEntity({
     required this.uid,
@@ -20,5 +21,6 @@ abstract class ProductCartEntity {
     this.productType,
     this.restaurantUid,
     required this.qty,
+    required this.total,
   });
 }
