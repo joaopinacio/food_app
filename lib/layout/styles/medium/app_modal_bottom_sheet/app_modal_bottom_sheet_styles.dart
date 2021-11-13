@@ -9,6 +9,8 @@ import 'package:food_app/layout/styles/small/app_network_image/app_network_image
 import 'package:food_app/layout/styles/small/app_text/app_text_styles.dart';
 import 'package:food_app/layout/themes/app_themes.dart';
 
+typedef IntCallback(int);
+
 class AppModalBottomSheetStyles {
   AppModalBottomSheetStyles._();
 
@@ -42,6 +44,8 @@ class AppModalBottomSheetStyles {
     required Color colorQty,
     required Color colorQtyIcons,
     required bool isUserRestaurant,
+    required IntCallback onChangeQty,
+    required int initialValue,
   }) {
     showModalBottomSheetComponent(
       radiusTopLeft: 34.r,
@@ -131,11 +135,11 @@ class AppModalBottomSheetStyles {
                             alignment: Alignment.centerRight,
                             child: AppCounterStyles.product(
                               behaviour: Behaviour.regular,
+                              initialValue: initialValue,
                               color: colorQty,
                               colorIcons: colorQtyIcons,
-                              onChange: (value) {
-                                print(value);
-                              },
+                              onChange: onChangeQty,
+                              min: 1,
                             ),
                           ),
                         ],

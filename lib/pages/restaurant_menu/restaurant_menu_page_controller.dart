@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:food_app/core/models/cart_model/cart_model.dart';
+import 'package:food_app/core/models/product_cart_model/product_cart_model.dart';
 import 'package:food_app/core/models/product_model/product_model.dart';
 import 'package:food_app/core/models/restaurant_model/restaurant_model.dart';
 import 'package:food_app/core/repositories/product_repository/product_repository_interface.dart';
@@ -24,9 +26,13 @@ class RestaurantMenuPageController extends GetxController with RestaurantMenuAni
 
   var mainColor = AppThemes.colors.black;
   var productList = <ProductModel>[].obs;
+  var cart = CartModel.init().obs;
+  var qtySelected = 1;
 
   late RestaurantModel restaurant;
   late StreamSubscription _productsStream;
+
+  CartModel get getCart => cart.value;
 
   @override
   void onInit() {
@@ -68,9 +74,44 @@ class RestaurantMenuPageController extends GetxController with RestaurantMenuAni
     return AppUtil.formatMoney(value: price, symbol: '').trim();
   }
 
+  void btnAddToCart(ProductModel product) {
+    addToCart(product);
+    Get.back();
+  }
+
+  void addToCart(ProductModel product) {
+    var hasProduct = cart.value.productsCart.where((element) => element.uid == product.uid).toList();
+
+    var productCart = ProductCartModel(
+      uid: product.uid,
+      name: product.name,
+      price: product.price,
+      oldPrice: product.oldPrice,
+      image: product.image,
+      productType: product.productType,
+      restaurantUid: product.restaurantUid,
+      qty: qtySelected,
+    );
+
+    if (hasProduct.length == 0) {
+      cart.value.productsCart.add(productCart);
+    } else {
+      cart.value.productsCart.forEach((element) {
+        if (element.uid == product.uid) {
+          element.qty += qtySelected;
+        }
+      });
+    }
+
+    cart.value.qty += qtySelected;
+    qtySelected = 1;
+    cart.refresh();
+  }
+
   @override
   void onClose() {
     appBarIconsColorController.dispose();
+    _productsStream.cancel();
     super.onClose();
   }
 }

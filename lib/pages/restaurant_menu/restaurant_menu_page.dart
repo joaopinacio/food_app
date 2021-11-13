@@ -32,16 +32,24 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                   Icons.shopping_cart_outlined,
                   color: controller.cartIconColor,
                 ),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Container(
-                    width: 15.w,
-                    height: 15.h,
-                    decoration: BoxDecoration(
-                      color: AppThemes.colors.generalRed,
-                      borderRadius: BorderRadius.all(Radius.circular(50.r)),
+                Visibility(
+                  visible: controller.getCart.qty > 0,
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Container(
+                      width: 15.w,
+                      height: 15.h,
+                      decoration: BoxDecoration(
+                        color: AppThemes.colors.generalRed,
+                        borderRadius: BorderRadius.all(Radius.circular(50.r)),
+                      ),
+                      child: Center(
+                        child: AppTextStyles.medium_10(
+                          text: controller.getCart.qty.toString(),
+                          color: AppThemes.colors.white,
+                        ),
+                      ),
                     ),
-                    child: Center(child: AppTextStyles.medium_10(text: '1', color: AppThemes.colors.white)),
                   ),
                 )
               ],
@@ -150,10 +158,14 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                                             price: controller.formatMoney(product.price)!,
                                             description:
                                                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum viverra,  sit amet, consectetur adipiscing elit. Lorem ipsum dolor, consec',
-                                            onSave: () {},
+                                            onSave: () => controller.btnAddToCart(product),
                                             colorQty: controller.mainColor,
                                             colorQtyIcons: controller.cartIconColor,
                                             isUserRestaurant: controller.checkUserIsRestaurant(),
+                                            onChangeQty: (value) {
+                                              controller.qtySelected = value;
+                                            },
+                                            initialValue: 1,
                                           );
                                         },
                                       ),

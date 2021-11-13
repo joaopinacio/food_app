@@ -62,13 +62,14 @@ class AppCounterStyles {
     required Color color,
     required Color colorIcons,
     int? initialValue,
+    int? min,
   }) =>
       AppCounterComponent(
         behaviour: behaviour,
         width: 100,
         height: 36,
         max: 99,
-        min: 0,
+        min: min,
         initialValue: initialValue ?? 0,
         onChange: onChange,
         color: color,
