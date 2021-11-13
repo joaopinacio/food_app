@@ -20,57 +20,61 @@ class CartPage extends GetView<CartPageController> {
             title: 'order_details'.tr,
             onTapBack: Get.back,
           ),
-          body: Padding(
-            padding: EdgeInsets.only(top: 25.h),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 24.w),
-                  child: AppTextStyles.semiBold_18(text: 'my_cart'.tr),
-                ),
-                SizedBox(height: 18.h),
-                Expanded(
-                  child: controller.getCart.productsCart.length == 0
-                      ? Center(
-                          child: Padding(
-                            padding: EdgeInsets.only(bottom: 200.h),
-                            child: Container(
-                              child: AppTextStyles.bold_18(text: '${'cart_is_empty'.tr}...'),
+          body: Stack(children: [
+            Padding(
+              padding: EdgeInsets.only(top: 25.h),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 24.w),
+                    child: AppTextStyles.semiBold_18(text: 'my_cart'.tr),
+                  ),
+                  SizedBox(height: 10.h),
+                  Expanded(
+                    child: controller.getCart.productsCart.length == 0
+                        ? Center(
+                            child: Padding(
+                              padding: EdgeInsets.only(bottom: 200.h),
+                              child: Container(
+                                child: AppTextStyles.bold_18(text: '${'cart_is_empty'.tr}...'),
+                              ),
                             ),
+                          )
+                        : ListView.builder(
+                            itemCount: controller.getCart.productsCart.length,
+                            physics: BouncingScrollPhysics(),
+                            itemBuilder: (BuildContext contextList, int index) {
+                              var productCart = controller.getCart.productsCart[index];
+                              return AppCardProductCartStyles.standard(
+                                behaviour: Behaviour.regular,
+                                name: productCart.name,
+                                totalPrice: controller.formatPrice(productCart.total),
+                                productQty: productCart.qty,
+                                onChangeQty: (value) =>
+                                    controller.getRestaurantMenuPageController.changeProductQty(value, index),
+                                mainColor: controller.getRestaurantMenuPageController.mainColor,
+                                iconsColor: controller.getRestaurantMenuPageController.cartIconColor,
+                                imageUrl: productCart.image.url!,
+                                onRemove: () => controller.getRestaurantMenuPageController.removeProductCart(index),
+                              );
+                            },
                           ),
-                        )
-                      : ListView.builder(
-                          itemCount: controller.getCart.productsCart.length,
-                          physics: BouncingScrollPhysics(),
-                          itemBuilder: (BuildContext contextList, int index) {
-                            var productCart = controller.getCart.productsCart[index];
-                            return AppCardProductCartStyles.standard(
-                              behaviour: Behaviour.regular,
-                              name: productCart.name,
-                              totalPrice: controller.formatPrice(productCart.total),
-                              productQty: productCart.qty,
-                              onChangeQty: (value) =>
-                                  controller.getRestaurantMenuPageController.changeProductQty(value, index),
-                              mainColor: controller.getRestaurantMenuPageController.mainColor,
-                              iconsColor: controller.getRestaurantMenuPageController.cartIconColor,
-                              imageUrl: productCart.image.url!,
-                              onRemove: () => controller.getRestaurantMenuPageController.removeProductCart(index),
-                            );
-                          },
-                        ),
-                ),
-                SizedBox(height: 18.h),
-                AppOrderDetailBoxStyles.standard(
-                  behaviour: Behaviour.regular,
-                  total: controller.formatPrice(controller.getCart.total),
-                  onTapEmpty: controller.getRestaurantMenuPageController.emptyCart,
-                  onTapConclude: controller.goToOrderFinish,
-                  isActive: controller.isCartActive(),
-                ),
-              ],
+                  ),
+                ],
+              ),
             ),
-          ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: AppOrderDetailBoxStyles.standard(
+                behaviour: Behaviour.regular,
+                total: controller.formatPrice(controller.getCart.total),
+                onTapEmpty: controller.getRestaurantMenuPageController.emptyCart,
+                onTapConclude: controller.goToOrderFinish,
+                isActive: controller.isCartActive(),
+              ),
+            ),
+          ]),
         ),
       ),
     );

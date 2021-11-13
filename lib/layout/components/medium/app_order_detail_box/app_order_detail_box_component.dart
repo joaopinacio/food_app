@@ -58,7 +58,7 @@ class AppOrderDetailBoxComponent extends StatelessWidget with Component {
           BoxShadow(
             color: AppThemes.colors.black_15,
             blurRadius: 10.r,
-            spreadRadius: 0,
+            spreadRadius: 5.r,
             offset: Offset(0, 10),
           ),
         ],
