@@ -104,23 +104,25 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                                     children: [
                                       AppRestaurantMenuTypeCardStyles.standard(
                                         behaviour: Behaviour.regular,
-                                        title: 'Produtos',
+                                        title: 'Tipo 1',
                                       ),
                                       AppRestaurantMenuTypeCardStyles.standard(
                                         behaviour: Behaviour.regular,
-                                        title: 'Promotions',
+                                        title: 'Tipo 2',
+                                        image: 'assets/images/salad-icon.png',
                                       ),
                                       AppRestaurantMenuTypeCardStyles.standard(
                                         behaviour: Behaviour.regular,
-                                        title: 'Promotions',
+                                        title: 'Tipo 3',
+                                        image: 'assets/images/drink-lemon-icon.png',
                                       ),
                                       AppRestaurantMenuTypeCardStyles.standard(
                                         behaviour: Behaviour.regular,
-                                        title: 'Promotions',
+                                        title: 'Tipo 4',
                                       ),
                                       AppRestaurantMenuTypeCardStyles.standard(
                                         behaviour: Behaviour.regular,
-                                        title: 'Promotions',
+                                        title: 'Tipo 5',
                                       ),
                                     ],
                                   ),
@@ -151,6 +153,7 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                                             'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
                                         price: controller.formatMoney(product.price)!,
                                         oldPrice: controller.formatMoney(product.oldPrice!),
+                                        inCart: controller.productInCart(product.uid),
                                         onTap: () {
                                           AppModalBottomSheetStyles.product(
                                             title: product.name,

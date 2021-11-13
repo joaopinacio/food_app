@@ -135,6 +135,10 @@ class RestaurantMenuPageController extends GetxController with RestaurantMenuAni
     updateCartTotalAndQty();
   }
 
+  bool productInCart(String uid) {
+    return cart.value.productsCart.where((productCart) => productCart.uid == uid).length > 0;
+  }
+
   void goToCartPage() {
     Get.toNamed(_appPages.cart);
   }

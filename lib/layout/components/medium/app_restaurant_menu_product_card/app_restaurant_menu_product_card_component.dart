@@ -30,6 +30,7 @@ class AppRestaurantMenuProductCardComponent extends StatelessWidget with Compone
   final String price;
   final String? oldPrice;
   final Function() onTap;
+  final bool inCart;
 
   const AppRestaurantMenuProductCardComponent({
     Key? key,
@@ -40,6 +41,7 @@ class AppRestaurantMenuProductCardComponent extends StatelessWidget with Compone
     required this.price,
     this.oldPrice,
     required this.onTap,
+    required this.inCart,
   });
 
   @override
@@ -135,7 +137,26 @@ class AppRestaurantMenuProductCardComponent extends StatelessWidget with Compone
                 ),
               ),
             ),
-            SizedBox(height: AppThemes.spacing.spacer_10.h),
+            Spacer(),
+            Visibility(
+              visible: inCart,
+              child: Container(
+                width: double.infinity,
+                height: 17.h,
+                decoration: BoxDecoration(
+                  color: AppThemes.colors.generalBlue,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(10.r),
+                    bottomRight: Radius.circular(10.r),
+                  ),
+                ),
+                child: Icon(
+                  Icons.shopping_cart_outlined,
+                  color: AppThemes.colors.white,
+                  size: 13.sp,
+                ),
+              ),
+            ),
           ],
         ),
       ),
