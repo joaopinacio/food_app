@@ -37,7 +37,7 @@ class RestaurantsPage extends GetView<RestaurantsPageController> {
           ),
           floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
           floatingActionButton: Align(
-            alignment: Alignment(0, 0.83),
+            alignment: Alignment(0, 0.84),
             child: Container(
               width: 230.w,
               height: 50.h,

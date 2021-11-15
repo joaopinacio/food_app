@@ -18,6 +18,7 @@ class SignUpStepThreePage extends GetView<SignUpStepThreePageController> {
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
+        backgroundColor: AppThemes.colors.white,
         body: Center(
           child: SingleChildScrollView(
             child: Column(

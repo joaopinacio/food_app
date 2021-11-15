@@ -274,8 +274,8 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                   child: AppNetworkImageStyles.standard(
                     behaviour: Behaviour.regular,
                     image: controller.restaurant.logo.url!,
-                    height: 60.h,
-                    width: 70.w,
+                    height: 80,
+                    width: 85,
                     borderRadius: BorderRadius.circular(50.r),
                   ),
                 ),

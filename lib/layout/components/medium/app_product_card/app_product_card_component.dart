@@ -60,8 +60,8 @@ class AppProductCardComponent extends StatelessWidget with Component {
                   child: AppNetworkImageStyles.standard(
                     behaviour: behaviour,
                     image: imageUrl,
-                    height: 50.h,
-                    width: 60.w,
+                    height: 60,
+                    width: 65,
                     borderRadius: BorderRadius.circular(50.r),
                   ),
                 ),

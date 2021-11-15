@@ -123,7 +123,7 @@ class AppTextButtonComponent extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsets.only(left: showIconNext ? 40 : 0),
+                          padding: EdgeInsets.only(left: showIconNext ? 25.w : 0),
                           child: Text(
                             label,
                             overflow: labelOverflow ?? TextOverflow.ellipsis,
@@ -133,7 +133,7 @@ class AppTextButtonComponent extends StatelessWidget {
                       ),
                       if (showIconNext)
                         Padding(
-                          padding: EdgeInsets.only(right: 15),
+                          padding: EdgeInsets.only(right: 15.w),
                           child: Icon(
                             iconNext ?? Icons.arrow_right_rounded,
                             color: AppThemes.colors.white,

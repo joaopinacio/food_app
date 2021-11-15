@@ -18,7 +18,9 @@ class ProductAddPage extends GetView<ProductAddController> {
       onWillPop: () async => true,
       child: Obx(
         () => Scaffold(
+          backgroundColor: AppThemes.colors.white,
           body: Scaffold(
+            backgroundColor: AppThemes.colors.white,
             appBar: AppBarStyles.onlyTitleAndBack(
               title: 'product'.tr,
               onTapBack: Get.back,

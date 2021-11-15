@@ -83,7 +83,7 @@ class AppRestaurantMenuProductCardComponent extends StatelessWidget with Compone
                         behaviour: Behaviour.regular,
                         image: image!,
                         boxFit: BoxFit.cover,
-                        height: listGridLength == 3 ? 40.h : 100.h,
+                        height: 110,
                         width: double.infinity,
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10.r),
@@ -205,7 +205,7 @@ class AppRestaurantMenuProductCardComponent extends StatelessWidget with Compone
               behaviour: Behaviour.regular,
               image: image!,
               boxFit: BoxFit.cover,
-              height: listGridLength == 3 ? 40.h : 100.h,
+              height: listGridLength == 3 ? 50 : 125,
               width: double.infinity,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(10.r),

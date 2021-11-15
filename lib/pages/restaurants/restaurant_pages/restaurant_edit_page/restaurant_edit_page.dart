@@ -24,7 +24,9 @@ class RestaurantEditPage extends GetView<RestaurantEditController> {
       onWillPop: () async => false,
       child: Obx(
         () => Scaffold(
+          backgroundColor: AppThemes.colors.white,
           body: Scaffold(
+            backgroundColor: AppThemes.colors.white,
             appBar: AppBarStyles.titleBackAndRightIcon(
               title: 'restaurant'.tr,
               onTapBack: Get.back,
@@ -75,8 +77,8 @@ class RestaurantEditPage extends GetView<RestaurantEditController> {
                                     child: AppNetworkImageStyles.standard(
                                       behaviour: Behaviour.regular,
                                       image: controller.getLogoImage.url!,
-                                      height: 50.h,
-                                      width: 60.w,
+                                      height: 60,
+                                      width: 65,
                                       borderRadius: BorderRadius.circular(50.r),
                                     ),
                                   )
@@ -130,8 +132,8 @@ class RestaurantEditPage extends GetView<RestaurantEditController> {
                                     child: AppNetworkImageStyles.standard(
                                       behaviour: Behaviour.regular,
                                       image: controller.getPrimaryImage.url!,
-                                      height: 50.h,
-                                      width: 60.w,
+                                      height: 60,
+                                      width: 65,
                                       borderRadius: BorderRadius.circular(50.r),
                                     ),
                                   )

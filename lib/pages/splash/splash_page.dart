@@ -14,6 +14,7 @@ class SplashPage extends GetView<SplashPageController> {
       onWillPop: () async => false,
       child: Obx(
         () => Scaffold(
+          backgroundColor: AppThemes.colors.white,
           body: Stack(
             children: [
               Center(

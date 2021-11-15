@@ -22,7 +22,9 @@ class RestaurantAddPage extends GetView<RestaurantAddController> {
       onWillPop: () async => false,
       child: Obx(
         () => Scaffold(
+          backgroundColor: AppThemes.colors.white,
           body: Scaffold(
+            backgroundColor: AppThemes.colors.white,
             appBar: AppBarStyles.onlyTitle(
               title: 'restaurant'.tr,
             ),

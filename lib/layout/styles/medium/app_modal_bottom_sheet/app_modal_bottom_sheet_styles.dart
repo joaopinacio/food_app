@@ -144,7 +144,7 @@ class AppModalBottomSheetStyles {
                   behaviour: Behaviour.regular,
                   image: image!,
                   boxFit: BoxFit.cover,
-                  height: 100.h,
+                  height: 110,
                   width: double.infinity,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(10.r),

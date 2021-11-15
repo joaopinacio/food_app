@@ -14,6 +14,7 @@ class OrderFinishPage extends GetView<OrderFinishPageController> {
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
+        backgroundColor: AppThemes.colors.white,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

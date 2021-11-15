@@ -14,6 +14,7 @@ class SignUpPage extends GetView<SignUpPageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppThemes.colors.white,
       body: Center(
         child: Column(
           children: [

@@ -20,7 +20,9 @@ class ProductEditPage extends GetView<ProductEditController> {
       onWillPop: () async => true,
       child: Obx(
         () => Scaffold(
+          backgroundColor: AppThemes.colors.white,
           body: Scaffold(
+            backgroundColor: AppThemes.colors.white,
             appBar: AppBarStyles.onlyTitleAndBack(
               title: 'product'.tr,
               onTapBack: Get.back,
@@ -64,8 +66,8 @@ class ProductEditPage extends GetView<ProductEditController> {
                                     child: AppNetworkImageStyles.standard(
                                       behaviour: Behaviour.regular,
                                       image: controller.getProductImage.url!,
-                                      height: 65.h,
-                                      width: 80.w,
+                                      height: 75,
+                                      width: 83,
                                       borderRadius: BorderRadius.circular(50.r),
                                     ),
                                   ),

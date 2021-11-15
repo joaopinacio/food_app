@@ -68,8 +68,8 @@ class AppCarouselSliderCardComponent extends StatelessWidget with Component {
                 child: AppNetworkImageStyles.standard(
                   behaviour: behaviour,
                   image: logoImage,
-                  height: 50.h,
-                  width: 60.w,
+                  height: 70,
+                  width: 75,
                   borderRadius: BorderRadius.circular(50.r),
                 ),
               ),
@@ -97,9 +97,9 @@ class AppCarouselSliderCardComponent extends StatelessWidget with Component {
                           child: AppNetworkImageStyles.standard(
                             behaviour: behaviour,
                             image: primaryImage,
-                            height: 90.h,
-                            width: 100.w,
-                            boxFit: BoxFit.fitWidth,
+                            height: 90,
+                            width: 95,
+                            borderRadius: BorderRadius.circular(10.r),
                           ),
                         ),
                       ),

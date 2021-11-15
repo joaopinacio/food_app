@@ -17,6 +17,7 @@ class SignUpStepOnePage extends GetView<SignUpStepOnePageController> {
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
+        backgroundColor: AppThemes.colors.white,
         body: Center(
           child: SingleChildScrollView(
             child: Column(

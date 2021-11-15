@@ -5,6 +5,7 @@ import 'package:food_app/layout/styles/medium/app_bar/app_bar_styles.dart';
 import 'package:food_app/layout/styles/medium/app_card_product_cart/app_card_product_cart_styles.dart';
 import 'package:food_app/layout/styles/medium/app_order_detail_box/app_order_detail_box_component.dart';
 import 'package:food_app/layout/styles/small/app_text/app_text_styles.dart';
+import 'package:food_app/layout/themes/app_themes.dart';
 import 'package:get/get.dart';
 
 import 'cart_page_controller.dart';
@@ -16,6 +17,7 @@ class CartPage extends GetView<CartPageController> {
       onWillPop: () async => true,
       child: Obx(
         () => Scaffold(
+          backgroundColor: AppThemes.colors.white,
           appBar: AppBarStyles.onlyTitleAndBack(
             title: 'order_details'.tr,
             onTapBack: Get.back,
