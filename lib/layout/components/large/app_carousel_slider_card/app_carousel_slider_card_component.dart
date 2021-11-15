@@ -17,6 +17,12 @@ class AppCarouselSliderCardComponent extends StatelessWidget with Component {
   ///
   /// __[title]__ Titulo do card
   ///
+  /// __[description]__ Descrição do card
+  ///
+  /// __[type]__ Tipo do restaurante
+  ///
+  /// __[rate]__ Avaliação do card
+  ///
   /// __[mainColor]__ Cor principal de fundo
   ///
   /// __[onTap]__ Clique do card
@@ -25,6 +31,9 @@ class AppCarouselSliderCardComponent extends StatelessWidget with Component {
   final String logoImage;
   final String primaryImage;
   final String title;
+  final String description;
+  final String type;
+  final String rate;
   final Color mainColor;
   final Function() onTap;
 
@@ -33,6 +42,9 @@ class AppCarouselSliderCardComponent extends StatelessWidget with Component {
     required this.logoImage,
     required this.primaryImage,
     required this.title,
+    required this.description,
+    required this.type,
+    required this.rate,
     required this.mainColor,
     required this.onTap,
     required this.behaviour,
@@ -72,6 +84,7 @@ class AppCarouselSliderCardComponent extends StatelessWidget with Component {
                       borderRadius: BorderRadius.all(Radius.circular(20.r)), color: AppThemes.colors.white),
                   alignment: Alignment.topCenter,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
                         padding: EdgeInsets.only(top: 20.h, left: 20.w, right: 20.w),
@@ -91,13 +104,43 @@ class AppCarouselSliderCardComponent extends StatelessWidget with Component {
                         ),
                       ),
                       SizedBox(height: AppThemes.spacing.spacer_20.h),
-                      AppTextStyles.bold_18(text: title),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 32.w),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            AppTextStyles.bold_18(text: title),
+                            Icon(Icons.favorite_rounded, color: AppThemes.colors.generalRed),
+                          ],
+                        ),
+                      ),
                       // TextCustom("Food App", Colors.black, fontSize: 22.sp, fontWeight: FontWeight.w600),
                       SizedBox(height: AppThemes.spacing.spacer_14.h),
-                      AppTextStyles.medium_14(text: "Text"),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 32.w),
+                        child: Row(
+                          children: [
+                            Icon(Icons.star_rounded, color: AppThemes.colors.generalYellow),
+                            AppTextStyles.medium_14(text: rate),
+                            SizedBox(width: 10.w),
+                            AppTextStyles.medium_14(text: '•'),
+                            SizedBox(width: 10.w),
+                            Expanded(
+                              child: AppTextStyles.medium_14(
+                                text: type,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                       // TextCustom("Text", Colors.black, fontSize: 15),
                       SizedBox(height: AppThemes.spacing.spacer_16.h),
-                      AppTextStyles.regular_10(text: "Text"),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 32.w),
+                        child:
+                            AppTextStyles.regular_10(text: description, maxLines: 2, overflow: TextOverflow.ellipsis),
+                      ),
                       // TextCustom("Text", Colors.black, fontSize: 10),
                     ],
                   ),

@@ -142,12 +142,16 @@ class AppTextStyles {
     required String text,
     TextAlign? textAlign,
     EdgeInsets? margin,
+    int? maxLines,
+    TextOverflow? overflow,
   }) =>
       AppTextComponent(
         text: text,
         textStyle: AppThemes.typography.poppinsRegular_14,
         textAlign: textAlign,
         margin: margin,
+        maxLines: maxLines,
+        overflow: overflow,
       );
 
   /// ## AppTextStyles regular_18

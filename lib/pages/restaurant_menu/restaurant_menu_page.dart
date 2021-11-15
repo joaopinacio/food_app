@@ -75,15 +75,45 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(height: AppThemes.spacing.spacer_36.h),
-                    AppTextStyles.bold_24(
-                      text: controller.restaurant.name,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 35.w),
+                      child: AppTextStyles.bold_24(
+                        text: controller.restaurant.name,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                     SizedBox(height: AppThemes.spacing.spacer_6.h),
-                    AppTextStyles.regular_14(text: "Lorem ipsum dolor sit amet, consectetur"),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 35.w),
+                      child: AppTextStyles.regular_14(
+                        text: controller.restaurant.description,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
                     SizedBox(height: AppThemes.spacing.spacer_6.h),
-                    AppTextStyles.light_12(text: "Lorem ipsum dolor sit amet, consectetur"),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 35.w),
+                      child: Row(
+                        children: [
+                          SizedBox(width: 75.w),
+                          Icon(Icons.star_rounded, color: AppThemes.colors.generalYellow),
+                          AppTextStyles.medium_14(text: controller.restaurant.rate.toString()),
+                          SizedBox(width: 10.w),
+                          AppTextStyles.medium_14(text: '•'),
+                          SizedBox(width: 10.w),
+                          Expanded(
+                            child: AppTextStyles.medium_14(
+                              text: controller.restaurant.restaurantType,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                     SizedBox(height: AppThemes.spacing.spacer_24.h),
                     Expanded(
                       child: NotificationListener<ScrollNotification>(

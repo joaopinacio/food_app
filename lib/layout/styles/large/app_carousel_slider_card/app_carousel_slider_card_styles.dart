@@ -5,13 +5,21 @@ import 'package:food_app/layout/components/large/app_carousel_slider_card/app_ca
 class AppCarouselSliderCardStyles {
   AppCarouselSliderCardStyles._();
 
-  /// ## AppCarouselSliderCardComponent.standard
+  /// ## AppCarouselSliderCardStyles.standard
+  ///
+  /// __[behaviour]__ Comportamento do Componente
   ///
   /// __[logoImage]__ Imagem da logo a ser mostrada
   ///
   /// __[primaryImage]__ Imagem principal do card
   ///
   /// __[title]__ Titulo do card
+  ///
+  /// __[description]__ Descrição do card
+  ///
+  /// __[type]__ Tipo do Restaurante
+  ///
+  /// __[rate]__ Avaliação do card
   ///
   /// __[mainColor]__ Cor principal de fundo
   ///
@@ -22,6 +30,9 @@ class AppCarouselSliderCardStyles {
     required String logoImage,
     required String primaryImage,
     required String title,
+    required String description,
+    required String type,
+    required String rate,
     required Color mainColor,
     required Function() onTap,
   }) =>
@@ -30,6 +41,9 @@ class AppCarouselSliderCardStyles {
         logoImage: logoImage,
         primaryImage: primaryImage,
         title: title,
+        description: description,
+        type: type,
+        rate: rate,
         mainColor: mainColor,
         onTap: onTap,
       );

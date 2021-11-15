@@ -36,7 +36,7 @@ class RestaurantsPage extends GetView<RestaurantsPageController> {
           ),
           floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
           floatingActionButton: Align(
-            alignment: Alignment(0, 0.8),
+            alignment: Alignment(0, 0.83),
             child: Container(
               width: 230.w,
               height: 50.h,
@@ -60,6 +60,9 @@ class RestaurantsPage extends GetView<RestaurantsPageController> {
                           logoImage: 'assets/images/bag-icon.png', // restaurant.logo.filePath,
                           primaryImage: 'assets/images/drumstick-icon.png', // restaurant.primaryImage.filePath,
                           title: '',
+                          description: '',
+                          type: '',
+                          rate: '',
                           mainColor: AppThemes.colors.primaryColor, // restaurant.primaryColor,
                           onTap: () {},
                         );
@@ -75,6 +78,9 @@ class RestaurantsPage extends GetView<RestaurantsPageController> {
                           logoImage: restaurant.logo.url!, // restaurant.logo,
                           primaryImage: restaurant.primaryImage.url!, // restaurant.primaryImage,
                           title: restaurant.name,
+                          description: restaurant.description,
+                          type: restaurant.restaurantType,
+                          rate: restaurant.rate.toString(),
                           mainColor: AppThemes.colors.primaryColor, // restaurant.primaryColor,
                           onTap: () => controller.goToRestaurantMenu(restaurant),
                         );
