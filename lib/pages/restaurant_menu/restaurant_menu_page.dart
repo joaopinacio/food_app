@@ -54,7 +54,7 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                 )
               ],
             ),
-            onPressed: controller.goToCartPage,
+            onPressed: controller.checkUserIsRestaurant() ? null : controller.goToCartPage,
           ),
         ),
         body: Stack(
@@ -274,7 +274,7 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                     behaviour: Behaviour.regular,
                     image: controller.restaurant.logo.url!,
                     height: 80,
-                    width: 85,
+                    width: 88,
                     borderRadius: BorderRadius.circular(50.r),
                   ),
                 ),

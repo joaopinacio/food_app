@@ -91,9 +91,9 @@ class LoginPageController extends GetxController with LoginAnimationsMixin {
 
       if (result.success!) {
         var user = await _userRepository.getUser(email: loginController.text);
-        Get.back();
 
         var restaurant = (await _restaurantRepository.getRestaurantByUser(user!.uid))!;
+        Get.back();
 
         if (restaurant.uid != '') {
           Get.offAllNamed(_appPages.restaurants, arguments: {'user': user});

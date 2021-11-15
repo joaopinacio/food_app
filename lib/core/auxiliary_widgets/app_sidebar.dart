@@ -17,54 +17,57 @@ class AppSidebar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          ClipPath(
-            clipper: MyClipper(),
-            child: Container(
-              height: 140.h,
-              child: DrawerHeader(
-                child: Padding(
-                  padding: EdgeInsets.only(bottom: 40.h),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      AppTextStyles.bold_24(text: "Admin", color: Colors.white),
-                      IconButton(
-                        icon: Icon(Icons.logout),
-                        color: Colors.white,
-                        onPressed: onTapLogout,
-                      )
-                    ],
+      child: Container(
+        color: AppThemes.colors.white,
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            ClipPath(
+              clipper: MyClipper(),
+              child: Container(
+                height: 140.h,
+                child: DrawerHeader(
+                  child: Padding(
+                    padding: EdgeInsets.only(bottom: 40.h),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        AppTextStyles.bold_24(text: "Admin", color: Colors.white),
+                        IconButton(
+                          icon: Icon(Icons.logout),
+                          color: Colors.white,
+                          onPressed: onTapLogout,
+                        )
+                      ],
+                    ),
                   ),
-                ),
-                decoration: BoxDecoration(
-                  color: AppThemes.colors.primaryColor,
+                  decoration: BoxDecoration(
+                    color: AppThemes.colors.primaryColor,
+                  ),
                 ),
               ),
             ),
-          ),
-          Visibility(
-            visible: isRestaurant,
-            child: ListTile(
-              title: Row(
-                children: [
-                  Icon(
-                    Icons.edit_rounded,
-                    color: Colors.black,
-                    size: 20.sp,
-                  ),
-                  SizedBox(width: 8.w),
-                  AppTextStyles.bold_14(text: 'edit_restaurant'.tr),
-                ],
+            Visibility(
+              visible: isRestaurant,
+              child: ListTile(
+                title: Row(
+                  children: [
+                    Icon(
+                      Icons.edit_rounded,
+                      color: Colors.black,
+                      size: 20.sp,
+                    ),
+                    SizedBox(width: 8.w),
+                    AppTextStyles.bold_14(text: 'edit_restaurant'.tr),
+                  ],
+                ),
+                onTap: () {
+                  Get.toNamed(AppPages.instance.restaurantEdit);
+                },
               ),
-              onTap: () {
-                Get.toNamed(AppPages.instance.restaurantEdit);
-              },
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
