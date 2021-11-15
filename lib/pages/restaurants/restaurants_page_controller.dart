@@ -93,6 +93,10 @@ class RestaurantsPageController extends GetxController with SingleGetTickerProvi
     if (restaurant.name != '') Get.toNamed(_appPages.restaurantMenu, arguments: {'restaurant': restaurant});
   }
 
+  goToLoginPage() {
+    Get.offNamed(_appPages.login);
+  }
+
   @override
   void onClose() {
     _restaurantsStream.cancel();

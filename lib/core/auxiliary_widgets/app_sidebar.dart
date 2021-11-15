@@ -6,10 +6,12 @@ import 'package:get/get.dart';
 
 class AppSidebar extends StatelessWidget {
   final bool isRestaurant;
+  final Function() onTapLogout;
 
   const AppSidebar({
     Key? key,
     required this.isRestaurant,
+    required this.onTapLogout,
   }) : super(key: key);
 
   @override
@@ -32,7 +34,7 @@ class AppSidebar extends StatelessWidget {
                       IconButton(
                         icon: Icon(Icons.logout),
                         color: Colors.white,
-                        onPressed: () {},
+                        onPressed: onTapLogout,
                       )
                     ],
                   ),

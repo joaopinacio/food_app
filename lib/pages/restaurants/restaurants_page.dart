@@ -23,6 +23,7 @@ class RestaurantsPage extends GetView<RestaurantsPageController> {
           backgroundColor: controller.backgroundColorAnim.value,
           drawer: AppSidebar(
             isRestaurant: controller.user.userType == 'restaurant',
+            onTapLogout: controller.goToLoginPage,
           ),
           appBar: AppBarStyles.leftAndRightIcon(
             leftIcon: AppThemes.icons.menu,
