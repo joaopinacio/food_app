@@ -29,6 +29,9 @@ class RestaurantAddController extends GetxController {
   var restaurantTypeKey = GlobalKey<FormState>();
   var restaurantTypeController = TextEditingController();
   var restaurantTypeFocusNode = FocusNode();
+  var restaurantDescKey = GlobalKey<FormState>();
+  var restaurantDescController = TextEditingController();
+  var restaurantDescFocusNode = FocusNode();
 
   var logoImage = ImageModel.init().obs;
   var primaryImage = ImageModel.init().obs;
@@ -39,6 +42,9 @@ class RestaurantAddController extends GetxController {
   var requiredColorVisible = false.obs;
   var errorRequiredLogo = false.obs;
   var errorRequiredPrimaryImage = false.obs;
+
+  var listGridLength = 2;
+  var listGridLengthLabel = '2 x 2'.obs;
 
   RestaurantModel restaurant = RestaurantModel.init();
 
@@ -51,6 +57,7 @@ class RestaurantAddController extends GetxController {
   bool get getRequiredColorVisible => requiredColorVisible.value;
   bool get getErrorRequiredLogo => errorRequiredLogo.value;
   bool get getErrorRequiredPrimaryImage => errorRequiredPrimaryImage.value;
+  String get getListGridLengthLabel => listGridLengthLabel.value;
 
   chooseColor() async {
     var result = await AppColorPicker.showPicker(color: getMainColor);
@@ -65,13 +72,18 @@ class RestaurantAddController extends GetxController {
   save() async {
     try {
       if (getChoosedColor) {
-        if (validImages() && nameKey.currentState!.validate() && restaurantTypeKey.currentState!.validate()) {
+        if (validImages() &&
+            nameKey.currentState!.validate() &&
+            restaurantTypeKey.currentState!.validate() &&
+            restaurantDescKey.currentState!.validate()) {
           restaurant.uid = AppUuid.generateUuid();
           restaurant.logo.hashMd5 = getLogoImage.hashMd5;
           restaurant.primaryImage.hashMd5 = getPrimaryImage.hashMd5;
           restaurant.name = nameController.text;
+          restaurant.description = restaurantDescController.text;
           restaurant.restaurantType = restaurantTypeController.text;
           restaurant.primaryColor = getMainColor.toString();
+          restaurant.listGridLength = listGridLength;
           restaurant.user = user;
 
           AppLoading.loading();
@@ -149,6 +161,17 @@ class RestaurantAddController extends GetxController {
     }
   }
 
+  String? validatorRestauranteDesc(String? value) {
+    var text = value ?? '';
+
+    if (text == '') {
+      restaurantDescFocusNode.requestFocus();
+      return 'this_field_must_be_informed'.tr;
+    } else {
+      return null;
+    }
+  }
+
   bool validImages() {
     var valid = false;
 
@@ -169,6 +192,12 @@ class RestaurantAddController extends GetxController {
     }
 
     return valid;
+  }
+
+  void chooseListGridLength(int value) {
+    listGridLength = value;
+    listGridLengthLabel.value = AppUtil.convertRestaurantListGrid(listGridLength);
+    Get.back();
   }
 
   @override

@@ -8,7 +8,9 @@ class RestaurantModel extends RestaurantEntity {
   RestaurantModel({
     required String uid,
     required String name,
+    required String description,
     required String primaryColor,
+    required int listGridLength,
     required ImageModel logo,
     required ImageModel primaryImage,
     required num rate,
@@ -18,7 +20,9 @@ class RestaurantModel extends RestaurantEntity {
   }) : super(
           uid: uid,
           name: name,
+          description: description,
           primaryColor: primaryColor,
+          listGridLength: listGridLength,
           logo: logo,
           primaryImage: primaryImage,
           rate: rate,
@@ -31,7 +35,9 @@ class RestaurantModel extends RestaurantEntity {
     return RestaurantModel(
       uid: '',
       name: '',
+      description: '',
       primaryColor: '',
+      listGridLength: 2,
       logo: ImageModel.init(),
       primaryImage: ImageModel.init(),
       rate: 0.0,
@@ -49,7 +55,9 @@ class RestaurantModel extends RestaurantEntity {
     return RestaurantModel(
       uid: json['uid'] ?? '',
       name: json['name'] ?? '',
+      description: json['description'] ?? '',
       primaryColor: json['primaryColor'] ?? '',
+      listGridLength: json['listGridLength'] ?? 2,
       logo: ImageModel.fromJson(json['logo']),
       primaryImage: ImageModel.fromJson(json['primaryImage']),
       rate: json['rate'] ?? 0.0,
@@ -65,7 +73,9 @@ class RestaurantModel extends RestaurantEntity {
     return {
       'uid': uid,
       'name': name,
+      'description': description,
       'primaryColor': primaryColor,
+      'listGridLength': listGridLength,
       'logo': logo.toJson(),
       'primaryImage': primaryImage.toJson(),
       'rate': rate,

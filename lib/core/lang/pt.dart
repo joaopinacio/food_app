@@ -44,4 +44,8 @@ const Map<String, String> pt = {
   "conclude": "Concluir",
   "cart_is_empty": "Carrinho vazio",
   "new_order": "Novo Pedido",
+  "description": "Descrição",
+  "colors_and_grid": "Cores e Grid",
+  "choose_specific_color":
+      "Escolha a cor específica do seu restaurante e a forma que os seus produtos irão aparecer cardápio. (Padrão: 2 x 2)",
 };

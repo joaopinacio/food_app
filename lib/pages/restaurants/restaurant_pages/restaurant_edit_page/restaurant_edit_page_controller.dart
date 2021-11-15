@@ -7,7 +7,6 @@ import 'package:food_app/core/models/user_model/user_model.dart';
 import 'package:food_app/core/repositories/restaurant_repository/restaurant_repository_interface.dart';
 import 'package:food_app/core/router/app_pages.dart';
 import 'package:food_app/core/utils/app_util.dart';
-import 'package:food_app/core/utils/app_uuid.dart';
 import 'package:food_app/layout/app_layout_imports.dart';
 import 'package:food_app/pages/restaurants/restaurants_page_controller.dart';
 import 'package:get/get.dart';
@@ -33,6 +32,9 @@ class RestaurantEditController extends GetxController {
   var restaurantTypeKey = GlobalKey<FormState>();
   var restaurantTypeController = TextEditingController();
   var restaurantTypeFocusNode = FocusNode();
+  var restaurantDescKey = GlobalKey<FormState>();
+  var restaurantDescController = TextEditingController();
+  var restaurantDescFocusNode = FocusNode();
 
   var logoImage = ImageModel.init().obs;
   var primaryImage = ImageModel.init().obs;
@@ -43,6 +45,9 @@ class RestaurantEditController extends GetxController {
   var requiredColorVisible = false.obs;
   var errorRequiredLogo = false.obs;
   var errorRequiredPrimaryImage = false.obs;
+
+  var listGridLength = 2;
+  var listGridLengthLabel = '2 x 2'.obs;
 
   late RestaurantModel restaurant;
 
@@ -55,6 +60,7 @@ class RestaurantEditController extends GetxController {
   bool get getRequiredColorVisible => requiredColorVisible.value;
   bool get getErrorRequiredLogo => errorRequiredLogo.value;
   bool get getErrorRequiredPrimaryImage => errorRequiredPrimaryImage.value;
+  String get getListGridLengthLabel => listGridLengthLabel.value;
 
   UserModel get getUserLogged => _restaurantsPageController.user;
 
@@ -63,6 +69,7 @@ class RestaurantEditController extends GetxController {
       restaurant = (await _restaurantRepository.getRestaurantByUser(getUserLogged.uid))!;
 
       nameController.text = restaurant.name;
+      restaurantDescController.text = restaurant.description;
       restaurantTypeController.text = restaurant.restaurantType;
       logoImage.value = restaurant.logo;
       logoImage.value.hashMd5 = '';
@@ -72,6 +79,9 @@ class RestaurantEditController extends GetxController {
       primaryImage.value.filePath = '';
 
       mainColor.value = AppUtil.stringColorToColor(restaurant.primaryColor);
+      listGridLength = restaurant.listGridLength;
+      listGridLengthLabel.value = AppUtil.convertRestaurantListGrid(listGridLength);
+
       choosedColor.value = true;
     } catch (e) {
       print('🟥 RestaurantEditController.init -> $e');
@@ -91,12 +101,17 @@ class RestaurantEditController extends GetxController {
   save() async {
     try {
       if (getChoosedColor) {
-        if (validImages() && nameKey.currentState!.validate() && restaurantTypeKey.currentState!.validate()) {
+        if (validImages() &&
+            nameKey.currentState!.validate() &&
+            restaurantTypeKey.currentState!.validate() &&
+            restaurantDescKey.currentState!.validate()) {
           restaurant.logo.hashMd5 = getLogoImage.hashMd5;
           restaurant.primaryImage.hashMd5 = getPrimaryImage.hashMd5;
           restaurant.name = nameController.text;
+          restaurant.description = restaurantDescController.text;
           restaurant.restaurantType = restaurantTypeController.text;
           restaurant.primaryColor = getMainColor.toString();
+          restaurant.listGridLength = listGridLength;
           restaurant.user = getUserLogged;
 
           AppLoading.loading();
@@ -178,6 +193,17 @@ class RestaurantEditController extends GetxController {
     }
   }
 
+  String? validatorRestauranteDesc(String? value) {
+    var text = value ?? '';
+
+    if (text == '') {
+      restaurantDescFocusNode.requestFocus();
+      return 'this_field_must_be_informed'.tr;
+    } else {
+      return null;
+    }
+  }
+
   bool validImages() {
     var valid = false;
 
@@ -198,6 +224,12 @@ class RestaurantEditController extends GetxController {
     }
 
     return valid;
+  }
+
+  void chooseListGridLength(int value) {
+    listGridLength = value;
+    listGridLengthLabel.value = AppUtil.convertRestaurantListGrid(listGridLength);
+    Get.back();
   }
 
   @override

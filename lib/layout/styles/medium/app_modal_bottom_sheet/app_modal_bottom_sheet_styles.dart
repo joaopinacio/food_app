@@ -5,6 +5,7 @@ import 'package:food_app/layout/app_layout_imports.dart';
 import 'package:food_app/layout/components/medium/app_modal_bottom_sheet/app_modal_bottom_sheet_component.dart';
 import 'package:food_app/layout/styles/medium/app_text_button/app_text_button_styles.dart';
 import 'package:food_app/layout/styles/small/app_counter/app_counter_styles.dart';
+import 'package:food_app/layout/styles/small/app_ink_well/app_ink_well_styles.dart';
 import 'package:food_app/layout/styles/small/app_network_image/app_network_image_styles.dart';
 import 'package:food_app/layout/styles/small/app_text/app_text_styles.dart';
 import 'package:food_app/layout/themes/app_themes.dart';
@@ -24,6 +25,89 @@ class AppModalBottomSheetStyles {
           height: 100,
           child: Center(
             child: Text(title),
+          ),
+        ),
+      );
+
+  /// ## AppModalBottomSheetStyles.listGridLength
+  ///
+  /// __[length]__ Tamanho da grid
+  ///
+  /// __[onChoose]__ Escolha do tamanho
+  ///
+  static listGridLength({
+    required int length,
+    required Function(int) onChoose,
+  }) =>
+      showModalBottomSheetComponent(
+        child: Container(
+          height: 150.h,
+          child: Column(
+            children: [
+              AppInkWellStyles.standard(
+                onTap: () => onChoose(1),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      length == 1 ? AppTextStyles.semiBold_14(text: '1 x 1') : AppTextStyles.medium_14(text: '1 x 1'),
+                      Visibility(
+                        visible: length == 1,
+                        child: Icon(Icons.check, color: AppThemes.colors.generalBlue),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                height: 0.4.h,
+                color: AppThemes.colors.black_50,
+              ),
+              AppInkWellStyles.standard(
+                onTap: () => onChoose(2),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      length == 2 ? AppTextStyles.semiBold_14(text: '2 x 2') : AppTextStyles.medium_14(text: '2 x 2'),
+                      Visibility(
+                        visible: length == 2,
+                        child: Icon(Icons.check, color: AppThemes.colors.generalBlue),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                height: 0.4.h,
+                color: AppThemes.colors.black_50,
+              ),
+              AppInkWellStyles.standard(
+                onTap: () => onChoose(3),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      length == 3 ? AppTextStyles.semiBold_14(text: '3 x 3') : AppTextStyles.medium_14(text: '3 x 3'),
+                      Visibility(
+                        visible: length == 3,
+                        child: Icon(Icons.check, color: AppThemes.colors.generalBlue),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                height: 0.4.h,
+                color: AppThemes.colors.black_50,
+              ),
+            ],
           ),
         ),
       );

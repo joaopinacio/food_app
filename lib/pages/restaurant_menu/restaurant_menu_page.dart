@@ -152,7 +152,7 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                                         description:
                                             'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
                                         price: controller.formatMoney(product.price)!,
-                                        oldPrice: controller.formatMoney(product.oldPrice!),
+                                        oldPrice: controller.formatMoney(product.oldPrice!, isOldPrice: true),
                                         inCart: controller.productInCart(product.uid),
                                         onTap: () {
                                           AppModalBottomSheetStyles.product(

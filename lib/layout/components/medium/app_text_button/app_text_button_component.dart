@@ -45,6 +45,7 @@ class AppTextButtonComponent extends StatelessWidget {
   final Color? foregroundColor;
   final EdgeInsets? padding;
   final bool showIconNext;
+  final IconData? iconNext;
   final EdgeInsets? margin;
   final TextAlign? labelAlign;
   final TextOverflow? labelOverflow;
@@ -63,6 +64,7 @@ class AppTextButtonComponent extends StatelessWidget {
     this.width = double.infinity,
     this.backgroundColor,
     this.showIconNext = false,
+    this.iconNext,
     this.margin,
     this.labelAlign,
     this.labelOverflow,
@@ -133,7 +135,7 @@ class AppTextButtonComponent extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.only(right: 15),
                           child: Icon(
-                            Icons.arrow_right_rounded,
+                            iconNext ?? Icons.arrow_right_rounded,
                             color: AppThemes.colors.white,
                           ),
                         )

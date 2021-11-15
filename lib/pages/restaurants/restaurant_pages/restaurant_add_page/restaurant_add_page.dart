@@ -1,6 +1,9 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_app/core/auxiliary_widgets/app_alert_dialog.dart';
 import 'package:food_app/layout/styles/medium/app_bar/app_bar_styles.dart';
+import 'package:food_app/layout/styles/medium/app_modal_bottom_sheet/app_modal_bottom_sheet_styles.dart';
 import 'package:food_app/layout/styles/medium/app_text_button/app_text_button_styles.dart';
 import 'package:food_app/layout/styles/small/app_default_photo/app_default_photo_styles.dart';
 import 'package:food_app/layout/styles/small/app_ink_well/app_ink_well_styles.dart';
@@ -122,17 +125,57 @@ class RestaurantAddPage extends GetView<RestaurantAddController> {
                       ],
                     ),
                     SizedBox(height: 30.h),
-                    Center(
-                      child: AppTextButtonStyles.primary(
-                        label: 'color'.tr,
-                        onTap: controller.chooseColor,
-                        isStretched: false,
-                        hasBounce: true,
-                        width: 80.w,
-                        backgroundColor: controller.getMainColor,
-                        foregroundColor: controller.getForegroundColor,
-                        borderRadius: BorderRadius.circular(15.r),
+                    AppInputTextStyles.standard(
+                      customKey: controller.restaurantDescKey,
+                      hintText: 'description'.tr,
+                      controller: controller.restaurantDescController,
+                      focusNode: controller.restaurantDescFocusNode,
+                      validator: controller.validatorRestauranteDesc,
+                      maxLines: 2,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.r),
                       ),
+                    ),
+                    SizedBox(height: 30.h),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        AppTextButtonStyles.primary(
+                          label: 'color'.tr,
+                          onTap: controller.chooseColor,
+                          isStretched: false,
+                          hasBounce: true,
+                          width: 80.w,
+                          backgroundColor: controller.getMainColor,
+                          foregroundColor: controller.getForegroundColor,
+                          borderRadius: BorderRadius.circular(15.r),
+                        ),
+                        AppTextButtonStyles.primary(
+                          label: controller.getListGridLengthLabel,
+                          showIconNext: true,
+                          iconNext: Icons.arrow_drop_down_rounded,
+                          onTap: () {
+                            AppModalBottomSheetStyles.listGridLength(
+                              length: controller.listGridLength,
+                              onChoose: controller.chooseListGridLength,
+                            );
+                          },
+                          isStretched: false,
+                          hasBounce: true,
+                          width: 105.w,
+                          backgroundColor: AppThemes.colors.generalBlue,
+                          foregroundColor: AppThemes.colors.white,
+                          borderRadius: BorderRadius.circular(15.r),
+                        ),
+                        AppInkWellStyles.standard(
+                          onTap: () => AppAlertDialog.showDialogStandard(
+                            type: DialogType.QUESTION,
+                            title: 'colors_and_grid'.tr,
+                            description: 'choose_specific_color'.tr,
+                          ),
+                          child: Icon(Icons.help_outline_rounded, size: 20.sp),
+                        ),
+                      ],
                     ),
                     SizedBox(height: 10.h),
                     Visibility(

@@ -96,4 +96,17 @@ class AppUtil {
       );
     }
   }
+
+  static String convertRestaurantListGrid(int value) {
+    switch (value) {
+      case 1:
+        return '1 x 1';
+      case 2:
+        return '2 x 2';
+      case 3:
+        return '3 x 3';
+      default:
+        return '';
+    }
+  }
 }

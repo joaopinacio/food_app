@@ -73,8 +73,8 @@ class RestaurantMenuPageController extends GetxController with RestaurantMenuAni
     return _restaurantsPageController.user.userType == 'restaurant';
   }
 
-  String? formatMoney(num price) {
-    if (price == 0) return null;
+  String? formatMoney(num price, {bool isOldPrice = false}) {
+    if (price == 0 && isOldPrice) return null;
     return AppUtil.formatMoney(value: price, symbol: '').trim();
   }
 
