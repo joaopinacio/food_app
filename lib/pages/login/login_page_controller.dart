@@ -42,8 +42,8 @@ class LoginPageController extends GetxController with LoginAnimationsMixin {
     initAnimations();
     inputListeners();
 
-    loginController.text = 'joao@gmail.com';
-    passwordController.text = '123456';
+    loginController.text = '';
+    passwordController.text = '';
   }
 
   inputListeners() {

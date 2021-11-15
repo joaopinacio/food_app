@@ -189,8 +189,7 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                                                 title: product.name,
                                                 image: product.image.url,
                                                 price: controller.formatMoney(product.price)!,
-                                                description:
-                                                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum viverra,  sit amet, consectetur adipiscing elit. Lorem ipsum dolor, consec',
+                                                description: product.description,
                                                 onSave: () => controller.btnAddToCart(product),
                                                 colorQty: controller.mainColor,
                                                 colorQtyIcons: controller.cartIconColor,

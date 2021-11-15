@@ -82,7 +82,7 @@ class RestaurantsPage extends GetView<RestaurantsPageController> {
                           description: restaurant.description,
                           type: restaurant.restaurantType,
                           rate: restaurant.rate.toString(),
-                          mainColor: AppThemes.colors.primaryColor, // restaurant.primaryColor,
+                          mainColor: controller.backgroundColorAnim.value, // restaurant.primaryColor,
                           onTap: () => controller.goToRestaurantMenu(restaurant),
                         );
                       },

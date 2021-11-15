@@ -99,7 +99,7 @@ class RestaurantAddController extends GetxController {
           if (result) {
             await AppAlertStatus.showSuccess();
             print('🟦 RestaurantAddController.save -> ${restaurant.name}');
-            Get.offAllNamed(_appPages.restaurants, arguments: {'user': user});
+            await Get.offAllNamed(_appPages.restaurants, arguments: {'user': user});
           } else {
             AppAlertStatus.showError();
           }
