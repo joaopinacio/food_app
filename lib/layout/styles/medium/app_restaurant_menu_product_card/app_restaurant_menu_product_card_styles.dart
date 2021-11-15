@@ -27,6 +27,7 @@ class AppRestaurantMenuProductCardStyles {
     String? oldPrice,
     required Function() onTap,
     required bool inCart,
+    required int listGridLength,
   }) =>
       AppRestaurantMenuProductCardComponent(
         behaviour: behaviour,
@@ -37,5 +38,6 @@ class AppRestaurantMenuProductCardStyles {
         oldPrice: oldPrice,
         onTap: onTap,
         inCart: inCart,
+        listGridLength: listGridLength,
       );
 }

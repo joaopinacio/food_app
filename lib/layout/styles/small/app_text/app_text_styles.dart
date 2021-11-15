@@ -385,6 +385,26 @@ class AppTextStyles {
         color: color,
       );
 
+  /// ## AppTextStyles semiBold_6
+  ///
+  /// __[text]__ Texto a ser exibido
+  ///
+  /// __[textAlign]__ Tipo de alinhamento do texto
+  ///
+  static AppTextComponent semiBold_6({
+    required String text,
+    TextAlign? textAlign,
+    EdgeInsets? margin,
+    Color? color,
+  }) =>
+      AppTextComponent(
+        text: text,
+        textStyle: AppThemes.typography.poppinsSemiBold_6,
+        textAlign: textAlign,
+        margin: margin,
+        color: color,
+      );
+
   /// ## AppTextStyles semiBold_8
   ///
   /// __[text]__ Texto a ser exibido

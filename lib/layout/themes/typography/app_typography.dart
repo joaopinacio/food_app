@@ -63,6 +63,14 @@ class AppTypography {
       );
 
   // SemiBold
+  TextStyle get poppinsSemiBold_6 => TextStyle(
+        fontSize: 6.sp,
+        fontWeight: FontWeight.w600,
+        color: AppThemes.colors.black,
+        letterSpacing: _letterSpacing,
+        fontFamily: 'Poppins',
+      );
+
   TextStyle get poppinsSemiBold_8 => TextStyle(
         fontSize: 8.sp,
         fontWeight: FontWeight.w600,

@@ -99,7 +99,7 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                       padding: EdgeInsets.symmetric(horizontal: 35.w),
                       child: Row(
                         children: [
-                          SizedBox(width: 75.w),
+                          SizedBox(width: 80.w),
                           Icon(Icons.star_rounded, color: AppThemes.colors.generalYellow),
                           AppTextStyles.medium_14(text: controller.restaurant.rate.toString()),
                           SizedBox(width: 10.w),
@@ -165,46 +165,88 @@ class RestaurantMenuPage extends GetView<RestaurantMenuPageController> {
                                 child: AppTextStyles.semiBold_14(text: 'products'.tr),
                               ),
                               SizedBox(height: AppThemes.spacing.spacer_12.h),
-                              GridView.count(
-                                physics: NeverScrollableScrollPhysics(),
-                                padding: EdgeInsets.symmetric(horizontal: AppThemes.spacing.spacer_24.w),
-                                crossAxisSpacing: 20.w,
-                                mainAxisSpacing: 15.h,
-                                crossAxisCount: 2,
-                                childAspectRatio: 0.43.h,
-                                shrinkWrap: true,
-                                children: controller.productList
-                                    .map(
-                                      (product) => AppRestaurantMenuProductCardStyles.standard(
-                                        behaviour: Behaviour.regular,
-                                        title: product.name,
-                                        image: product.image.url,
-                                        description:
-                                            'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
-                                        price: controller.formatMoney(product.price)!,
-                                        oldPrice: controller.formatMoney(product.oldPrice!, isOldPrice: true),
-                                        inCart: controller.productInCart(product.uid),
-                                        onTap: () {
-                                          AppModalBottomSheetStyles.product(
+                              controller.restaurant.listGridLength == 1
+                                  ? MediaQuery.removePadding(
+                                      removeTop: true,
+                                      context: Get.context!,
+                                      child: ListView.builder(
+                                        physics: NeverScrollableScrollPhysics(),
+                                        itemCount: controller.productList.length,
+                                        shrinkWrap: true,
+                                        itemBuilder: (BuildContext listContext, int index) {
+                                          var product = controller.productList[index];
+                                          return AppRestaurantMenuProductCardStyles.standard(
+                                            behaviour: Behaviour.regular,
+                                            listGridLength: controller.restaurant.listGridLength,
                                             title: product.name,
                                             image: product.image.url,
-                                            price: controller.formatMoney(product.price)!,
                                             description:
-                                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum viverra,  sit amet, consectetur adipiscing elit. Lorem ipsum dolor, consec',
-                                            onSave: () => controller.btnAddToCart(product),
-                                            colorQty: controller.mainColor,
-                                            colorQtyIcons: controller.cartIconColor,
-                                            isUserRestaurant: controller.checkUserIsRestaurant(),
-                                            onChangeQty: (value) {
-                                              controller.qtySelected = value;
+                                                'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
+                                            price: controller.formatMoney(product.price)!,
+                                            oldPrice: controller.formatMoney(product.oldPrice!, isOldPrice: true),
+                                            inCart: controller.productInCart(product.uid),
+                                            onTap: () {
+                                              AppModalBottomSheetStyles.product(
+                                                title: product.name,
+                                                image: product.image.url,
+                                                price: controller.formatMoney(product.price)!,
+                                                description:
+                                                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum viverra,  sit amet, consectetur adipiscing elit. Lorem ipsum dolor, consec',
+                                                onSave: () => controller.btnAddToCart(product),
+                                                colorQty: controller.mainColor,
+                                                colorQtyIcons: controller.cartIconColor,
+                                                isUserRestaurant: controller.checkUserIsRestaurant(),
+                                                onChangeQty: (value) {
+                                                  controller.qtySelected = value;
+                                                },
+                                                initialValue: 1,
+                                              );
                                             },
-                                            initialValue: 1,
                                           );
                                         },
                                       ),
                                     )
-                                    .toList(),
-                              ),
+                                  : GridView.count(
+                                      physics: NeverScrollableScrollPhysics(),
+                                      padding: EdgeInsets.symmetric(horizontal: AppThemes.spacing.spacer_24.w),
+                                      crossAxisSpacing: 20.w,
+                                      mainAxisSpacing: 15.h,
+                                      crossAxisCount: controller.restaurant.listGridLength,
+                                      childAspectRatio: 0.43.h,
+                                      shrinkWrap: true,
+                                      children: controller.productList
+                                          .map(
+                                            (product) => AppRestaurantMenuProductCardStyles.standard(
+                                              behaviour: Behaviour.regular,
+                                              listGridLength: controller.restaurant.listGridLength,
+                                              title: product.name,
+                                              image: product.image.url,
+                                              description:
+                                                  'lorem ipsum dolor sit amet consectetur adipiscing elit lorem ipsum dolor sit amet',
+                                              price: controller.formatMoney(product.price)!,
+                                              oldPrice: controller.formatMoney(product.oldPrice!, isOldPrice: true),
+                                              inCart: controller.productInCart(product.uid),
+                                              onTap: () {
+                                                AppModalBottomSheetStyles.product(
+                                                  title: product.name,
+                                                  image: product.image.url,
+                                                  price: controller.formatMoney(product.price)!,
+                                                  description:
+                                                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum viverra,  sit amet, consectetur adipiscing elit. Lorem ipsum dolor, consec',
+                                                  onSave: () => controller.btnAddToCart(product),
+                                                  colorQty: controller.mainColor,
+                                                  colorQtyIcons: controller.cartIconColor,
+                                                  isUserRestaurant: controller.checkUserIsRestaurant(),
+                                                  onChangeQty: (value) {
+                                                    controller.qtySelected = value;
+                                                  },
+                                                  initialValue: 1,
+                                                );
+                                              },
+                                            ),
+                                          )
+                                          .toList(),
+                                    ),
                             ],
                           ),
                         ),
