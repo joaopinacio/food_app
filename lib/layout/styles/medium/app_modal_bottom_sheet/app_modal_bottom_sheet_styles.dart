@@ -62,7 +62,7 @@ class AppModalBottomSheetStyles {
               ),
               Container(
                 width: double.infinity,
-                height: 0.4.h,
+                height: 0.2.h,
                 color: AppThemes.colors.black_50,
               ),
               AppInkWellStyles.standard(
@@ -83,7 +83,7 @@ class AppModalBottomSheetStyles {
               ),
               Container(
                 width: double.infinity,
-                height: 0.4.h,
+                height: 0.2.h,
                 color: AppThemes.colors.black_50,
               ),
               AppInkWellStyles.standard(
@@ -104,7 +104,7 @@ class AppModalBottomSheetStyles {
               ),
               Container(
                 width: double.infinity,
-                height: 0.4.h,
+                height: 0.2.h,
                 color: AppThemes.colors.black_50,
               ),
             ],
@@ -275,12 +275,16 @@ class AppModalBottomSheetStyles {
                       ),
                     ),
                     SizedBox(height: AppThemes.spacing.spacer_4.h),
-                    AppTextStyles.regular_12(
-                      text: description,
-                      color: AppThemes.colors.black_50,
-                      maxLines: 3,
-                      margin: EdgeInsets.symmetric(horizontal: AppThemes.spacing.spacer_24.w),
-                      overflow: TextOverflow.ellipsis,
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: AppTextStyles.regular_12(
+                        text: description,
+                        color: AppThemes.colors.black_50,
+                        maxLines: 3,
+                        margin: EdgeInsets.symmetric(horizontal: AppThemes.spacing.spacer_24.w),
+                        textAlign: TextAlign.left,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                     Spacer(),
                     Opacity(

@@ -206,6 +206,8 @@ class RestaurantAddController extends GetxController {
     nameFocusNode.dispose();
     restaurantTypeController.dispose();
     restaurantTypeFocusNode.dispose();
+    restaurantDescController.dispose();
+    restaurantDescFocusNode.dispose();
     super.onClose();
   }
 }

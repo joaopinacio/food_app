@@ -76,6 +76,20 @@ class ProductAddPage extends GetView<ProductAddController> {
                       ),
                     ),
                     SizedBox(height: 20.h),
+                    Center(
+                      child: AppInputTextStyles.standard(
+                        customKey: controller.descKey,
+                        hintText: 'description'.tr,
+                        controller: controller.descController,
+                        focusNode: controller.descFocusNode,
+                        validator: controller.validatorDescription,
+                        maxLines: 2,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.r),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 20.h),
                     Row(
                       children: [
                         Expanded(

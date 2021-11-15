@@ -47,5 +47,5 @@ const Map<String, String> pt = {
   "description": "Descrição",
   "colors_and_grid": "Cores e Grid",
   "choose_specific_color":
-      "Escolha a cor específica do seu restaurante e a forma que os seus produtos irão aparecer cardápio. (Padrão: 2 x 2)",
+      "Escolha a cor específica do seu restaurante e a forma que os seus produtos irão aparecer no cardápio. (Padrão: 2 x 2)",
 };

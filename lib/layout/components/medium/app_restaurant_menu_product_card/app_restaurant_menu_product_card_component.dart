@@ -236,7 +236,7 @@ class AppRestaurantMenuProductCardComponent extends StatelessWidget with Compone
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
             ),
-            SizedBox(height: AppThemes.spacing.spacer_8.h),
+            Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

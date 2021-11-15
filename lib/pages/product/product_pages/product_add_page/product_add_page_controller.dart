@@ -26,6 +26,9 @@ class ProductAddController extends GetxController {
   var nameKey = GlobalKey<FormState>();
   var nameController = TextEditingController();
   var nameFocusNode = FocusNode();
+  var descKey = GlobalKey<FormState>();
+  var descController = TextEditingController();
+  var descFocusNode = FocusNode();
   var priceKey = GlobalKey<FormState>();
   var priceController = AppUtil.getValueFormatting(price: 0);
   var priceFocusNode = FocusNode();
@@ -45,10 +48,11 @@ class ProductAddController extends GetxController {
 
   save() async {
     try {
-      if (validImage() && nameKey.currentState!.validate()) {
+      if (validImage() && nameKey.currentState!.validate() && descKey.currentState!.validate()) {
         product.uid = AppUuid.generateUuid();
         product.image.hashMd5 = getProductImage.hashMd5;
         product.name = nameController.text;
+        product.description = descController.text;
         product.price = priceController.numberValue;
         product.oldPrice = oldPriceController.numberValue;
         product.restaurantUid = _restaurantEditController.restaurant.uid;
@@ -96,6 +100,17 @@ class ProductAddController extends GetxController {
     }
   }
 
+  String? validatorDescription(String? value) {
+    var text = value ?? '';
+
+    if (text == '') {
+      descFocusNode.requestFocus();
+      return 'this_field_must_be_informed'.tr;
+    } else {
+      return null;
+    }
+  }
+
   bool validImage() {
     var valid = false;
 
@@ -114,6 +129,8 @@ class ProductAddController extends GetxController {
   void onClose() {
     nameController.dispose();
     nameFocusNode.dispose();
+    descController.dispose();
+    descFocusNode.dispose();
     priceController.dispose();
     priceFocusNode.dispose();
     oldPriceController.dispose();

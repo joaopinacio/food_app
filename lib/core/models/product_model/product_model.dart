@@ -7,6 +7,7 @@ class ProductModel extends ProductEntity {
   ProductModel({
     required String uid,
     required String name,
+    required String description,
     required num price,
     num? oldPrice,
     required ImageModel image,
@@ -15,6 +16,7 @@ class ProductModel extends ProductEntity {
   }) : super(
           uid: uid,
           name: name,
+          description: description,
           price: price,
           oldPrice: oldPrice,
           image: image,
@@ -26,6 +28,7 @@ class ProductModel extends ProductEntity {
     return ProductModel(
       uid: '',
       name: '',
+      description: '',
       price: 0,
       oldPrice: 0,
       image: ImageModel.init(),
@@ -38,6 +41,7 @@ class ProductModel extends ProductEntity {
     return ProductModel(
       uid: json['uid'] ?? '',
       name: json['name'] ?? '',
+      description: json['description'] ?? '',
       price: json['price'] ?? 0,
       oldPrice: json['oldPrice'] ?? 0,
       image: ImageModel.fromJson(json['image']),
@@ -50,6 +54,7 @@ class ProductModel extends ProductEntity {
     return {
       'uid': uid,
       'name': name,
+      'description': description,
       'price': price,
       'oldPrice': oldPrice,
       'image': image.toJson(),

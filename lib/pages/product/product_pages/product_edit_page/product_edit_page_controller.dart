@@ -5,7 +5,6 @@ import 'package:food_app/core/models/product_model/product_model.dart';
 import 'package:food_app/core/repositories/product_repository/product_repository_interface.dart';
 import 'package:food_app/core/router/app_pages.dart';
 import 'package:food_app/core/utils/app_util.dart';
-import 'package:food_app/core/utils/app_uuid.dart';
 import 'package:food_app/layout/app_layout_imports.dart';
 import 'package:food_app/pages/restaurants/restaurant_pages/restaurant_edit_page/restaurant_edit_page_controller.dart';
 import 'package:get/get.dart';
@@ -28,6 +27,9 @@ class ProductEditController extends GetxController {
   var nameKey = GlobalKey<FormState>();
   var nameController = TextEditingController();
   var nameFocusNode = FocusNode();
+  var descKey = GlobalKey<FormState>();
+  var descController = TextEditingController();
+  var descFocusNode = FocusNode();
   var priceKey = GlobalKey<FormState>();
   var priceController = AppUtil.getValueFormatting(price: 0);
   var priceFocusNode = FocusNode();
@@ -49,6 +51,7 @@ class ProductEditController extends GetxController {
     product = Get.arguments['product'];
 
     nameController.text = product.name;
+    descController.text = product.description;
     priceController = AppUtil.getValueFormatting(price: product.price.toDouble());
     oldPriceController = AppUtil.getValueFormatting(price: product.oldPrice!.toDouble());
     productImage.value = product.image;
@@ -58,9 +61,10 @@ class ProductEditController extends GetxController {
 
   void save() async {
     try {
-      if (validImage() && nameKey.currentState!.validate()) {
+      if (validImage() && nameKey.currentState!.validate() && descKey.currentState!.validate()) {
         product.image.hashMd5 = getProductImage.hashMd5;
         product.name = nameController.text;
+        product.description = descController.text;
         product.price = priceController.numberValue;
         product.oldPrice = oldPriceController.numberValue;
         product.restaurantUid = _restaurantEditController.restaurant.uid;
@@ -108,6 +112,17 @@ class ProductEditController extends GetxController {
     }
   }
 
+  String? validatorDescription(String? value) {
+    var text = value ?? '';
+
+    if (text == '') {
+      descFocusNode.requestFocus();
+      return 'this_field_must_be_informed'.tr;
+    } else {
+      return null;
+    }
+  }
+
   bool validImage() {
     var valid = false;
 
@@ -126,6 +141,8 @@ class ProductEditController extends GetxController {
   void onClose() {
     nameController.dispose();
     nameFocusNode.dispose();
+    descController.dispose();
+    descFocusNode.dispose();
     priceController.dispose();
     priceFocusNode.dispose();
     oldPriceController.dispose();
